@@ -1,4 +1,4 @@
-import { Flex, Button, Anchor } from '@mantine/core';
+import { Flex, Button, Anchor, Text } from '@mantine/core';
 
 const RedirectActions = ({ imageSource }) => {
   return (
@@ -15,9 +15,12 @@ const RedirectActions = ({ imageSource }) => {
         pos='relative'
         style={{  'border-radius': '16px 16px 0 0' }}
     >
-        <Flex direction='column' gap='lg' pos='absolute' top={'-1rem'}>
-            <Button>Me encontra, aluado</Button>
-            <Anchor>Ir para Galeria do Evento</Anchor>
+        <Flex align='center' direction='column' gap='lg' pos='absolute' top={'-1rem'}>
+            <Button bg='red.8' c='white.3' size='xl' radius='xl'>Me encontre!</Button>
+            <Anchor c='gray.6' td='underline' display='flex'>
+                Ir para&#160;
+                <Text fw={600}>Galeria do Evento</Text>
+            </Anchor>
         </Flex>
     </Flex>
   )
