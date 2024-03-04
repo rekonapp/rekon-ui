@@ -1,4 +1,5 @@
-import { Flex, Box, Image, Text } from '@mantine/core';
+import PropTypes from 'prop-types';
+import { Flex, Box, Image } from '@mantine/core';
 
 const MainImage = ({
     width,
@@ -19,5 +20,11 @@ const MainImage = ({
     </Flex>
   )
 }
+
+MainImage.propTypes = {
+    width: PropTypes.width,
+    height: PropTypes.height,
+    imageSource: PropTypes.imageSource
+};
 
 export default MainImage;
