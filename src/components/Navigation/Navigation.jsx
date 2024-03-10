@@ -1,20 +1,28 @@
-import { IconAdjustments } from '@tabler/icons-react';
-import { Box, ActionIcon } from '@mantine/core';
+import PropTypes from 'prop-types';
 
-const Navigation = () => {
-  return (
-    <Box miw={410} mih={58} bg='gray.2' component='div' style={{ borderRadius: '30px' }}>
-        <ActionIcon variant="filled" color="gray" size="xl" radius="xl" aria-label="Settings">
-            <IconAdjustments style={{ width: '70%', height: '70%' }} stroke={1.5} />
-        </ActionIcon>
-        <Box>
-            Home / Galeria do Evento
-        </Box>
-        <ActionIcon variant="filled" color="gray" size="xl" radius="xl" aria-label="Settings">
-            <IconAdjustments style={{ width: '70%', height: '70%' }} stroke={1.5} />
-        </ActionIcon>
-    </Box>
-  )
-}
+import { IconArrowBackUp, IconDots } from '@tabler/icons-react';
+import { Box, Flex, ActionIcon } from '@mantine/core';
 
-export default Navigation;
+const NavigationContainer = ({
+    onReturnClick,
+    getNavigationItems
+}) => {
+    return (
+        <Flex miw={'200px'} mih={58} bg='gray.2' component='div' style={{ borderRadius: '30px', maxWidth: '400px' }} align='center' justify='space-between' p={8} pos='relative' m='0 auto' top={44}>
+            <ActionIcon variant="filled" color="gray.4" size="xl" radius="xl" aria-label="Settings" onClick={() => onReturnClick()}>
+                <IconArrowBackUp style={{ width: '70%', height: '70%' }} stroke={1.5} color='black' />
+            </ActionIcon>
+            <Box> { getNavigationItems() } </Box>
+            <ActionIcon variant="filled" color="gray.4" size="xl" radius="xl" aria-label="Settings">
+                <IconDots style={{ width: '70%', height: '70%' }} stroke={1.5} color='black' />
+            </ActionIcon>
+        </Flex>
+    )
+};
+
+NavigationContainer.propTypes = {
+    onReturnClick: PropTypes.func,
+    getNavigationItems: PropTypes.func
+};
+
+export default NavigationContainer;

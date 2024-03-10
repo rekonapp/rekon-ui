@@ -22,9 +22,9 @@ const MainImage = ({
 }
 
 MainImage.propTypes = {
-    width: PropTypes.width,
-    height: PropTypes.height,
-    imageSource: PropTypes.imageSource
+    width: PropTypes.number,
+    height: PropTypes.number,
+    imageSource: PropTypes.string
 };
 
 export default MainImage;

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './pages/Home/Home.jsx';
-import Gallery from './pages/Gallery/Gallery.jsx';
+import HomeContainer from './features/Home/HomeContainer.jsx';
+import GalleryContainer from './features/Gallery/GalleryContainer.jsx';
 
 import '@mantine/core/styles.css';
 
@@ -10,10 +10,10 @@ import { MantineProvider } from '@mantine/core';
 
 const router = createBrowserRouter([{
     path: '/',
-    element: <Home mainColor={'red'} />
+    element: <HomeContainer mainColor={'red'} />
 }, {
     path: '/gallery',
-    element: <Gallery />
+    element: <GalleryContainer />
 }])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
