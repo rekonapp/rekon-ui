@@ -1,1 +1,2 @@
-# evenpic-ui
+# Eddy
+O guardião das suas finanças!

@@ -1,0 +1,14 @@
+.alert {
+    min-width: 300px;
+    position: fixed;
+}
+
+.alert-top-center {
+    top: 1em;
+    left: 53%;
+    transform: translateX(-50%);
+}
+
+.modal-alert .modal-dialog {
+    width: 420px !important;
+}
