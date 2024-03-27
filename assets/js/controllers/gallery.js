@@ -1,0 +1,1 @@
+evenPicServices.controller('GalleryCtrl', function() {});
