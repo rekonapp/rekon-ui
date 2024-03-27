@@ -10,8 +10,8 @@ const chalk = require('chalk');
 const libJS = [];
 const appCSS = [];
 const lintFiles = [];
-const envFile = ['src/assets/js/envs.js'];
-const appJS = ['src/assets/js/app.js'];
+const envFile = ['assets/js/envs.js'];
+const appJS = ['assets/js/app.js'];
 const files = getFileNames();
 
 function getFileNames() {
@@ -25,18 +25,17 @@ function getFileNames() {
 }
 
 //Angular
-libJS.push('src/assets/libs/angular/angular.min.js');
-libJS.push('src/assets/libs/angular/angular-ui-router.min.js');
+libJS.push('assets/libs/angular/angular.min.js');
+libJS.push('assets/libs/angular/angular-ui-router.min.js');
 
 // Angular locale
-libJS.push('src/assets/libs/angular-locale/angular-locale.js');
+libJS.push('assets/libs/angular-locale/angular-locale.js');
 
 // JQuery
-libJS.push('src/assets/libs/jquery/jquery-3.6.3.min.js');
-libJS.push('src/assets/libs/datepicker/bootstrap-datepicker.js');
+libJS.push('assets/libs/jquery/jquery-3.6.3.min.js');
 
 //Angular Bootstrap
-libJS.push('src/assets/libs/angular-bootstrap/ui-bootstrap-tpls-0.14.3.min.js');
+libJS.push('assets/libs/angular-bootstrap/ui-bootstrap-tpls-0.14.3.min.js');
 
 //HighCharts
 libJS.push('node_modules/highcharts/highcharts.js');
@@ -55,44 +54,45 @@ libJS.push('node_modules/dayjs/dayjs.min.js');
 libJS.push('node_modules/dayjs/plugin/customParseFormat.js');
 
 // Bootstrap
-appCSS.push('src/assets/css/bootstrap.min.css');
+appCSS.push('assets/css/bootstrap.min.css');
 
 // Input Masks
-libJS.push('src/assets/libs/angular-input-masks/angular-input-masks.js');
+libJS.push('assets/libs/angular-input-masks/angular-input-masks.js');
 
-appJS.push('src/assets/js/app.js');
-appJS.push('src/assets/js/directives/*.js');
-appJS.push('src/assets/js/modules/*/*.js');
-appJS.push('src/assets/js/modules/*/components/*/*.js');
-appJS.push('src/assets/js/modules/*/shared/*.js');
-appJS.push('src/assets/js/components/*/*.js');
-appJS.push('src/assets/js/controllers/*.js');
-appJS.push('src/assets/js/directives/*.js');
-appJS.push('src/assets/js/services/*.js');
-appJS.push('src/assets/js/utils/*.js');
-appJS.push('src/assets/icons/*/*.js');
+appJS.push('assets/js/app.js');
+appJS.push('assets/js/directives/*.js');
+appJS.push('assets/js/modules/*/*.js');
+appJS.push('assets/js/modules/*/components/*/*.js');
+appJS.push('assets/js/modules/*/shared/*.js');
+appJS.push('assets/js/components/*/*.js');
+appJS.push('assets/js/controllers/*.js');
+appJS.push('assets/js/directives/*.js');
+appJS.push('assets/js/services/*.js');
+appJS.push('assets/js/utils/*.js');
+appJS.push('assets/icons/*/*.js');
 
 // Application
-lintFiles.push('src/assets/js/app.js');
-lintFiles.push('src/assets/js/directives/*.js');
-lintFiles.push('src/assets/js/modules/*/*.js');
-lintFiles.push('src/assets/js/modules/*/components/*/*.js');
-lintFiles.push('src/assets/js/modules/*/shared/*.js');
-lintFiles.push('src/assets/js/components/*/*.js');
-lintFiles.push('src/assets/js/controllers/*.js');
-lintFiles.push('src/assets/js/directives/*.js');
-lintFiles.push('src/assets/js/services/*.js');
-lintFiles.push('src/assets/js/utils/*.js');
-lintFiles.push('src/assets/icons/*/*.js');
+lintFiles.push('assets/js/app.js');
+lintFiles.push('assets/js/directives/*.js');
+lintFiles.push('assets/js/modules/*/*.js');
+lintFiles.push('assets/js/modules/*/components/*/*.js');
+lintFiles.push('assets/js/modules/*/shared/*.js');
+lintFiles.push('assets/js/components/*/*.js');
+lintFiles.push('assets/js/controllers/*.js');
+lintFiles.push('assets/js/directives/*.js');
+lintFiles.push('assets/js/services/*.js');
+lintFiles.push('assets/js/utils/*.js');
+lintFiles.push('assets/icons/*/*.js');
 
 // CSS - Libs
 appCSS.push('node_modules/@tabler/core/dist/css/tabler.min.css');
-appCSS.push('src/assets/libs/datepicker/bootstrap-datepicker.min.css');
 
 // CSS - Application
-appCSS.push('src/assets/css/alert.css');
-appCSS.push('src/assets/css/root.css');
-appCSS.push('src/assets/css/design-system.css');
+appCSS.push('assets/css/alert.css');
+appCSS.push('assets/css/root.css');
+appCSS.push('assets/css/design-system.css');
+appCSS.push('assets/js/modules/*/*.css');
+appCSS.push('assets/js/components/*/*.css');
 
 const watcherLinter = gulp.watch(lintFiles);
 const watcherAppJs = gulp.watch(appJS);
@@ -132,7 +132,7 @@ function watchTask(path) {
 
 function envs() {
 	return gulp.src(envFile)
-		.pipe(replace('EDDY_API_BASE_URL', process.env.EDDY_API_BASE_URL))
+		.pipe(replace('ENVENPIC_API_BASE_URL', process.env.ENVENPIC_API_BASE_URL))
 		.pipe(concat('envs.js'))
 		.pipe(gulp.dest('build'));
 }

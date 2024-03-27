@@ -1,0 +1,9 @@
+.home-carousel {
+    max-height: 232px;
+}
+
+.home-carousel img {
+    height: 232px;
+    min-width: 350px;
+    object-fit: cover;
+}

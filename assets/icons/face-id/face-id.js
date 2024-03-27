@@ -3,6 +3,6 @@ evenPicServices.directive('faceIdIcon', function() {
         restrict: 'E',
         require: 'cy',
         replace: true,
-        templateUrl: 'src/assets/icons/face-id/face-id.html',
+        templateUrl: 'assets/icons/face-id/face-id.html',
     };
 });
