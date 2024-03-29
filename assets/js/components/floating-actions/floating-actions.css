@@ -1,0 +1,6 @@
+.floating-actions-button {
+    min-width: 300px;
+    height: 58px;
+    font-weight: 400;
+    background-color: var(--red-9);
+}

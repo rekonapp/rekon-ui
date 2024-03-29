@@ -1,0 +1,14 @@
+<div class="page page-center container-sm" style="height: 100vh;">
+    <div class="d-flex align-items-center justify-content-center flex-column">
+        <floating-navbar></floating-navbar>
+        <h3 class="fs-2 fw-normal text-center" style="margin-top: calc(4rem + 74px); font-weight: 400;">
+            Seus <b>melhores momentos</b> <br>
+            aparecem aqui :)
+        </h3>
+        <span class="fs-4" style="color: var(--gray-6);">
+            Clique em uma das fotos e veja de pertinho.
+        </span>
+        <gallery photos="photos" ng-if="!loading" style="margin-bottom: calc(4rem + 60px);"></gallery>
+        <floating-actions></floating-actions>
+    </div>
+</div>

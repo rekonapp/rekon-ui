@@ -6,9 +6,12 @@
 	},
 	"extends": "eslint:recommended",
 	"globals": {
-		"evenPicServices": "readonly",
+		"_": "readonly",
+		"sweetAlert": "readonly",
+        "evenPicServices": "readonly",
         "process": "readonly",
-        "angular": "readonly"
+        "angular": "readonly",
+        "apiBaseUrl": "readonly"
 	},
 	"parserOptions": {
 		"ecmaVersion": 2020
@@ -26,7 +29,7 @@
 		"no-alert": "error",
 		"no-console": "error",
 		"no-trailing-spaces": "error",
-		"no-useless-escape": [0],
+		"no-useless-escape": [0], // temporario, isso deveria estar ativo, faz parte do eslint:recommended
 		"semi": ["error", "always"],
 		"space-before-blocks": "error",
 		"space-before-function-paren": ["error", "never"],

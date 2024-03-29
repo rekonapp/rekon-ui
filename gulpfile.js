@@ -132,6 +132,7 @@ function watchTask(path) {
 
 function envs() {
 	return gulp.src(envFile)
+        .pipe(replace('EVENT_KEY', process.env.EVENT_KEY))
 		.pipe(replace('ENVENPIC_API_BASE_URL', process.env.ENVENPIC_API_BASE_URL))
 		.pipe(concat('envs.js'))
 		.pipe(gulp.dest('build'));

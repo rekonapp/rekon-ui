@@ -1,3 +1,4 @@
+const apiBaseUrl = window.__env.baseUrl;
 const modules = ['ui.router', 'ui.bootstrap', 'ui.utils.masks'];
 const evenPicServices = angular.module('evenPicApp', modules);
 
@@ -20,10 +21,10 @@ evenPicServices.config(function($stateProvider, $urlRouterProvider) {
         controller: 'HomeCtrl'
 	});
     
-    $stateProvider.state('gallery', {
-		url: '/gallery',
-        templateUrl: 'views/gallery.html',
-        controller: 'GalleryCtrl'
+    $stateProvider.state('event-gallery', {
+		url: '/event-gallery',
+        templateUrl: 'views/event-gallery.html',
+        controller: 'EventGalleryCtrl'
 	});
 
     $urlRouterProvider.otherwise(otherwiseFlow);
