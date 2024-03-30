@@ -1,17 +1,35 @@
-evenPicServices.controller('EventGalleryPhotoCtrl', function($scope, EventFileService) {
-    $scope.photos = [];
+evenPicServices.controller('EventGalleryPhotoCtrl', function(
+	$q,
+	$scope,
+	$stateParams,
+	EventFileService
+) {
+	$scope.photos = [];
 
-    const init = () => {
-        $scope.loading = true;
+	const listFiles = () => {
+		return EventFileService.list({
+			event_key: window.__env.eventKey
+		}).then(resp => {
+			$scope.photos = _.get(resp.data, 'data');
+		});
+	};
 
-        EventFileService.list({
-            event_key: window.__env.eventKey
-        }).then(resp => {
-            $scope.photos = _.get(resp.data, 'data');
-        }).finally(() => {
-            $scope.loading = false;
-        });
-    };
+	const findFile = () => {
+		return EventFileService.find({
+			event_key: window.__env.eventKey,
+			id: $stateParams.id
+		}).then(resp => {
+			$scope.photo = _.get(resp.data, 'data');
+		});
+	};
 
-    init();
+	const init = () => {
+		$scope.loading = true;
+
+		$q.all([listFiles(), findFile()]).finally(() => {
+			$scope.loading = false;
+		});
+	};
+
+	init();
 });
