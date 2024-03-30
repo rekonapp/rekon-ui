@@ -11,7 +11,8 @@
         "evenPicServices": "readonly",
         "process": "readonly",
         "angular": "readonly",
-        "apiBaseUrl": "readonly"
+        "apiBaseUrl": "readonly",
+        "jQuery": "readonly"
 	},
 	"parserOptions": {
 		"ecmaVersion": 2020

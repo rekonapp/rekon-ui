@@ -3,7 +3,7 @@
     <button ng-click="onReturnClick()" class="btn btn-gray rounded-4" style="background: var(--dark-0); min-width: 48px; height: 48px; stroke: none; border: 1px solid var(--dark-1);"><arrow-back-icon></arrow-back-icon></button>
     <div class="w-100 d-flex align-items-center justify-content-center p-3 m-3 rounded-3 gap-2 navigation-items" style="background: var(--gray-0);">
         <span ng-repeat="navigationItem in navigationComponents.navigation">
-            <span ng-if="!$first"> / </span>
+            <span ng-if="!$first" ng-style="{ 'color': !navigationItem.active && 'var(--gray-4)' }"> / </span>
             <a class="text-decoration-underline" ng-style="{ 'color': !navigationItem.active && 'var(--gray-4)' }">
                 {{ navigationItem.label }}
             </a>

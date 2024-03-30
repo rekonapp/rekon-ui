@@ -26,6 +26,12 @@ evenPicServices.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'views/event-gallery.html',
         controller: 'EventGalleryCtrl'
 	});
+    
+    $stateProvider.state('event-gallery-photo', {
+		url: '/event-gallery-photo/:id',
+        templateUrl: 'views/event-gallery-photo.html',
+        controller: 'EventGalleryPhotoCtrl'
+	});
 
     $urlRouterProvider.otherwise(otherwiseFlow);
 	$urlRouterProvider.when('/', otherwiseFlow);

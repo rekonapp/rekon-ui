@@ -3,7 +3,8 @@ evenPicServices.directive('galleryImage', function() {
         templateUrl: 'assets/js/components/gallery-image/gallery-image.html',
         replace: true,
         scope: {
-            photo: '='
+            photo: '=',
+            onClickImage: '='
         }
 	};
 });

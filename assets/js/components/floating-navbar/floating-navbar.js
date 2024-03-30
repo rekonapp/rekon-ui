@@ -19,10 +19,18 @@ evenPicServices.directive('floatingNavbar', function(
 				label: 'Galeria'
 			};
 
+			const eventPhotoComponent = {
+				label: 'Foto'
+			};
+
 			const mappedComponentsByLocation = {
 				'event-gallery': {
 					navigation: [homeComponent, { ...galleryComponent, active: true }],
 					redirect: 'home'
+				},
+				'event-gallery-photo': {
+					navigation: [homeComponent, { ...galleryComponent, active: false }, { ...eventPhotoComponent, active: true }],
+                    redirect: 'event-gallery'
 				}
 			};
 

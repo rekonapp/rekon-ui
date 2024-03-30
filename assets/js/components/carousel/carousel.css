@@ -1,4 +1,5 @@
 .home-carousel {
+    min-height: 232px;
     max-height: 232px;
 }
 
@@ -6,4 +7,13 @@
     height: 232px;
     min-width: 350px;
     object-fit: cover;
+}
+
+.home-carousel img {
+    transition: all 2s;
+}
+
+.home-carousel img {
+    position: absolute !important;
+    margin: 0 auto !important;
 }
