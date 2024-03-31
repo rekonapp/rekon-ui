@@ -36,6 +36,28 @@ evenPicServices.controller('EventGalleryPhotoCtrl', function(
         $scope.photo = angular.copy(photo);
     };
 
+    const getFileNameFromUrl = (url = '') => {
+		return url
+			.replace(/\?AWSAccessKeyId=.*/, '')
+			.substring(url.lastIndexOf('/') + 1);
+	};
+
+    const onDownloadClick = photo => {
+        fetch(photo.url).then(image => {
+            image.blob().then((imageBlog) => {
+                const imageURL = URL.createObjectURL(imageBlog);
+                const link = document.createElement('a');
+
+                link.href = imageURL;
+                link.download = getFileNameFromUrl(`${photo.url}&v=${Date.now()}`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        });
+    };
+
 	init();
+    $scope.onDownloadClick = onDownloadClick;
     $scope.onClickImage = onClickImage;
 });
