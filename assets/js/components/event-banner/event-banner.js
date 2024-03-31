@@ -1,4 +1,4 @@
-evenPicServices.directive('home.eventBanner', function() {
+evenPicServices.directive('eventBanner', function() {
 	return {
         templateUrl: 'assets/js/components/event-banner/event-banner.html',
         replace: true,

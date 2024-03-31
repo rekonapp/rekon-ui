@@ -1,15 +1,16 @@
-<div class="floating-navbar p-3 w-50 d-flex align-items-center justify-content-center rounded-4"
-    style="background: var(--gray-2); position: fixed; top: 2rem; z-index: 1;">
-    <button ng-click="onReturnClick()" class="btn btn-gray rounded-4" style="background: var(--dark-0); min-width: 48px; height: 48px; stroke: none; border: 1px solid var(--dark-1);"><arrow-back-icon></arrow-back-icon></button>
-    <div class="w-100 d-flex align-items-center justify-content-center p-3 m-3 rounded-3 gap-2 navigation-items" style="background: var(--gray-0);">
+<div class="floating-navbar p-3 w-100 d-flex align-items-center justify-content-center rounded-4 my-2 page-container">
+    <button ng-click="onReturnClick()" class="btn btn-gray rounded-4 floating-navbar--button">
+        <arrow-back-icon></arrow-back-icon>
+    </button>
+    <div class="w-100 d-flex align-items-center justify-content-center p-3 m-3 rounded-4 gap-2 navigation-items">
         <span ng-repeat="navigationItem in navigationComponents.navigation">
-            <span ng-if="!$first" ng-style="{ 'color': !navigationItem.active && 'var(--gray-4)' }"> / </span>
-            <a class="text-decoration-underline" ng-style="{ 'color': !navigationItem.active && 'var(--gray-4)' }">
+            <span ng-if="!$first" ng-class="{ 'inactive-link': !navigationItem.active }" > / </span>
+            <a class="text-decoration-underline" ng-class="{ 'inactive-link': !navigationItem.active }">
                 {{ navigationItem.label }}
             </a>
         </span>
     </div>
-    <button class="btn btn-gray rounded-4" style="background: var(--dark-0); min-width: 48px; height: 48px; stroke: none; border: 1px solid var(--dark-1);">
+    <button class="btn btn-gray rounded-4 floating-navbar--button">
         <dots-vertical-icon></dots-vertical-icon>
     </button>
 </div>

@@ -4,6 +4,7 @@ evenPicServices.controller('EventGalleryPhotoCtrl', function(
 	$stateParams,
 	EventFileService
 ) {
+	$scope.photo = {};
 	$scope.photos = [];
 
 	const listFiles = () => {
@@ -31,5 +32,10 @@ evenPicServices.controller('EventGalleryPhotoCtrl', function(
 		});
 	};
 
+    const onClickImage = photo => {
+        $scope.photo = angular.copy(photo);
+    };
+
 	init();
+    $scope.onClickImage = onClickImage;
 });

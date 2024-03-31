@@ -1,4 +1,22 @@
 .floating-navbar {
     min-width: 350px;
     height: 74px;
+    background: var(--gray-2);
+    position: fixed;
+    top: 2rem;
+    z-index: 1;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.floating-navbar--button {
+    background: var(--dark-0);
+    min-width: 98px;
+    height: 58px;
+    stroke: none;
+    border: 1px solid var(--dark-1);
+}
+
+.navigation-items {
+    background: var(--gray-0);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }

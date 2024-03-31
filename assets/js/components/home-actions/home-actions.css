@@ -1,11 +1,6 @@
-.home-actions {
-    position: absolute;
-    bottom: 0;
-}
-
 .home-actions-container {
     min-width: 350px;
-    min-height: 180px;
+    min-height: 30vh;
     background: var(--gray-1);
     border: 1px solid var(--gray-2);
 }

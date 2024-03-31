@@ -90,6 +90,8 @@ appCSS.push('node_modules/@tabler/core/dist/css/tabler.min.css');
 // CSS - Application
 appCSS.push('assets/css/alert.css');
 appCSS.push('assets/css/root.css');
+appCSS.push('assets/css/custom.css');
+appCSS.push('assets/css/event-gallery.css');
 appCSS.push('assets/css/design-system.css');
 appCSS.push('assets/js/modules/*/*.css');
 appCSS.push('assets/js/components/*/*.css');

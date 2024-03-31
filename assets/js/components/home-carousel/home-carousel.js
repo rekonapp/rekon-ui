@@ -1,8 +1,8 @@
-evenPicServices.directive('home.carousel', function(
+evenPicServices.directive('homeCarousel', function(
 	$interval
 ) {
 	return {
-		templateUrl: 'assets/js/components/carousel/carousel.html',
+		templateUrl: 'assets/js/components/home-carousel/home-carousel.html',
 		replace: true,
 		link: function(scope) {
 			let currentIndex = 1;
@@ -30,7 +30,7 @@ evenPicServices.directive('home.carousel', function(
 				currentIndex = currentImage.next_index;
 
 				jQuery(`#image-${currentIndex}`).css({ opacity: '1' });
-			}, 3000);
+			}, 2000);
 		}
 	};
 });

@@ -1,7 +1,5 @@
-<div class="w-50 mt-4">
-    <div class="row row-cards">
-        <div class="col-sm-6 col-lg-4 mb-4 mb-sm-2" ng-repeat="photo in photos">
-            <gallery-image on-click-image="onClickImage" photo="photo" style="height: 200px; object-fit: cover;"></gallery-image>
-        </div>
+<div class="w-100 mt-4 row gallery-container">
+    <div class="col-6 col-lg-4 mb-4 mb-sm-2" ng-repeat="photo in photos">
+        <gallery-image on-click-image="onClickImage" photo="photo" ng-style="{'border': activePhoto.id === photo.id && '1px solid rgba(217, 47, 49, 0.6)'}"></gallery-image>
     </div>
 </div>

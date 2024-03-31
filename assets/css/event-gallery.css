@@ -1,0 +1,23 @@
+.event-gallery-photos {
+  margin-bottom: calc(4rem + 50px) !important;
+}
+
+.event-gallery-photo-container {
+  position: absolute;
+  top: calc(4rem + 74px);
+}
+
+.event-gallery-photo-container .main-picture {
+  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-1);
+  border: 1px solid var(--gray-2);
+}
+
+@media all and (min-width: 320px) and (max-width: 500px) {
+  .event-gallery-photos {
+    margin-bottom: calc(4rem + 20px) !important;
+  }
+}

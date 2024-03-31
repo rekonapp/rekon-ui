@@ -6,19 +6,27 @@ evenPicServices.directive('gallery', function(
         templateUrl: 'assets/js/components/gallery/gallery.html',
         replace: true,
         scope: {
-            photos: '='
+            photos: '=',
+            activePhoto: '=',
+            onClickImageFn: '='
         },
 		link: function(scope) {
             const redirectPagesByModule = {
                 'event-gallery': 'event-gallery-photo'
             };
             
-            const onClickImage = imageId => {
+            const onClickImage = image => {
+                if (scope.onClickImageFn) {
+                    scope.onClickImageFn(image);
+
+                    return;
+                }
+
                 const windowLocation = $window.location?.pathname.split('/')[1];
 
 				const redirectAction = redirectPagesByModule[windowLocation];
 
-                $state.go(redirectAction, { id: imageId });
+                $state.go(redirectAction, { id: image.id });
             };
 
             scope.onClickImage = onClickImage;

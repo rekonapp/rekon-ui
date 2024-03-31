@@ -1,11 +1,22 @@
 <div class="page page-center container-sm" style="height: 100vh;">
     <div class="d-flex align-items-center justify-content-center flex-column">
         <floating-navbar></floating-navbar>
-        <div class="d-flex flex-column w-50">
-            <div clas="w-100 p-3 rounded-4" style="min-height: 400px; margin-top: calc(4rem + 74px); display: flex; align-items: center; justify-content: center; background-color: var(--gray-1); border: 1px solid var(--gray-2);">
-                <img ng-src="{{ photo.thumb_url }}" style="max-height: 300px;">
+        <div class="page-container w-100 p-3 rounded-4 event-gallery-photo-container">
+            <div class="main-picture rounded-4">
+                <img ng-src="{{ photo.thumb_url }}" style="max-height: 330px;">
             </div>
-            <gallery photos="photos" ng-if="!loading" style="margin-bottom: calc(4rem + 60px); width: 100% !important;"></gallery>
+            <div class="d-flex align-items-center justify-content-center mt-2 gap-2">
+                <button style="background: #E0E0E0;" class="btn btn-gray rounded-4 w-50" ng-click="onDownloadClick(photo)">
+                    <download-icon></download-icon> &nbsp; Download
+                </button>
+                <!-- Task -->
+                <!-- <button style="background: #E0E0E0;" class="btn btn-gray rounded-4 w-25">
+                    <circle-info-icon></circle-info-icon> &nbsp; Sobre
+                </button> -->
+            </div>
+        </div>
+        <div class="d-flex flex-column w-100 page-container">
+            <gallery class="event-gallery-photos-container" active-photo="photo" on-click-image-fn="onClickImage" photos="photos" ng-if="!loading" style="width: 100% !important; margin-top: calc(4rem + 460px) !important; max-height: 32vh; overflow: scroll;"></gallery>
         </div>
         <floating-actions></floating-actions>
     </div>
