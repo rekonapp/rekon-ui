@@ -1,6 +1,5 @@
 evenPicServices.directive('floatingActions', function(
-    $rootScope,
-    EventFileService
+    Utils
 ) {
 	return {
 		templateUrl: 'assets/js/components/floating-actions/floating-actions.html',
@@ -19,20 +18,8 @@ evenPicServices.directive('floatingActions', function(
                 reader.onload = function() {
                     const base64Image = reader.result;
 
-                    handleSubmitImage(base64Image);
+                    Utils.handleSubmitImage(base64Image);
                 };
-            };
-
-            const handleSubmitImage = image => {
-                $rootScope.globalLoading = true;
-
-                EventFileService.search({ image }).then(res => {
-                    
-                }).catch(() => {
-                    alert('Ocorreu um erro ao buscar sua imagem, tente novamente mais tarde.')
-                }).finally(() => {
-                    $rootScope.globalLoading = false;
-                })
             };
 
             const init = () => {

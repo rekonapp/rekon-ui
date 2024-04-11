@@ -33,6 +33,18 @@ evenPicServices.config(function($stateProvider, $urlRouterProvider) {
         controller: 'EventGalleryPhotoCtrl'
 	});
 
+    $stateProvider.state('personal-gallery', {
+		url: '/personal-gallery',
+        templateUrl: 'views/personal-gallery.html',
+        controller: 'PersonalGalleryCtrl'
+	});
+
+    $stateProvider.state('personal-gallery-photo', {
+		url: '/personal-gallery-photo/:id',
+        templateUrl: 'views/personal-gallery-photo.html',
+        controller: 'PersonalGalleryPhotoCtrl'
+	});
+
     $urlRouterProvider.otherwise(otherwiseFlow);
 	$urlRouterProvider.when('/', otherwiseFlow);
 });

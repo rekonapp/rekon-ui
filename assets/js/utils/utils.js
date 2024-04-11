@@ -1,5 +1,8 @@
 evenPicServices.service("Utils", function (
-    AlertMessage,
+    $window,
+    $state,
+    EventFileService,
+    $rootScope,
     ModalUtils
 ) {
 	const isValidEmail = email => {
@@ -39,54 +42,57 @@ evenPicServices.service("Utils", function (
 		return modalInstance.result;
 	};
 
-    const isInvalidMonthsDifference = ({ start_date, end_date }, diffPeriod) => {
-		const diff = dayjs(end_date, 'DD/MM/YYYY').diff(dayjs(start_date, 'DD/MM/YYYY'), 'months', true);
+    const handleSubmitImage = (image, withoutState) => {
+        $rootScope.globalLoading = true;
 
-		return diff > diffPeriod;
+        if (localStorage.getItem('search_image')) {
+            localStorage.removeItem('search_image');
+        }
+
+        localStorage.setItem('search_image', image);
+        
+        return EventFileService.search({ image, event_key: window.__env.eventKey }).then(res => {
+            $rootScope.personalGalleryInfo = {
+                mainImage: image,
+                requestData: _.get(res, 'data.data')
+            };
+
+            if (!withoutState) {
+                $state.go('personal-gallery');
+            }
+        }).catch(() => {
+            alert('Ocorreu um erro ao buscar sua imagem, tente novamente mais tarde.')
+        }).finally(() => {
+            $rootScope.globalLoading = false;
+        })
+    };
+
+    const getFileNameFromUrl = (url = '') => {
+		return url
+			.replace(/\?AWSAccessKeyId=.*/, '')
+			.substring(url.lastIndexOf('/') + 1);
 	};
 
-	const hasAnyEmptyDateField = ({ start_date, end_date }) => {
-		return !start_date || !end_date;
-	};
+    const downloadPhoto = photo => {
+        return fetch(photo.url).then(image => {
+            return image.blob().then((imageBlog) => {
+                const imageURL = URL.createObjectURL(imageBlog);
+                const link = document.createElement('a');
 
-	const isInvalidDateRange = ({ start_date, end_date }) => {
-		return dayjs(start_date, 'DD/MM/YYYY').isAfter(dayjs(end_date, 'DD/MM/YYYY'));
-	};
+                link.href = imageURL;
+                link.download = getFileNameFromUrl(`${photo.url}&v=${Date.now()}`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            })
+        });
+    };
 
-	const isValidStartAndEndDateFilterWithDiff = ({ start_date, end_date }, diffPeriod) => {
-        const alertData = {
-            title: 'Filtros inválidos!',
-            status: 'warning'
-        };
-
-		if (hasAnyEmptyDateField({ start_date, end_date })) {
-            alertData.subtitle = 'O período de data precisa estar preenchido.';
-
-			AlertMessage.open(alertData);
-			return false;
-		}
-
-		if (isInvalidDateRange({ start_date, end_date })) {
-            alertData.subtitle = 'A data de início deve ser menor que a data final.';
-
-			AlertMessage.open(alertData);
-			return false;
-		}
-
-		if (isInvalidMonthsDifference({ start_date, end_date }, diffPeriod)) {
-            alertData.subtitle = `O período máximo para pesquisa é de até ${diffPeriod} meses.`;
-
-			AlertMessage.open(alertData);
-			return false;
-		}
-
-		return true;
-	};
-	
 	return {
         alertModal,
 		isValidEmail,
         getShortName,
-        isValidStartAndEndDateFilterWithDiff
+        downloadPhoto,
+        handleSubmitImage
 	};
 });

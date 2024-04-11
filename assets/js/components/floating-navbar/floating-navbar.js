@@ -12,14 +12,21 @@ evenPicServices.directive('floatingNavbar', function(
 
 			const homeComponent = {
 				label: 'Home',
+                redirect: 'home',
 				active: false
 			};
 
 			const galleryComponent = {
-				label: 'Galeria'
+				label: 'Galeria',
+                redirect: 'event-gallery'
 			};
 
-			const eventPhotoComponent = {
+			const personalGalleryComponent = {
+				label: 'Sua Galeria',
+                redirect: 'personal-gallery'
+			};
+
+			const photoComponent = {
 				label: 'Foto'
 			};
 
@@ -29,10 +36,26 @@ evenPicServices.directive('floatingNavbar', function(
 					redirect: 'home'
 				},
 				'event-gallery-photo': {
-					navigation: [homeComponent, { ...galleryComponent, active: false }, { ...eventPhotoComponent, active: true }],
+					navigation: [homeComponent, { ...galleryComponent, active: false }, { ...photoComponent, active: true }],
                     redirect: 'event-gallery'
+				},
+                'personal-gallery': {
+					navigation: [homeComponent, { ...personalGalleryComponent, active: true }],
+                    redirect: 'home'
+				},
+                'personal-gallery-photo': {
+					navigation: [homeComponent, { ...personalGalleryComponent, active: false }, { ...photoComponent, active: true }],
+                    redirect: 'personal-gallery'
 				}
 			};
+
+            const onRedirectClick = path => {
+                if (!path) {
+                    return;
+                }
+
+                $state.go(path);
+            };
 
 			const onReturnClick = () => {
 				const windowLocation = ($window.location.pathname || '/home').split('/')[1];
@@ -55,6 +78,7 @@ evenPicServices.directive('floatingNavbar', function(
 
 			init();
 			scope.onReturnClick = onReturnClick;
+			scope.onRedirectClick = onRedirectClick;
 		}
 	};
 });

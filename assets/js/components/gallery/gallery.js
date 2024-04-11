@@ -12,7 +12,8 @@ evenPicServices.directive('gallery', function(
         },
 		link: function(scope) {
             const redirectPagesByModule = {
-                'event-gallery': 'event-gallery-photo'
+                'event-gallery': 'event-gallery-photo',
+                'personal-gallery': 'personal-gallery-photo'
             };
             
             const onClickImage = image => {
