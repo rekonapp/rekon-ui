@@ -5,12 +5,22 @@
     <div class="w-100 d-flex align-items-center justify-content-center p-3 m-3 rounded-4 gap-2 navigation-items">
         <span ng-repeat="navigationItem in navigationComponents.navigation">
             <span ng-if="!$first" ng-class="{ 'inactive-link': !navigationItem.active }" > / </span>
-            <a class="text-decoration-underline" ng-class="{ 'inactive-link': !navigationItem.active }">
+            <a class="text-decoration-underline" ng-class="{ 'inactive-link': !navigationItem.active, 'active-link': navigationItem.active }">
                 {{ navigationItem.label }}
             </a>
         </span>
     </div>
-    <button class="btn btn-gray rounded-4 floating-navbar--button">
-        <dots-vertical-icon></dots-vertical-icon>
-    </button>
+    <div class="dropdown">
+        <button class="btn btn-gray rounded-4 floating-navbar--button" data-toggle="dropdown">
+            <dots-vertical-icon></dots-vertical-icon>
+        </button>
+        <div class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+            <span class="dropdown-item gap-1" style="padding-bottom: 0.25rem;">
+                <a href="" style="color: var(--gray-1) !important;">Nosso Regulamento</a>
+            </span>
+            <span class="dropdown-item gap-1">
+                <a href="" style="color: var(--gray-1) !important;">Contato</a>
+            </span>
+        </div>
+    </div>
 </div>

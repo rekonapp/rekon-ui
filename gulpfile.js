@@ -53,8 +53,10 @@ libJS.push('node_modules/lodash/lodash.min.js');
 libJS.push('node_modules/dayjs/dayjs.min.js');
 libJS.push('node_modules/dayjs/plugin/customParseFormat.js');
 
+libJS.push('assets/libs/bootstrap/bootstrap.js');
+
 // Bootstrap
-appCSS.push('assets/css/bootstrap.min.css');
+appCSS.push('assets/libs/bootstrap/bootstrap.min.css');
 
 // Input Masks
 libJS.push('assets/libs/angular-input-masks/angular-input-masks.js');
@@ -161,6 +163,7 @@ function libsTask() {
 function serve() {
 	var opts = {
 		port: 9090,
+        host: '192.168.1.3',
 		livereload: true,
 		fallback: 'index.html'
 	};

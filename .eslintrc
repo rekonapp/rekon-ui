@@ -12,6 +12,7 @@
         "process": "readonly",
         "angular": "readonly",
         "apiBaseUrl": "readonly",
-        "jQuery": "readonly"
+        "jQuery": "readonly",
+        "dayjs": "readonly"
 	},
 }

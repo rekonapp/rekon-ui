@@ -1,12 +1,13 @@
 <div class="floating-actions page-container p-0 w-100 d-flex align-items-center justify-content-center rounded-4">
-    <div class="d-flex align-items-center justify-content-center p-2 w-100 floating-action-buttons rounded-4">
-        <button class="btn btn-danger btn-lg w-100 rounded-4 floating-actions-button--primary mr-2">
+    <div class="d-flex align-items-center justify-content-center p-2 w-100 floating-action-buttons rounded-4 gap-2">
+        <button class="btn btn-danger btn-lg w-100 rounded-4 floating-actions-button--primary mr-2" ng-click="onFindMeClick()">
             <face-id-icon></face-id-icon> <span class="ml-2">Me encontre!</span>
         </button>
-        <button ng-click="onReturnClick()" class="btn btn-gray rounded-4">
+        <button ng-click="onReturnClick()" class="btn btn-gray rounded-4 floating-navbar--button">
             <arrow-back-icon></arrow-back-icon>
         </button>
     </div>
+    <input type="file" name="file" id="file" accept="image/*" style="display: none;">
     <div class="w-100 h-100 floating-actions--background rounded-4">
     </div>
 </div>

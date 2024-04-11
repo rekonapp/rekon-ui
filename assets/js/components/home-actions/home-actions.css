@@ -1,8 +1,11 @@
 .home-actions-container {
     min-width: 350px;
-    min-height: 30vh;
+    min-height: 240px;
     background: var(--gray-1);
     border: 1px solid var(--gray-2);
+    position: absolute;
+    bottom: 0;
+    max-width: 690px !important;
 }
 
 .home-actions-button {
