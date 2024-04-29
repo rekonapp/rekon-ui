@@ -5,6 +5,7 @@
     position: fixed;
     top: 2rem;
     z-index: 1;
+    padding: 8px 10px;
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -17,6 +18,29 @@
 }
 
 .navigation-items {
+    height: 58px;
     background: var(--gray-0);
     border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media all and (min-width: 320px) and (max-width: 500px)  {
+    .floating-navbar {
+        height: 58px !important;
+    }
+
+    .navigation-items {
+        height: 42px !important;
+    }
+
+    .floating-navbar--button:not(.scroll-action) {
+        width: 42px !important;
+        min-width: 42px !important;
+        height: 42px !important;
+    }
+
+    .floating-navbar--button.scroll-action {
+        width: 58px !important;
+        min-width: 58px !important;
+        height: 58px !important;
+    }
 }

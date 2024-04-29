@@ -40,11 +40,6 @@
     height: 26vh;
     margin-top: calc(2rem + 380px) !important;
   }
-
-  .floating-navbar--button {
-    min-width: 48px !important;
-    height: 48px !important;
-  }
 }
 
 .lazy-loading {
@@ -78,7 +73,7 @@
 
 .dropdown-menu.dropdown-info {
     min-width: auto;
-    left: -6px;
+    left: -48px;
     width: 155px !important;
     height: 76px;
 
@@ -91,4 +86,10 @@
 .dropdown-info .dropdown-item {
     min-width: 100% !important;
     color: var(--gray-1) !important; font-size: 14px;
+}
+
+@media all and (min-width: 320px) and (max-width: 500px) {
+    .dropdown-menu.dropdown-info {
+        left: -106px;
+    }
 }

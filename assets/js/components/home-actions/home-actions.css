@@ -20,3 +20,7 @@
     color: var(--gray-6) !important;
     text-decoration: underline !important;
 }
+
+.home-actions-link:hover {
+    color: var(--red-8) !important;
+}

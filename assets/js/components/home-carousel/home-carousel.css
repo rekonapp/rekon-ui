@@ -1,13 +1,27 @@
 .home-carousel {
-    min-height: 232px;
-    max-height: 232px;
+    min-height: 320px;
+    max-height: 320px;
 }
 
 .home-carousel img {
-    height: 232px;
+    height: 320px;
     min-width: 350px;
     object-fit: cover;
 }
+
+@media all and (min-width: 320px) and (max-width: 500px) {
+    .home-carousel {
+        min-height: 208px;
+        max-height: 208px;
+    }
+    
+    .home-carousel img {
+        max-height: 208px;
+        min-width: 390px;
+        object-fit: cover;
+    }
+}
+
 
 .home-carousel img {
     transition: all 2s;

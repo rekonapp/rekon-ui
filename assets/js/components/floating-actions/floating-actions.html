@@ -1,13 +1,11 @@
-<div class="floating-actions page-container p-0 w-100 d-flex align-items-center justify-content-center rounded-4">
-    <div class="d-flex align-items-center justify-content-center p-2 w-100 floating-action-buttons rounded-4 gap-2">
-        <button class="btn btn-danger btn-lg w-100 rounded-4 floating-actions-button--primary mr-2" ng-click="onFindMeClick()">
-            <face-id-icon></face-id-icon> <span class="ml-2">Me encontre!</span>
-        </button>
-        <button ng-click="onReturnClick()" class="btn btn-gray rounded-4 floating-navbar--button">
-            <arrow-back-icon></arrow-back-icon>
-        </button>
+<div class="floating-actions page-container w-100 d-flex align-items-center justify-content-center gap-1" style="padding: 8px 10px;">
+    <button class="btn btn-danger btn-lg w-100 rounded-4 floating-actions-button--primary mr-2" ng-click="onFindMeClick()" style="z-index: 9999;">
+        <face-id-icon></face-id-icon> <span class="ml-2">Me encontre!</span>
+    </button>
+    <button ng-click="onScrollActionClick()" class="btn btn-gray rounded-4 floating-navbar--button scroll-action floating-navbar--button--light" style="background-color: var(--dark-1); z-index: 9999;">
+        <arrow-up-icon style="width: 36px; color: var(--gray-0); height: 36px;"></arrow-up-icon>
+    </button>
+    <div class="w-100 h-100 floating-actions--background" style="border-radius: 24px; padding: 8px 10px;">
     </div>
     <input type="file" name="file" id="file" accept="image/*" style="display: none;">
-    <div class="w-100 h-100 floating-actions--background rounded-4">
-    </div>
 </div>

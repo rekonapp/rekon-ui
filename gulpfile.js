@@ -40,6 +40,9 @@ libJS.push('assets/libs/angular-bootstrap/ui-bootstrap-tpls-0.14.3.min.js');
 //HighCharts
 libJS.push('node_modules/highcharts/highcharts.js');
 
+// File Upload
+libJS.push('assets/libs/file-upload/file-upload.min.js');
+
 //Currency
 libJS.push('node_modules/currency.js/dist/currency.min.js');
 
@@ -163,7 +166,7 @@ function libsTask() {
 function serve() {
 	var opts = {
 		port: 9090,
-        host: '192.168.1.3',
+        host: 'localhost',
 		livereload: true,
 		fallback: 'index.html'
 	};

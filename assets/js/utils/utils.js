@@ -43,28 +43,33 @@ evenPicServices.service("Utils", function (
 	};
 
     const handleSubmitImage = (image, withoutState) => {
-        $rootScope.globalLoading = true;
+        try {
+            $rootScope.globalLoading = true;
 
-        if (localStorage.getItem('search_image')) {
-            localStorage.removeItem('search_image');
-        }
-
-        localStorage.setItem('search_image', image);
-        
-        return EventFileService.search({ image, event_key: window.__env.eventKey }).then(res => {
-            $rootScope.personalGalleryInfo = {
-                mainImage: image,
-                requestData: _.get(res, 'data.data')
-            };
-
-            if (!withoutState) {
-                $state.go('personal-gallery');
+            if (localStorage?.getItem('search_image')) {
+                localStorage.removeItem('search_image');
             }
-        }).catch(() => {
-            alert('Ocorreu um erro ao buscar sua imagem, tente novamente mais tarde.')
-        }).finally(() => {
+
+            return EventFileService.search({ image, event_key: window.__env.eventKey }).then(res => {
+                $rootScope.personalGalleryInfo = {
+                    mainImage: image,
+                    requestData: _.get(res, 'data.data')
+                };
+
+                if (!withoutState) {
+                    $state.go('personal-gallery');
+                }
+            }).catch(() => {
+                alert('Ocorreu um erro ao buscar sua imagem, tente novamente mais tarde.')
+            }).finally(() => {
+                $rootScope.globalLoading = false;
+            })
+        } catch (error) {
+            console.log(error);
+
             $rootScope.globalLoading = false;
-        })
+            alert('Ocorreu um erro ao buscar sua imagem, tente novamente mais tarde.')
+        }
     };
 
     const getFileNameFromUrl = (url = '') => {

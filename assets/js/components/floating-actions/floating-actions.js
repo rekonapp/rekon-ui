@@ -1,4 +1,6 @@
 evenPicServices.directive('floatingActions', function(
+    $window,
+    $state,
     Utils
 ) {
 	return {
@@ -6,7 +8,7 @@ evenPicServices.directive('floatingActions', function(
 		replace: true,
         link: function(scope) {
             const handleUploadPicture = event => {
-                if (!event || !event.target) {
+                if (!event || !event.target || !event.target.files) {
                     return false;
                 }
                 const picture = event.target.files[0];
@@ -28,21 +30,21 @@ evenPicServices.directive('floatingActions', function(
             };
 
             // Verificar se o dispositivo é um celular
-            function isMobileDevice() {
+            const isMobileDevice = () => {
                 return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            }
+            };
 
             // Verificar se o dispositivo é um tablet
-            function isTabletDevice() {
+            const isTabletDevice = () => {
                 return /iPad|Android|Tablet/i.test(navigator.userAgent);
-            }
+            };
 
             // Verificar se o dispositivo é um desktop
-            function isDesktopDevice() {
+            const isDesktopDevice = () => {
                 return !isMobileDevice() && !isTabletDevice();
-            }
+            };
 
-            var pictureInput = jQuery('#file');
+            const pictureInput = jQuery('#file');
 
 			const openPictureInput = () => {
 				pictureInput.trigger('click');
@@ -60,6 +62,13 @@ evenPicServices.directive('floatingActions', function(
                 } else {
                     openPictureInput();
                 }
+            };
+
+            scope.onScrollActionClick = () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             };
 
             init();

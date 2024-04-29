@@ -1,5 +1,5 @@
 const apiBaseUrl = window.__env.baseUrl;
-const modules = ['ui.router', 'ui.bootstrap', 'ui.utils.masks'];
+const modules = ['ui.router', 'ui.bootstrap', 'ui.utils.masks', 'ngFileUpload'];
 const evenPicServices = angular.module('evenPicApp', modules);
 
 evenPicServices.config(function($stateProvider, $urlRouterProvider) {

@@ -2,6 +2,15 @@
   margin-bottom: calc(4rem + 50px) !important;
 }
 
+.event-gallery-photos .gallery-image-container {
+    padding-right: 0 !important;
+    max-height: 200px;
+}
+
+.event-gallery-title {
+    margin-top: calc(4rem + 74px);
+}
+
 .event-gallery-photo-container {
   position: absolute;
   top: calc(4rem + 74px);
@@ -17,6 +26,22 @@
 }
 
 @media all and (min-width: 320px) and (max-width: 500px) {
+    .event-gallery-photos .gallery-image-container {
+        padding-right: 4px !important;
+    }
+    
+    .event-gallery-title {
+        margin-top: calc(4rem + 74px);
+    }
+
+    .event-gallery-title {
+        margin-top: calc(4rem + 58px);
+    }
+
+    .event-gallery-subtitle {
+        margin-bottom: 8px;    
+    }
+
     .event-gallery-photo-container .main-picture {
         height: 200px;
     }
