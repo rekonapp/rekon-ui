@@ -65,7 +65,9 @@ evenPicServices.directive('floatingActions', function(
             };
 
             scope.onScrollActionClick = () => {
-                window.scrollTo({
+                const currentElement = document.getElementById('gallery-scroll') || window;
+
+                currentElement.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });

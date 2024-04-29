@@ -78,7 +78,7 @@ evenPicServices.service("Utils", function (
 			.substring(url.lastIndexOf('/') + 1);
 	};
 
-    const downloadPhoto = photo => {
+    const downloadPhoto = (photo) => {
         return fetch(photo.url).then(image => {
             return image.blob().then((imageBlog) => {
                 const imageURL = URL.createObjectURL(imageBlog);
@@ -89,7 +89,7 @@ evenPicServices.service("Utils", function (
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            })
+            });
         });
     };
 
@@ -98,6 +98,7 @@ evenPicServices.service("Utils", function (
 		isValidEmail,
         getShortName,
         downloadPhoto,
+        getFileNameFromUrl,
         handleSubmitImage
 	};
 });

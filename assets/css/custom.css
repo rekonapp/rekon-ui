@@ -37,8 +37,9 @@
   }
 
   .event-gallery-photos-container {
-    height: 26vh;
     margin-top: calc(2rem + 380px) !important;
+    height: 56vh !important;
+    padding-bottom: 148px !important;
   }
 }
 

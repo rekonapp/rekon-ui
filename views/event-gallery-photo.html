@@ -6,14 +6,14 @@
                 <img ng-src="{{ photo.thumb_url }}" style="max-height: 330px;">
             </div>
             <div class="d-flex align-items-center justify-content-center mt-2 gap-2">
-                <button style="background: #E0E0E0;" class="btn btn-gray rounded-4 w-50" ng-click="onDownloadClick(photo)" ng-disabled="downloading">
+                <button style="background: #E0E0E0;" class="btn btn-gray rounded-4 w-50" ng-click="onDownloadClick()" ng-disabled="downloadingPhoto">
                     <download-icon></download-icon> &nbsp; Download
                 </button>
                 <div class="dropdown">
                     <button style="background: #E0E0E0;" class="btn btn-gray rounded-4" data-toggle="dropdown">
                         <circle-info-icon></circle-info-icon> &nbsp; Sobre
                     </button>
-                    <div class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton" style="left: -55px;">
                         <span class="dropdown-item gap-1" style="padding-bottom: 0.25rem;">
                             <instagram-icon></instagram-icon>
                             <a href="" style="color: var(--gray-1) !important;">@fotografo.insta</a>
@@ -26,8 +26,8 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex flex-column w-100 page-container" style="padding-left: 0; padding-right: 0;">
-            <gallery class="event-gallery-photos-container" active-photo="photo" on-click-image-fn="onClickImage" photos="photos" ng-if="!loading" style="width: 100% !important; margin-top: calc(4rem + 462px); max-height: 32vh; overflow: scroll;"></gallery>
+        <div class="d-flex flex-column w-100 page-container" style="padding-left: 0; padding-right: 0; overflow: hidden;">
+            <gallery id="gallery-scroll" class="event-gallery-photos event-gallery-photos-container" active-photo="photo" on-click-image-fn="onClickImage" photos="photos" ng-if="!loading" style="width: 100% !important; margin-top: calc(4rem + 462px); height: 32vh; overflow: scroll;"></gallery>
         </div>
         <floating-actions></floating-actions>
     </div>

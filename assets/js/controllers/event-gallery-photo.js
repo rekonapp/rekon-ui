@@ -1,6 +1,7 @@
 evenPicServices.controller('EventGalleryPhotoCtrl', function(
 	$q,
 	$scope,
+    $timeout,
     Utils,
 	$stateParams,
 	EventFileService
@@ -37,12 +38,25 @@ evenPicServices.controller('EventGalleryPhotoCtrl', function(
         $scope.photo = angular.copy(photo);
     };
 
-    const onDownloadClick = photo => {
-        $scope.downloading = true;
+    const onDownloadClick = () => {
+        $scope.downloadingPhoto = true;
 
-        Utils.downloadPhoto(photo).finally(() => {
-            $scope.downloading = false;
-        })
+        fetch($scope.photo.url).then(image => {
+            return image.blob().then((imageBlog) => {
+                const imageURL = URL.createObjectURL(imageBlog);
+                const link = document.createElement('a');
+
+                link.href = imageURL;
+                link.download = Utils.getFileNameFromUrl(`${$scope.photo.url}&v=${Date.now()}`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                $timeout(() => {
+                    $scope.downloadingPhoto = false;
+                })
+            });
+        });
     };
 
 	init();
