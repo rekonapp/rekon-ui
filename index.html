@@ -10,12 +10,15 @@
         <link rel="stylesheet" href="build/app.css">
         <!-- End Build -->
         
-        <title>Eddy</title>
+        <title>EvenPic</title>
 
-        <link rel="icon" href="src/assets/img/favicon.ico">
+        <link rel="icon" href="assets/img/favicon.ico">
     </head>
-    <body class="layout-fluid" style="max-width: 100%; overflow-x: hidden;">
-        <div ui-view=""></div>
+    <body style="max-width: 100%; overflow-x: hidden;">
+        <div class="d-flex align-items-center justify-content-center" ng-show="globalLoading" style="height: 100vh;">
+            Carregando...
+        </div>
+        <div ui-view="" ng-show="!globalLoading"></div>
 
 		<script src="build/libs.js"></script>
 		<script src="build/envs.js"></script>

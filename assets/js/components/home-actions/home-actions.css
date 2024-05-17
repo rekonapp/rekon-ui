@@ -1,0 +1,26 @@
+.home-actions-container {
+    min-width: 350px;
+    min-height: 240px;
+    background: var(--gray-1);
+    border: 1px solid var(--gray-2);
+    position: absolute;
+    bottom: 0;
+    max-width: 690px !important;
+}
+
+.home-actions-button {
+    top: -1rem;
+    min-width: 300px;
+    height: 72px;
+    font-weight: 400;
+    background-color: var(--red-9);
+}
+
+.home-actions-link {
+    color: var(--gray-6) !important;
+    text-decoration: underline !important;
+}
+
+.home-actions-link:hover {
+    color: var(--red-8) !important;
+}

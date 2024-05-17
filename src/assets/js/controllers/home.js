@@ -1,3 +1,0 @@
-evenPicServices.controller('HomeCtrl', function() {
-
-});
