@@ -1,0 +1,15 @@
+.carouselContainer, .carouselImage {
+    height: 208px;
+
+    @media (min-width: $mantine-breakpoint-sm) {
+        height: 320px;
+    }
+}
+
+.carouselContainer {
+    margin-top: 1rem;
+    
+    @media (min-width: $mantine-breakpoint-md) {
+        margin-top: 2rem;
+    }
+}
