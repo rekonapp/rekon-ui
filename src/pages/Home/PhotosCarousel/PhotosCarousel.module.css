@@ -8,8 +8,4 @@
 
 .carouselContainer {
     margin-top: 1rem;
-    
-    @media (min-width: $mantine-breakpoint-md) {
-        margin-top: 2rem;
-    }
 }

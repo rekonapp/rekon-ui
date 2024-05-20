@@ -1,0 +1,14 @@
+.innerContent {
+    height: 48px;
+    width: 80%;
+    min-width: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        min-width: 65%;
+        width: 65%;
+    }
+}

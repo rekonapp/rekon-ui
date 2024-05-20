@@ -1,4 +1,25 @@
 Rekon:
     ✔ Home @done(24-05-19 20:10)
-        ✔ Mobile @done(24-05-19 20:10)
-        ✔ Desktop @done(24-05-19 20:10)
+        ✔ Banner @done(24-05-19 20:11)
+            ✔ Mobile @done(24-05-19 20:10)
+            ✔ Desktop @done(24-05-19 20:10)
+        ✔ Carousel @done(24-05-19 20:11)
+            ✔ Mobile @done(24-05-19 20:10)
+            ✔ Desktop @done(24-05-19 20:10)
+        ✔ Actions @done(24-05-19 20:11)
+            ✔ Mobile @done(24-05-19 20:10)
+            ✔ Desktop @done(24-05-19 20:10)
+    [ ] Galeria do Evento
+        ✔ Redirect Home > Galeria @done(24-05-19 20:22)
+            ✔ Mobile @done(24-05-19 20:34)
+            ✔ Desktop @done(24-05-19 20:34)
+        ✔ Floating Menu @done(24-05-19 21:55)
+            ✔ Mobile @done(24-05-19 21:55)
+            ✔ Desktop @done(24-05-19 21:55)
+        [ ] Redirect
+        [ ] Title + Subtitle
+        [ ] Gallery
+            [ ] Front - Mobile
+            [ ] Front - Desktop
+            [ ] Get Images
+            
