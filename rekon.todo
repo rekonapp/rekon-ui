@@ -13,10 +13,13 @@ Rekon:
         ✔ Redirect Home > Galeria @done(24-05-19 20:22)
             ✔ Mobile @done(24-05-19 20:34)
             ✔ Desktop @done(24-05-19 20:34)
-        ✔ Floating Menu @done(24-05-19 21:55)
-            ✔ Mobile @done(24-05-19 21:55)
-            ✔ Desktop @done(24-05-19 21:55)
-        [ ] Redirect
+        [ ] Floating Menu
+            ✔ Design - Mobile @done(24-05-19 21:55)
+            ✔ Design -Desktop @done(24-05-19 21:55)
+            [ ] Redirect
+                [ ] Floating Menu
+                [ ] Retornar com base na página atual
+            [ ] Dropdown
         [ ] Title + Subtitle
         [ ] Gallery
             [ ] Front - Mobile
