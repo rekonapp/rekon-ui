@@ -47,7 +47,7 @@ const GalleryPhotosContainer = () => {
       };
 
       const handleScroll = () => {
-        if (!loading && !loadingPagination && hasMore && (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight)) {
+        if (!loading && !loadingPagination && hasMore && (window.innerHeight + window.scrollY >= (document.documentElement.scrollHeight - 100))) {
             setPage(prevPage => prevPage + 1);
         }
       };
@@ -62,7 +62,7 @@ const GalleryPhotosContainer = () => {
         fetchImages();
       }, [page]);
     return (
-        <GalleryPhotos loading={loading} images={images}/>
+        <GalleryPhotos loading={loading} images={images} loadingPagination={loadingPagination}/>
     )
 }
 

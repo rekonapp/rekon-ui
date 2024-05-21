@@ -23,7 +23,7 @@ const renderEmpty = () => {
         <Grid.Col span={12} mt='xl'>
             <Center>
                 <Flex direction='column' align='center'>
-                    <IconPhotoOff size='md' width='40px' stroke={1.4}/>
+                    <IconPhotoOff width='40px' stroke={1.4}/>
                     <Title order={1} ta='center' fw='300'>
                         Não foi possível encontrar<br/> fotos para este evento
                     </Title>
@@ -36,30 +36,55 @@ const renderEmpty = () => {
 const GalleryPhotos = ({
     images,
     loading,
+    loadingPagination
 }) => (
     <>
         {
             loading ? (
                 <Grid mt='xl' grow>
                     <Grid.Col span={4}>
-                         <Skeleton height={200} />
+                         <Skeleton height={200} animate/>
                     </Grid.Col>
                     <Grid.Col span={5}>
-                         <Skeleton height={200} />
+                         <Skeleton height={200} animate/>
                     </Grid.Col>
                     <Grid.Col span={4}>
-                         <Skeleton height={200} />
+                         <Skeleton height={200} animate/>
                     </Grid.Col>
                     <Grid.Col span={6}>
-                         <Skeleton height={200} />
+                         <Skeleton height={200} animate/>
                     </Grid.Col>
                     <Grid.Col span={3}>
-                         <Skeleton height={200} />
+                         <Skeleton height={200} animate/>
                     </Grid.Col>
                 </Grid>
             ) : (
                 <Grid mt='xl'>
                     {images?.length ? images.map(renderItem) : renderEmpty()}
+                </Grid>
+            )
+        }
+        {
+            loadingPagination && (
+                <Grid mt='xl' grow>
+                    <Grid.Col span={4}>
+                         <Skeleton height={200} animate/>
+                    </Grid.Col>
+                    <Grid.Col span={4}>
+                         <Skeleton height={200} animate/>
+                    </Grid.Col>
+                    <Grid.Col span={4}>
+                         <Skeleton height={200} animate/>
+                    </Grid.Col>
+                    <Grid.Col span={4}>
+                         <Skeleton height={200} animate/>
+                    </Grid.Col>
+                    <Grid.Col span={4}>
+                         <Skeleton height={200} animate/>
+                    </Grid.Col>
+                    <Grid.Col span={4}>
+                         <Skeleton height={200} animate/>
+                    </Grid.Col>
                 </Grid>
             )
         }
@@ -70,6 +95,7 @@ GalleryPhotos.propTypes = {
     images: PropTypes.array,
     page: PropTypes.number,
     loading: PropTypes.bool,
+    loadingPagination: PropTypes.bool
 };
 
 export default GalleryPhotos
