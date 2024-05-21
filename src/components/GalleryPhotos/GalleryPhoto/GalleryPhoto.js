@@ -10,6 +10,8 @@ import PropTypes from 'prop-types';
 import { useHover } from '@mantine/hooks';
 import { IconEye } from '@tabler/icons-react';
 
+import classes from './GalleryPhoto.module.css';
+
 const GalleryPhoto = ({ imageUrl }) => {
     const { hovered, ref } = useHover();
 
@@ -19,7 +21,8 @@ const GalleryPhoto = ({ imageUrl }) => {
                 <Card.Section>
                     <Image
                         src={imageUrl}
-                        height={189}
+                        h={189}
+                        className={classes.galleryImage}
                     />
                     {hovered ? (
                         <Overlay color="#000" backgroundOpacity={0.35} blur={3} style={{ cursor: 'pointer' }}>

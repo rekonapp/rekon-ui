@@ -13,7 +13,7 @@ const ResponseInterceptor = response => Promise.resolve({ data: response.data.da
 const ErrorInterceptor = error => Promise.reject(get(error, 'response.data.message', error.message));
 
 const client = axios.create({
-    baseURL: import.meta.env.REACT_APP_API_URL
+    baseURL: import.meta.env.VITE_API_URL
 });
 
 client.interceptors.request.use(TokenInterceptor);

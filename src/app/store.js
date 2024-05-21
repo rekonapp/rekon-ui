@@ -1,12 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import eventGalleryPhotosReducer from '../reducers/entities/event-gallery';
-import eventGalleryPhotosListReducer from '../features/EventGallery/EventGallery.state';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import eventGalleryPhotosEntitiesSlice from '../reducers/entities/event-gallery';
+import eventGalleryPhotosListReducer from '../components/GalleryPhotos/GalleryPhotos.state';
 
 export default configureStore({
   reducer: {
-    eventGalleryPhotoList: eventGalleryPhotosListReducer,
-    entities: {
-        eventGalleryPhotos: eventGalleryPhotosReducer
-    }
+    eventGalleryPhotosList: eventGalleryPhotosListReducer,
+    entities: combineReducers({
+        eventGalleryPhotos: eventGalleryPhotosEntitiesSlice
+    })
   }
 })

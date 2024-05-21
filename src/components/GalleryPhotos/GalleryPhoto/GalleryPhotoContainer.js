@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types';
 import GalleryPhoto from './GalleryPhoto';
+import { useSelector } from 'react-redux';
+import { getEventGalleryPhotoById } from '../../../reducers/entities/event-gallery';
 
-const GalleryPhotoContainer = ({ imageUrl }) => {
-  return (
-    <GalleryPhoto imageUrl={imageUrl}/>
-  )
+const GalleryPhotoContainer = ({ id }) => {
+    const galleryPhoto = useSelector(state => getEventGalleryPhotoById(state, id));
+    
+    return (
+        <GalleryPhoto imageUrl={galleryPhoto.thumb_url}/>
+    )
 }
 
 GalleryPhotoContainer.propTypes = {
-  imageUrl: PropTypes.string.isRequired
+  id: PropTypes.number.isRequired
 };
 
 export default GalleryPhotoContainer

@@ -9,7 +9,7 @@ Rekon:
         ✔ Actions @done(24-05-19 20:11)
             ✔ Mobile @done(24-05-19 20:10)
             ✔ Desktop @done(24-05-19 20:10)
-    [ ] Galeria do Evento
+    ✔ Galeria do Evento @done(24-05-21 04:03)
         ✔ Redirect Home > Galeria @done(24-05-19 20:22)
             ✔ Mobile @done(24-05-19 20:34)
             ✔ Desktop @done(24-05-19 20:34)
@@ -21,15 +21,15 @@ Rekon:
                 ✔ Retornar com base na página atual @done(24-05-21 00:19)
             ✔ Dropdown @done(24-05-21 00:19)
         ✔ Title + Subtitle @done(24-05-21 01:35)
-        [ ] Gallery
+        ✔ Gallery @done(24-05-21 04:02)
             ✔ Gallery Photo @done(24-05-21 01:55)
                 ✔ Url @done(24-05-21 01:55)
                 ✔ Hover element @done(24-05-21 01:55)
             ✔ Front - Mobile @done(24-05-21 01:55)
             ✔ Front - Desktop @done(24-05-21 01:55)
-            [ ] Get Images
-                [ ] Fill all images
-                [ ] Loading state
+            ✔ Get Images @done(24-05-21 04:02)
+                ✔ Fill all images @done(24-05-21 04:02)
+                ✔ Loading state @done(24-05-21 04:02)
         [ ] Actions
     [ ] Foto
         [ ] Mobile

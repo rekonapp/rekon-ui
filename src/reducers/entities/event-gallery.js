@@ -2,23 +2,25 @@ import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 
 import { fetchEventGalleryPhotos } from '../../processes/event-gallery';
 
-export const customersEntitiesAdapter = createEntityAdapter();
+export const eventGalleryPhotosAdapter = createEntityAdapter();
 
-const initialState = customersEntitiesAdapter.getInitialState();
+const initialState = eventGalleryPhotosAdapter.getInitialState();
 
-const customersEntitiesSlice = createSlice({
+const eventGalleryPhotosEntitiesSlice = createSlice({
 	extraReducers: builder => {
 		builder
 			.addCase(fetchEventGalleryPhotos.fulfilled, (state, action) => {
-				customersEntitiesAdapter.setMany(state, action.payload.data || []);
+				eventGalleryPhotosAdapter.setMany(state, action.payload.data || []);
 			});
 	},
 	initialState,
 	name: 'eventGalleryPhotos'
 });
 
-// export const {
-// 	selectById: getCustomerById
-// } = customersEntitiesAdapter.getSelectors(state => state.entities?.customers);
+export const {
+	selectById: getEventGalleryPhotoById
+} = eventGalleryPhotosAdapter.getSelectors(state => {
+    return state.entities?.eventGalleryPhotos;
+});
 
-export default customersEntitiesSlice.reducer;
+export default eventGalleryPhotosEntitiesSlice.reducer;
