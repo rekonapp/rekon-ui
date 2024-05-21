@@ -1,10 +1,19 @@
+import GalleryTextContainer from './GalleryText/';
 import FloatingMenuContainer from '../../components/FloatingMenu/';
-import { Container } from '@mantine/core';
+import GalleryPhotosContainer from '../../components/GalleryPhotos/';
 
-const EventGallery = () => (
-    <Container size='sm' pt='2rem'>
-        <FloatingMenuContainer/>
-    </Container>
-);
+import {
+    Container
+} from '@mantine/core';
+
+const EventGallery = () => {
+    return (
+        <Container size='sm' pt='2rem'>
+            <FloatingMenuContainer/>
+            <GalleryTextContainer />
+            <GalleryPhotosContainer />
+        </Container>
+    )
+};
 
 export default EventGallery;
