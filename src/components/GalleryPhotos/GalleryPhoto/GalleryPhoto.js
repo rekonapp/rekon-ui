@@ -37,7 +37,7 @@ const GalleryPhoto = ({ imageUrl }) => {
     )
 };
 
-GalleryPhoto.PropTypes = {
+GalleryPhoto.propTypes = {
     imageUrl: PropTypes.string.isRequired
 };
 
