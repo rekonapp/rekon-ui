@@ -1,4 +1,3 @@
-import { Provider } from 'react-redux'
 import { MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 
@@ -12,7 +11,6 @@ import { RouterProvider } from 'react-router-dom';
 import '@mantine/carousel/styles.css';
 import '@mantine/core/styles.css';
 
-import store from './app/store'
 import { createRouter } from './app/routes';
 
 import 'dayjs/locale/pt-br';
@@ -41,13 +39,11 @@ const Root = () => {
 	const router = createRouter();
 
 	return (
-        <Provider store={store}>
-            <MantineProvider theme={theme}>
-                <ModalsProvider modalProps={{ centered: true }}>
-                    <RouterProvider router={router} />
-                </ModalsProvider>
-            </MantineProvider>
-        </Provider>
+        <MantineProvider theme={theme}>
+            <ModalsProvider modalProps={{ centered: true }}>
+                <RouterProvider router={router} />
+            </ModalsProvider>
+        </MantineProvider>
 	);
 };
 

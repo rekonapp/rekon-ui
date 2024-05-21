@@ -1,26 +1,68 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { client } from '../../app/api';
+import { useEffect, useState } from 'react';
 import GalleryPhotos from './GalleryPhotos'
 
-import { getEventGalleryPhotosListState } from './GalleryPhotos.state';
-import { fetchEventGalleryPhotos } from '../../processes/event-gallery';
-
 const GalleryPhotosContainer = () => {
-    const {
-        ids,
-        page,
-        loading
-	} = useSelector(getEventGalleryPhotosListState);
+    const [page, setPage] = useState(1);
+    const [images, setImages] = useState([]);
+    const [hasMore, setHasMore] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [loadingPagination, setLoadingPagination] = useState(false);
 
+    const fetchImages = async () => {
+        try {
+            if (!hasMore) {
+                return;
+            }
 
-    const dispatch = useDispatch();
+            if (page === 1) {
+                setLoading(true);
+            } else {
+                setLoadingPagination(true);
+            }
 
-    useEffect(() => {
-		dispatch(fetchEventGalleryPhotos({ event_key: import.meta.env.VITE_EVENT_KEY }));
-	}, [dispatch]);
+            const response = await client('/event-file', {
+                params: {
+                    page,
+                    event_key: import.meta.env.VITE_EVENT_KEY
+                }
+            });
 
+            const newImages = response.data;
+
+            if (newImages.length === 0) {
+                setHasMore(false);
+            }
+
+            if (page === 1) {
+                setLoading(false);
+            } else {
+                setLoadingPagination(false);
+            }
+
+            setImages([...images, ...newImages]);
+        } catch (error) {
+            setLoading(false);
+        }
+      };
+
+      const handleScroll = () => {
+        if (!loading && !loadingPagination && hasMore && (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight)) {
+            setPage(prevPage => prevPage + 1);
+        }
+      };
+
+      useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, [loading]);
+
+    
+      useEffect(() => {
+        fetchImages();
+      }, [page]);
     return (
-        <GalleryPhotos ids={ids} page={page} loading={loading} />
+        <GalleryPhotos loading={loading} images={images}/>
     )
 }
 

@@ -1,31 +1,40 @@
 import PropTypes from 'prop-types';
 import {
     Grid,
-    Skeleton
+    Title,
+    Center,
+    Skeleton,
+    Flex
 } from '@mantine/core';
+
+import { IconPhotoOff } from '@tabler/icons-react';
 import GalleryPhotoContainer from './GalleryPhoto';
 
-const renderItem = id => {
-    console.log(id);
-
+const renderItem = item => {
     return (    
-        <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${id}`}>
-            <GalleryPhotoContainer id={id}/>
+        <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${item.id}`}>
+            <GalleryPhotoContainer imageUrl={item.thumb_url}/>
         </Grid.Col>
     )
 };
 
 const renderEmpty = () => {
     return (
-        <Grid.Col span={12}>
-            No photos found
+        <Grid.Col span={12} mt='xl'>
+            <Center>
+                <Flex direction='column' align='center'>
+                    <IconPhotoOff size='md' width='40px' stroke={1.4}/>
+                    <Title order={1} ta='center' fw='300'>
+                        Não foi possível encontrar<br/> fotos para este evento
+                    </Title>
+                </Flex>
+            </Center>
         </Grid.Col>
     );
 };
 
 const GalleryPhotos = ({
-    ids,
-    page,
+    images,
     loading,
 }) => (
     <>
@@ -50,7 +59,7 @@ const GalleryPhotos = ({
                 </Grid>
             ) : (
                 <Grid mt='xl'>
-                    {ids.length ? ids.map(renderItem) : renderEmpty()}
+                    {images?.length ? images.map(renderItem) : renderEmpty()}
                 </Grid>
             )
         }
@@ -58,8 +67,8 @@ const GalleryPhotos = ({
 );
 
 GalleryPhotos.propTypes = {
-    ids: PropTypes.array.isRequired,
-    page: PropTypes.number.isRequired,
+    images: PropTypes.array,
+    page: PropTypes.number,
     loading: PropTypes.bool,
 };
 
