@@ -30,7 +30,11 @@ Rekon:
             ✔ Get Images @done(24-05-21 04:02)
                 ✔ Fill all images @done(24-05-21 04:02)
                 ✔ Loading state @done(24-05-21 04:02)
-        [ ] Actions
+            ✔ Pagination @done(24-05-21 05:24)
+        [ ] Floating behaviour header
+        [ ] Floating behaviour footer
+            [ ] Actions
+            [ ] Scroll to top
     [ ] Foto
         [ ] Mobile
         [ ] Desktop
