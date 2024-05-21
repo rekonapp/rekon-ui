@@ -7,9 +7,8 @@ import {
 } from '@mantine/core';
 
 import PropTypes from 'prop-types';
-import { IconFaceId } from '@tabler/icons-react';
-
 import classes from './Actions.module.css';
+import { IconFaceId } from '@tabler/icons-react';
 
 const Actions = ({
     onGalleryEventButtonClick

@@ -1,18 +1,27 @@
+import PropTypes from 'prop-types';
+
 import {
-    Text,
+    Anchor,
     Flex,
     Paper,
     Popover,
+    Divider,
+    NavLink,
     ActionIcon
 } from '@mantine/core';
 
-import { IconArrowBack, IconDots } from '@tabler/icons-react';
+import {
+    IconMail,
+    IconDots,
+    IconLicense,
+    IconArrowBack
+} from '@tabler/icons-react';
 
 import FloatingMenuBreadcrumbsContainer from './FloatingMenuBreadcrumbs';
 
 import classes from './FloatingMenu.module.css';
 
-const FloatingMenu = () => (
+const FloatingMenu = ({ onReturnClick }) => (
     <Paper withBorder radius='xl' bg='gray.0' p='xs'>
         <Flex
             gap="sm"
@@ -20,7 +29,7 @@ const FloatingMenu = () => (
             align="center"
             direction="row"
         >
-            <ActionIcon color='gray.5' size='md' w='50' h='50' autoContrast radius='xl'>
+            <ActionIcon color='gray.5' size='md' w='50' h='50' autoContrast radius='xl' onClick={() => onReturnClick()}>
                 <IconArrowBack stroke={1}></IconArrowBack>
             </ActionIcon>
             <Paper withBorder radius='xl' className={classes.innerContent} bg='gray.0'>
@@ -32,13 +41,26 @@ const FloatingMenu = () => (
                         <IconDots stroke={1} />
                     </ActionIcon>
                 </Popover.Target>
-                <Popover.Dropdown>
-                    <Text size="xs">Nosso Regulamento</Text>
-                    <Text size="xs">Nosso Regulamento</Text>
+                <Popover.Dropdown w='224' p={4}>
+                    <NavLink
+                        href="#required-for-focus"
+                        label="Nosso regulamento"
+                        leftSection={<IconLicense size="1rem" stroke={1.5} />}
+                    />
+                    <Divider my={4} />
+                    <NavLink
+                        href="#required-for-focus"
+                        label="Contato"
+                        leftSection={<IconMail size="1rem" stroke={1.5} />}
+                    />
                 </Popover.Dropdown>
             </Popover>
         </Flex>
     </Paper>
 );
+
+FloatingMenu.propTypes = {
+    onReturnClick: PropTypes.func.isRequired
+};
 
 export default FloatingMenu;
