@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import HomeContainer from '../pages/Home';
-import EventGalleryContainer from '../pages/EventGallery';
+import HomeContainer from '../features/Home';
+import EventGalleryContainer from '../features/EventGallery';
 
 export const createRouter = () => createBrowserRouter([{
 	path: '/',
