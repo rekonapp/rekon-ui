@@ -17,12 +17,19 @@ import 'dayjs/locale/pt-br';
 
 import './Root.css';
 
+import {
+    QueryClient,
+    QueryClientProvider,
+} from '@tanstack/react-query'
+
+
 dayjs.locale('pt-br');
 dayjs.extend(relativeTime);
 dayjs.extend(isSameOrAfter);
 dayjs.extend(customParseFormat);
 
 const Root = () => {
+    const queryClient = new QueryClient();
     const theme = [
         "#ffeaec",
         "#fdd4d6",
@@ -39,11 +46,13 @@ const Root = () => {
 	const router = createRouter();
 
 	return (
-        <MantineProvider theme={theme}>
-            <ModalsProvider modalProps={{ centered: true }}>
-                <RouterProvider router={router} />
-            </ModalsProvider>
-        </MantineProvider>
+        <QueryClientProvider client={queryClient}>
+            <MantineProvider theme={theme}>
+                <ModalsProvider modalProps={{ centered: true }}>
+                    <RouterProvider router={router} />
+                </ModalsProvider>
+            </MantineProvider>
+        </QueryClientProvider>
 	);
 };
 

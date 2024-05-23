@@ -15,6 +15,7 @@
     "@mantine/hooks": "^7.9.2",
     "@mantine/modals": "^7.9.2",
     "@tabler/icons-react": "^3.4.0",
+    "@tanstack/react-query": "^5.37.1",
     "axios": "^1.7.1",
     "dayjs": "^1.11.11",
     "embla-carousel-autoplay": "^7.1.0",
@@ -22,6 +23,7 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.10.2",
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {

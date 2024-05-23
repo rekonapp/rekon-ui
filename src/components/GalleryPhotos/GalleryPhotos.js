@@ -10,12 +10,12 @@ import {
 import { IconPhotoOff } from '@tabler/icons-react';
 import GalleryPhotoContainer from './GalleryPhoto';
 
-const renderItem = item => {
-    return (    
+const renderItem = (item, data) => {
+    return item.data.map(item => (
         <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${item.id}`}>
             <GalleryPhotoContainer imageUrl={item.thumb_url}/>
         </Grid.Col>
-    )
+    ));
 };
 
 const renderEmpty = () => {
@@ -34,48 +34,34 @@ const renderEmpty = () => {
 };
 
 const GalleryPhotos = ({
-    images,
-    loading,
+    reference,
+    data,
+    status,
     loadingPagination
 }) => (
     <>
         {
-            loading ? (
+            status === 'pending' ? (
                 <Grid mt='xl' grow>
-                    <Grid.Col span={4}>
+                    <Grid.Col span={{ base: 6 }}>
                          <Skeleton height={200} animate/>
                     </Grid.Col>
-                    <Grid.Col span={5}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
-                    <Grid.Col span={4}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
-                    <Grid.Col span={6}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
-                    <Grid.Col span={3}>
+                    <Grid.Col span={{ base: 6 }}>
                          <Skeleton height={200} animate/>
                     </Grid.Col>
                 </Grid>
             ) : (
-                <Grid mt='xl'>
-                    {images?.length ? images.map(renderItem) : renderEmpty()}
-                </Grid>
-            )
-        }
-        {
-            loadingPagination && (
-                <Grid mt='xl' grow>
-                    <Grid.Col span={4}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
-                    <Grid.Col span={4}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
-                    <Grid.Col span={4}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
+                <Grid mt='xl' grow={loadingPagination}>
+                    {data?.pages?.length ? data?.pages?.map(item => renderItem(item, data)) : renderEmpty()}
+                    {
+                        loadingPagination && (
+                            <Grid.Col span={{ base: 6, sm: 6, md: 4 }}>
+                                <Skeleton height={150} animate/>
+                            </Grid.Col>
+                        ) || (
+                            <div ref={reference}></div>
+                        )
+                    }
                 </Grid>
             )
         }
@@ -83,9 +69,10 @@ const GalleryPhotos = ({
 );
 
 GalleryPhotos.propTypes = {
-    images: PropTypes.array,
+    reference: PropTypes.any,
+    data: PropTypes.object,
     page: PropTypes.number,
-    loading: PropTypes.bool,
+    status: PropTypes.string,
     loadingPagination: PropTypes.bool
 };
 
