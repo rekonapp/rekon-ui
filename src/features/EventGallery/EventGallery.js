@@ -8,7 +8,7 @@ import {
 
 const EventGallery = () => {
     return (
-        <Container size='sm' pt='2rem'>
+        <Container size='sm' pt='4rem'>
             <FloatingMenuContainer/>
             <GalleryTextContainer />
             <GalleryPhotosContainer />
