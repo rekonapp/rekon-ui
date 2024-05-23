@@ -16,8 +16,12 @@ const GalleryPhotosContainer = () => {
         isFetching,
         fetchNextPage,
     } = useInfiniteQuery({
-        queryKey: ['projects'],
+        queryKey: ['data'],
         queryFn: async ({ pageParam }) => {
+            if (!pageParam) {
+                return;
+            }
+
             const response = await client('/event-file', {
                 params: {
                     page: pageParam,
@@ -26,12 +30,18 @@ const GalleryPhotosContainer = () => {
             })
 
             return {
-                data: response.data,
-                nextPage: response.data.length === 0 ? null : pageParam + 1,
+                data: response.data
             };
         },
+        refetchOnWindowFocus: false,
         initialPageParam: 1,
-        getNextPageParam: (lastPage) => lastPage.nextPage
+        getNextPageParam: (lastPage, allPages, lastPageParam) => {
+            if (lastPage.length === 0) {
+                return undefined
+            }
+
+            return lastPageParam + 1;
+        }
     });
 
     useEffect(() => {
