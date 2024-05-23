@@ -1,7 +1,11 @@
 .bannerContainer, .bannerImage {
-    max-height: 240px;
+    max-height: 190px;
     
     @media (min-height: $mantine-breakpoint-sm) {
         max-height: 232px;
+    }
+
+    @media (min-height: 1000px) {
+        max-height: 400px;
     }
 }

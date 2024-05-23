@@ -1,8 +1,12 @@
 .carouselContainer, .carouselImage {
     height: 208px;
 
-    @media (min-width: $mantine-breakpoint-sm) {
-        height: 320px;
+    @media (min-height: 720px) {
+        height: 300px;
+    }
+
+    @media (min-height: 1000px) {
+        height: 500px;
     }
 }
 

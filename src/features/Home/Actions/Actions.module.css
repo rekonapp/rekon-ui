@@ -13,11 +13,7 @@
 }
 
 .actionsContainer {
-    height: 20vh;
-
-    @media (max-width: $mantine-breakpoint-sm) {
-        height: 14vh;
-    }
+    height: 200px;
 }
 
 .redirectLink {

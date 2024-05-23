@@ -76,15 +76,6 @@ const GalleryPhotos = ({
                     <Grid.Col span={4}>
                          <Skeleton height={200} animate/>
                     </Grid.Col>
-                    <Grid.Col span={4}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
-                    <Grid.Col span={4}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
-                    <Grid.Col span={4}>
-                         <Skeleton height={200} animate/>
-                    </Grid.Col>
                 </Grid>
             )
         }

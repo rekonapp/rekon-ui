@@ -30,7 +30,7 @@ const GalleryPhotosContainer = () => {
 
             const newImages = response.data;
 
-            if (newImages.length === 0) {
+            if (newImages.length !== 12) {
                 setHasMore(false);
             }
 
