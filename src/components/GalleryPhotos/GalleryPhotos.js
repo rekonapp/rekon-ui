@@ -10,7 +10,7 @@ import {
 import { IconPhotoOff } from '@tabler/icons-react';
 import GalleryPhotoContainer from './GalleryPhoto';
 
-const renderItem = (item, data) => {
+const renderItem = item => {
     return item.data.map(item => (
         <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${item.id}`}>
             <GalleryPhotoContainer imageUrl={item.thumb_url}/>
@@ -34,6 +34,7 @@ const renderEmpty = () => {
 };
 
 const GalleryPhotos = ({
+    scrollRef,
     reference,
     data,
     status,
@@ -51,7 +52,7 @@ const GalleryPhotos = ({
                     </Grid.Col>
                 </Grid>
             ) : (
-                <Grid mt='xl' grow={loadingPagination}>
+                <Grid mt='xl' grow={loadingPagination} pb='100px' ref={scrollRef}>
                     {data?.pages?.length ? data?.pages?.map(item => renderItem(item, data)) : renderEmpty()}
                     {
                         loadingPagination && (
@@ -69,6 +70,7 @@ const GalleryPhotos = ({
 );
 
 GalleryPhotos.propTypes = {
+    scrollRef: PropTypes.object,
     reference: PropTypes.any,
     data: PropTypes.object,
     page: PropTypes.number,

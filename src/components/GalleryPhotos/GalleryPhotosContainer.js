@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { client } from '../../app/api';
 import GalleryPhotos from './GalleryPhotos'
@@ -8,7 +9,9 @@ import {
 
 import { useInView } from 'react-intersection-observer';
 
-const GalleryPhotosContainer = () => {
+const GalleryPhotosContainer = ({
+    scrollRef
+}) => {
     const { ref, inView } = useInView()
     const {
         data,
@@ -33,11 +36,12 @@ const GalleryPhotosContainer = () => {
                 data: response.data
             };
         },
+        refetchOnMount: false,
         refetchOnWindowFocus: false,
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages, lastPageParam) => {
-            if (lastPage.length === 0) {
-                return undefined
+            if (lastPage.data.length === 0) {
+                return undefined;
             }
 
             return lastPageParam + 1;
@@ -52,9 +56,13 @@ const GalleryPhotosContainer = () => {
 
     return (
         <>
-            <GalleryPhotos reference={ref} status={status} data={data} loadingPagination={isFetching}/>
+            <GalleryPhotos scrollReference={scrollRef} reference={ref} status={status} data={data} loadingPagination={isFetching}/>
         </>
     )
+};
+
+GalleryPhotosContainer.propTypes = {
+    scrollRef: PropTypes.object.isRequired
 }
 
 export default GalleryPhotosContainer

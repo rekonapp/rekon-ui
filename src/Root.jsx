@@ -30,24 +30,14 @@ dayjs.extend(customParseFormat);
 
 const Root = () => {
     const queryClient = new QueryClient();
-    const theme = [
-        "#ffeaec",
-        "#fdd4d6",
-        "#f4a7ac",
-        "#ec777e",
-        "#e64f57",
-        "#e3353f",
-        "#e22732",
-        "#c91a25",
-        "#b31220",
-        "#9e0419"
-    ];
-
 	const router = createRouter();
 
 	return (
         <QueryClientProvider client={queryClient}>
-            <MantineProvider theme={theme}>
+            <MantineProvider theme={{
+                    fontFamily: 'Archivo, serif',
+                    headings: { fontFamily: 'Archivo, serif' },
+                }}>
                 <ModalsProvider modalProps={{ centered: true }}>
                     <RouterProvider router={router} />
                 </ModalsProvider>

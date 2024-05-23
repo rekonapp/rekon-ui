@@ -1,8 +1,14 @@
+import { useScrollIntoView } from '@mantine/hooks';
 import EventGallery from './EventGallery';
 
 const EventGalleryContainer = () => {
+    const { scrollIntoView, targetRef } = useScrollIntoView();
+
 	return (
-		<EventGallery/>
+		<EventGallery
+            scrollRef={targetRef}
+            scrollIntoView={scrollIntoView}
+        />
 	);
 };
 

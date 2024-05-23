@@ -19,7 +19,7 @@ const Actions = ({
                 <Paper className={classes.actionsContainer} radius='1rem 1rem 0 0' bg='gray.0' withBorder>
                     <Center pos='relative'>
                         <Button className={classes.mainButton} leftSection={<IconFaceId className={classes.iconButton} stroke={1.5}/>} fullWidth color='red.9' size='24' radius='lg' fw='400' h='72'>Me encontre! </Button>
-                        <Text onClick={() => onGalleryEventButtonClick()}component='span' td='underline' tt='uppercase' c='gray.6' className={classes.redirectLink}>Ir para a <Text component='a' fw={700}>Galeria do Evento</Text></Text>
+                        <Text onClick={() => onGalleryEventButtonClick()}component='span' td='underline' c='gray.6' className={classes.redirectLink}>Ir para a <Text component='a' fw={500}>Galeria do Evento</Text></Text>
                     </Center>
                 </Paper>
             </Grid.Col>
