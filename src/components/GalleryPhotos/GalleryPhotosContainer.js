@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { client } from '../../app/api';
-import GalleryPhotos from './GalleryPhotos'
+import GalleryPhotos from './GalleryPhotos';
+import { useParams } from 'react-router-dom';
 
 import {
     useInfiniteQuery,
@@ -10,9 +11,11 @@ import {
 import { useInView } from 'react-intersection-observer';
 
 const GalleryPhotosContainer = ({
+    onPhotoClick,
     scrollRef
 }) => {
-    const { ref, inView } = useInView()
+    const { key } = useParams();
+    const { ref, inView } = useInView();
     const {
         data,
         status,
@@ -56,12 +59,21 @@ const GalleryPhotosContainer = ({
 
     return (
         <>
-            <GalleryPhotos scrollReference={scrollRef} reference={ref} status={status} data={data} loadingPagination={isFetching}/>
+            <GalleryPhotos
+                key={key}
+                onPhotoClick={onPhotoClick}
+                scrollReference={scrollRef}
+                reference={ref}
+                status={status}
+                data={data}
+                loadingPagination={isFetching}
+            />
         </>
     )
 };
 
 GalleryPhotosContainer.propTypes = {
+    onPhotoClick: PropTypes.func.isRequired,
     scrollRef: PropTypes.object.isRequired
 }
 

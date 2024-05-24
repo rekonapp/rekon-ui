@@ -1,14 +1,15 @@
 import FloatingMenu from './FloatingMenu';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const FloatingMenuContainer = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    
+    const { key } = useParams();
+
     const onReturnClick = () => {
         const mappedRoutes = {
-            '/your-gallery-photo': '/your-gallery',
-            '/event-gallery-photo': '/event-gallery',
+            '/your-gallery/photo': '/your-gallery',
+            [`/event-gallery/photo/${key}`]: '/event-gallery',
             '/your-gallery': '/',
             '/event-gallery': '/'
         };

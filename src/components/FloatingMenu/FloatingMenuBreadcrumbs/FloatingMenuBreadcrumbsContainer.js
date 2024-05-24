@@ -1,3 +1,4 @@
+import { startsWith } from 'lodash';
 import { Button } from '@mantine/core';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -10,12 +11,41 @@ const FloatingMenuBreadcrumbsContainer = () => {
 
     const mountBreadCrumbs = () => {
         const currentPath = location.pathname;
-    
-        const homeElement = { title: 'Home', redirect: '/', path: '/', show: true, disabled: currentPath !== '/' };
-        const yourGalleryPhotoElement = { title: 'Foto', path: '/your-gallery-photo', show: currentPath === '/your-gallery-photo' };
-        const eventGalleryPhotoElement = { title: 'Foto', path: '/event-gallery-photo', show: currentPath === '/event-gallery-photo' };
-        const yourGalleryElement = { title: 'Sua Galeria', redirect: '/your-gallery', path: '/your-gallery', show: ['/', '/your-gallery'].includes(currentPath)  };
-        const eventGalleryElement = { title: 'Galeria do Evento', redirect: '/event-gallery', path: '/event-gallery', show: ['/', '/event-gallery'].includes(currentPath)  };
+
+        const homeElement = {
+            title: 'Home',
+            redirect: '/',
+            path: '/',
+            show: true,
+            disabled: currentPath !== '/'
+        };
+        
+        const yourGalleryPhotoElement = {
+            title: 'Foto',
+            path: '/your-gallery-photo',
+            show: currentPath === '/your-gallery-photo'
+        };
+        
+        const eventGalleryPhotoElement = {
+            title: 'Foto',
+            path: `/event-gallery/photo/`,
+            show: startsWith(currentPath, '/event-gallery/photo')
+        };
+
+        const yourGalleryElement = {
+            title: 'Sua Galeria',
+            redirect: '/your-gallery',
+            path: '/your-gallery',
+            show: ['/', '/your-gallery'].includes(currentPath) 
+        };
+        
+        const eventGalleryElement = {
+            path: '/event-gallery',
+            title: 'Galeria do Evento',
+            redirect: '/event-gallery',
+            disabled: currentPath !== '/event-gallery' ,
+            show: ['/', '/event-gallery'].includes(currentPath) || startsWith(currentPath, '/event-gallery/photo')
+         };
     
         const navigationItems = [
             homeElement,

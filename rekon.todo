@@ -31,17 +31,59 @@ Rekon:
                 ✔ Fill all images @done(24-05-21 04:02)
                 ✔ Loading state @done(24-05-21 04:02)
             ✔ Pagination @done(24-05-21 05:24)
-        [ ] Floating behaviour header
-        [ ] Floating behaviour footer
-            [ ] Actions
-            [ ] Scroll to top
+        ✔ Floating behaviour header @done(24-05-23 03:03)
+        ✔ Floating behaviour footer @done(24-05-23 03:03)
+            ✔ Actions @done(24-05-23 03:03)
+            ✔ Scroll to top @done(24-05-23 03:03)
+
     [ ] Foto
-        [ ] Mobile
-        [ ] Desktop
-    [ ] Sua foto
-        [ ] Mobile
-        [ ] Desktop
+        [ ] FloatingMenu
+        [ ] Foto
+            [ ] Estado de loading para a foto
+            [ ] Estado de erro para a foto
+            [ ] Download
+                [ ] Loading para download
+                [ ] Erro para download
+                [ ] Alert do Mantine
+            ✔ Sobre @done(24-05-23 23:07)
+                ✔ Data foto @done(24-05-23 23:07)
+                ✔ Insta do fotógrafo @done(24-05-23 23:07)
+            ✔ Reduzir foto @done(24-05-23 23:43)
+                ✔ Se o scroll chega até 30% da foto, reduzir a foto @done(24-05-23 23:43)
+                ✔ Se retornar a perto do topo, volta a foto ao tamanho original @done(24-05-23 23:43)
+        [ ] Galeria
+            [ ] Adicionar estado de ativo na foto
+            [ ] Quando clicar na foto, a foto deve vir ativa
+            [ ] Tamanho de colunas sempre em 4, com scroll ref no final do mesmo modo
+        [ ] Ações
+            [ ] Me encontre
+            [ ] Scroll para cima
+
+    [ ] Sua Galeria
+        [ ] Floating Menu
+        [ ] Foto
+            [ ] Referenciada pelo id da foto (trocar por random key)
+            [ ] Galeria das fotos
+            [ ] Se der reload
+            [ ] Encontrar a foto pelo ID
+        [ ] Galeria de fotos
+            [ ] Envia todas as fotos da pessoa ou faz paginação do mesmo modo?
+            [ ] Pensar em um modo de paginar as fotos
+        [ ] Ações
+            [ ] Me encontre
+            [ ] Scroll para cima
+
     [ ] Me encontre
         [ ] Mobile
+            [ ] Tirar foto
+            [ ] Enviar pela galeria
         [ ] Desktop
+            [ ] Upload da foto
+        [ ] Tela de loading para quando carregar a foto
+
+    [ ] Upload da foto
+
+    ✔ LEMBRETE, Dps de fechar tudo @done(24-05-23 22:05)
+        ✔ Usar uma chave única para cada foto (Pode ser o id da foto que salva no rekognition) @done(24-05-23 22:05)
+        ✔ Colocar externalId na foto do rekognition para dar o find na foto @done(24-05-23 22:05)
             

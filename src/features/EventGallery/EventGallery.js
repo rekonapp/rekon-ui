@@ -10,6 +10,7 @@ import {
 } from '@mantine/core';
 
 const EventGallery = ({
+    onPhotoClick,
     scrollRef,
     scrollIntoView
 }) => {
@@ -17,7 +18,7 @@ const EventGallery = ({
         <Container size='sm' pt='4rem'>
             <FloatingMenuContainer/>
             <GalleryTextContainer />
-            <GalleryPhotosContainer scrollRef={scrollRef}/>
+            <GalleryPhotosContainer onPhotoClick={onPhotoClick} scrollRef={scrollRef}/>
             <FloatingActionsContainer scrollIntoView={scrollIntoView}/>
         </Container>
     )
@@ -25,6 +26,7 @@ const EventGallery = ({
 
 EventGallery.propTypes = {
     scrollRef: PropTypes.object.isRequired,
+    onPhotoClick: PropTypes.func.isRequired,
     scrollIntoView: PropTypes.func.isRequired
 };
 

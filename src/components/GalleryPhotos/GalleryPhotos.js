@@ -7,12 +7,13 @@ import {
     Flex
 } from '@mantine/core';
 
+import classes from './GalleryPhotos.module.css';
 import { IconPhotoOff } from '@tabler/icons-react';
 import GalleryPhotoContainer from './GalleryPhoto';
 
-const renderItem = item => {
-    return item.data.map(item => (
-        <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${item.id}`}>
+const renderItem = (item, onPhotoClick, key) => {
+    return item.data.map((item, index) => (
+        <Grid.Col className={key}  span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${index}`} onClick={() => onPhotoClick(item)}>
             <GalleryPhotoContainer imageUrl={item.thumb_url}/>
         </Grid.Col>
     ));
@@ -34,6 +35,8 @@ const renderEmpty = () => {
 };
 
 const GalleryPhotos = ({
+    key,
+    onPhotoClick,
     scrollRef,
     reference,
     data,
@@ -53,7 +56,7 @@ const GalleryPhotos = ({
                 </Grid>
             ) : (
                 <Grid mt='xl' grow={loadingPagination} pb='100px' ref={scrollRef}>
-                    {data?.pages?.length ? data?.pages?.map(item => renderItem(item, data)) : renderEmpty()}
+                    {data?.pages?.length ? data?.pages?.map(item => renderItem(item, onPhotoClick, key)) : renderEmpty()}
                     {
                         loadingPagination && (
                             <Grid.Col span={{ base: 6, sm: 6, md: 4 }}>
@@ -70,10 +73,12 @@ const GalleryPhotos = ({
 );
 
 GalleryPhotos.propTypes = {
+    onPhotoClick: PropTypes.func,
     scrollRef: PropTypes.object,
     reference: PropTypes.any,
     data: PropTypes.object,
     page: PropTypes.number,
+    key: PropTypes.string,
     status: PropTypes.string,
     loadingPagination: PropTypes.bool
 };
