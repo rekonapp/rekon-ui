@@ -37,7 +37,7 @@ const GlobalProvider = ({ children }) => {
     const [globalLoading, setGlobalLoading] = useState(false);
 
     return (
-        <GlobalContext.Provider value={{ globalLoading, setGlobalLoading }}>
+        <GlobalContext.Provider value={{ globalLoading, setGlobalLoading, event_key: import.meta.env.VITE_EVENT_KEY }}>
             {children}
         </GlobalContext.Provider>
     );
