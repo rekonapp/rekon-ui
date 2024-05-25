@@ -14,13 +14,14 @@ import {
 import classes from './FloatingActions.module.css';
 
 const FloatingActions = ({
-    onScrollClick
+    onScrollClick,
+    onFindClick
 }) => {    
     return (
         <Container size='sm' mt='sm' className={classes.fixedActions}>
             <Paper withBorder radius='xl' p='sm' className={classes.fixedActionsInfo} h='72px'>
                 <Flex align='center' justify='space-between' gap='20px'>
-                    <Button radius='xl' bg='red.9' h={42} fw='400' flex='2'>Me encontre!</Button>
+                    <Button onClick={() => onFindClick()} radius='xl' bg='red.9' h={42} fw='400' flex='2'>Me encontre!</Button>
                     <ActionIcon color='gray.5' size='md' w='48' h='48' radius='xl' onClick={() => onScrollClick()}>
                         <IconArrowUp stroke={1}></IconArrowUp>
                     </ActionIcon>
@@ -31,6 +32,7 @@ const FloatingActions = ({
 };
 
 FloatingActions.propTypes = {
+    onFindClick: PropTypes.func.isRequired,
     onScrollClick: PropTypes.func.isRequired
 };
 

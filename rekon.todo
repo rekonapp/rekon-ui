@@ -58,13 +58,14 @@ Rekon:
             ✔ Scroll para cima @done(24-05-24 23:08)
 
     [ ] Me encontre
+        ✔ Verificar se é mobile @done(24-05-25 01:24)
         [ ] Mobile
             [ ] Tirar foto
             [ ] Enviar pela galeria
         [ ] Desktop
             [ ] Upload da foto
-        [ ] Tela de loading para quando carregar a foto
-        [ ] Contexto no react        
+        ✔ Tela de loading para quando carregar a foto @done(24-05-25 01:02)
+        ✔ Contexto no react @done(24-05-25 01:02)
 
     [ ] Sua Galeria
         [ ] Floating Menu
@@ -79,6 +80,8 @@ Rekon:
         [ ] Ações
             [ ] Me encontre
             [ ] Scroll para cima
+
+    [ ] Colocar o scrollIntoView e scrollRef no GlobalContext
 
     ✔ Upload da foto @done(24-05-24 23:09)
 

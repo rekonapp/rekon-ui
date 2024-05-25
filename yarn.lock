@@ -467,6 +467,13 @@
     react-textarea-autosize "8.5.3"
     type-fest "^4.12.0"
 
+"@mantine/dropzone@^7.10.0":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@mantine/dropzone/-/dropzone-7.10.0.tgz#54283a22d1e848619a1659e38dd29852bff135e7"
+  integrity sha512-LFJjYvz0pSfKCSiVGLgAS94AazF2npK/ZYrr+Ax9/tdd1HgbxSd3B8SaPdGm1wOwZbpp8w0auyl3fZfqnDBG8w==
+  dependencies:
+    react-dropzone-esm "15.0.1"
+
 "@mantine/hooks@^7.9.2":
   version "7.9.2"
   resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-7.9.2.tgz#5cb2abc5b293b6571456443cee858f98503cc7c5"
@@ -2281,6 +2288,13 @@ react-dom@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
+
+react-dropzone-esm@15.0.1:
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/react-dropzone-esm/-/react-dropzone-esm-15.0.1.tgz#8c689638aaa9feb5b2a429dd565acfa6792263e5"
+  integrity sha512-RdeGpqwHnoV/IlDFpQji7t7pTtlC2O1i/Br0LWkRZ9hYtLyce814S71h5NolnCZXsIN5wrZId6+8eQj2EBnEzg==
+  dependencies:
+    prop-types "^15.8.1"
 
 react-intersection-observer@^9.10.2:
   version "9.10.2"

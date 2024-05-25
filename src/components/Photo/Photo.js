@@ -1,5 +1,4 @@
 import {
-    Anchor,
     Card,
     Flex,
     Button,
@@ -61,7 +60,7 @@ const Photo = ({
                     </>
                     ) || (
                     <Card.Section h={'420px'}>
-                        <LoadingOverlay visible={true} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
+                        <LoadingOverlay visible={true} color='red.9' zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
                     </Card.Section>
                 )
             }

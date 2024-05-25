@@ -1,9 +1,13 @@
+import { useContext } from 'react';
 import EventGallery from './EventGallery';
-import { useScrollIntoView } from '@mantine/hooks';
+import { GlobalContext } from '../../Root';
 import { useNavigate } from "react-router-dom";
+import GlobalLoader from '../../components/GlobalLoader';
+import { useScrollIntoView } from '@mantine/hooks';
 
 const EventGalleryContainer = () => {
     const navigate = useNavigate();
+    const globalContext = useContext(GlobalContext);
 
     const { scrollIntoView, targetRef } = useScrollIntoView({
         duration: 200
@@ -14,6 +18,12 @@ const EventGalleryContainer = () => {
             pathname: `/event-gallery/photo/${photo.key}`,
         });
     };
+
+    if (globalContext.globalLoading) {
+        return (
+            <GlobalLoader/>
+        )
+    }
 
 	return (
 		<EventGallery

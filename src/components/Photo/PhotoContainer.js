@@ -7,8 +7,8 @@ const PhotoContainer = () => {
     const { key } = useParams();
     const [photo, setPhoto] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [downloadLoading, setDownloadLoading] = useState(null);
     const [reducedImage, setReducedImage] = useState(false);
+    const [downloadLoading, setDownloadLoading] = useState(false);
 
     useEffect(() => {   
         const handleScroll = () => {
