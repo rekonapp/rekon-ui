@@ -12,12 +12,12 @@ import { IconEye } from '@tabler/icons-react';
 
 import classes from './GalleryPhoto.module.css';
 
-const GalleryPhoto = ({ imageUrl }) => {
+const GalleryPhoto = ({ active, imageUrl }) => {
     const { hovered, ref } = useHover();
 
     return (
         <>
-            <Card shadow="sm" padding="lg" radius="md" withBorder ref={ref}>
+            <Card className={active && classes.active} shadow="sm" padding="lg" radius="md" withBorder ref={ref}>
                 <Card.Section>
                     <Image
                         src={imageUrl}
@@ -41,6 +41,7 @@ const GalleryPhoto = ({ imageUrl }) => {
 };
 
 GalleryPhoto.propTypes = {
+    active: PropTypes.bool,
     imageUrl: PropTypes.string.isRequired
 };
 

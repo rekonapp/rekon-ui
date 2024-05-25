@@ -36,28 +36,35 @@ Rekon:
             ✔ Actions @done(24-05-23 03:03)
             ✔ Scroll to top @done(24-05-23 03:03)
 
-    [ ] Foto
-        [ ] FloatingMenu
-        [ ] Foto
-            [ ] Estado de loading para a foto
-            [ ] Estado de erro para a foto
-            [ ] Download
-                [ ] Loading para download
-                [ ] Erro para download
-                [ ] Alert do Mantine
+    ✔ Foto @done(24-05-24 23:08)
+        ✔ FloatingMenu @done(24-05-24 23:08)
+        ✔ Foto @done(24-05-24 23:08)
+            ✔ Estado de loading para a foto @done(24-05-24 19:10)
+            ✔ Estado de erro para a foto @done(24-05-24 23:08)
+            ✔ Download @done(24-05-24 22:42)
+                ✔ Loading para download @done(24-05-24 22:42)
             ✔ Sobre @done(24-05-23 23:07)
                 ✔ Data foto @done(24-05-23 23:07)
                 ✔ Insta do fotógrafo @done(24-05-23 23:07)
             ✔ Reduzir foto @done(24-05-23 23:43)
                 ✔ Se o scroll chega até 30% da foto, reduzir a foto @done(24-05-23 23:43)
                 ✔ Se retornar a perto do topo, volta a foto ao tamanho original @done(24-05-23 23:43)
-        [ ] Galeria
-            [ ] Adicionar estado de ativo na foto
-            [ ] Quando clicar na foto, a foto deve vir ativa
-            [ ] Tamanho de colunas sempre em 4, com scroll ref no final do mesmo modo
-        [ ] Ações
-            [ ] Me encontre
-            [ ] Scroll para cima
+        ✔ Galeria @done(24-05-24 19:05)
+            ✔ Adicionar estado de ativo na foto @done(24-05-24 19:05)
+            ✔ Quando clicar na foto, a foto deve vir ativa @done(24-05-24 19:05)
+            ✔ Tamanho de colunas sempre em 4, com scroll ref no final do mesmo modo @done(24-05-24 19:05)
+        ✔ Ações @done(24-05-24 23:08)
+            ✔ Me encontre @done(24-05-24 23:08)
+            ✔ Scroll para cima @done(24-05-24 23:08)
+
+    [ ] Me encontre
+        [ ] Mobile
+            [ ] Tirar foto
+            [ ] Enviar pela galeria
+        [ ] Desktop
+            [ ] Upload da foto
+        [ ] Tela de loading para quando carregar a foto
+        [ ] Contexto no react        
 
     [ ] Sua Galeria
         [ ] Floating Menu
@@ -73,15 +80,7 @@ Rekon:
             [ ] Me encontre
             [ ] Scroll para cima
 
-    [ ] Me encontre
-        [ ] Mobile
-            [ ] Tirar foto
-            [ ] Enviar pela galeria
-        [ ] Desktop
-            [ ] Upload da foto
-        [ ] Tela de loading para quando carregar a foto
-
-    [ ] Upload da foto
+    ✔ Upload da foto @done(24-05-24 23:09)
 
     ✔ LEMBRETE, Dps de fechar tudo @done(24-05-23 22:05)
         ✔ Usar uma chave única para cada foto (Pode ser o id da foto que salva no rekognition) @done(24-05-23 22:05)

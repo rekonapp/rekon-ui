@@ -7,6 +7,7 @@ const PhotoContainer = () => {
     const { key } = useParams();
     const [photo, setPhoto] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [downloadLoading, setDownloadLoading] = useState(null);
     const [reducedImage, setReducedImage] = useState(false);
 
     useEffect(() => {   
@@ -43,11 +44,34 @@ const PhotoContainer = () => {
         loadData();
     }, [key]);
 
+	const downloadImage = photo => {
+        setDownloadLoading(true);
+        
+		fetch(photo.url).then(image => {
+			image.blob().then((imageBlog) => {
+				const imageURL = URL.createObjectURL(imageBlog);
+				const link = document.createElement('a');
+
+				link.href = imageURL;
+				link.download = `photo-${photo.key}.jpg`;
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			}).finally(() => {
+                setDownloadLoading(false);
+            });
+		}).catch(() => {
+            setDownloadLoading(false);
+        });
+	};
+
     return (
         <Photo 
             photo={photo}
             loading={loading}
             reducedImage={reducedImage}
+            downloadLoading={downloadLoading}
+            onDownloadClick={downloadImage}
         />
     )
 }

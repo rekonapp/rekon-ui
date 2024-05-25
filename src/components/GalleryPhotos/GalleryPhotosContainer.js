@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { client } from '../../app/api';
 import GalleryPhotos from './GalleryPhotos';
-import { useParams } from 'react-router-dom';
 
 import {
     useInfiniteQuery,
@@ -14,7 +13,6 @@ const GalleryPhotosContainer = ({
     onPhotoClick,
     scrollRef
 }) => {
-    const { key } = useParams();
     const { ref, inView } = useInView();
     const {
         data,
@@ -60,12 +58,11 @@ const GalleryPhotosContainer = ({
     return (
         <>
             <GalleryPhotos
-                key={key}
+                data={data}
+                status={status}
+                reference={ref}
                 onPhotoClick={onPhotoClick}
                 scrollReference={scrollRef}
-                reference={ref}
-                status={status}
-                data={data}
                 loadingPagination={isFetching}
             />
         </>

@@ -7,16 +7,17 @@ import {
     Flex
 } from '@mantine/core';
 
-import classes from './GalleryPhotos.module.css';
 import { IconPhotoOff } from '@tabler/icons-react';
 import GalleryPhotoContainer from './GalleryPhoto';
 
-const renderItem = (item, onPhotoClick, key) => {
-    return item.data.map((item, index) => (
-        <Grid.Col className={key}  span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${index}`} onClick={() => onPhotoClick(item)}>
-            <GalleryPhotoContainer imageUrl={item.thumb_url}/>
-        </Grid.Col>
-    ));
+const renderItem = (item, onPhotoClick) => {
+    return item.data.map((item, index) => {
+        return (
+            <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${index}`} onClick={() => onPhotoClick(item)}>
+                <GalleryPhotoContainer imageUrl={item.thumb_url} imageKey={item.key}/>
+            </Grid.Col>
+        )
+    });
 };
 
 const renderEmpty = () => {
@@ -35,7 +36,6 @@ const renderEmpty = () => {
 };
 
 const GalleryPhotos = ({
-    key,
     onPhotoClick,
     scrollRef,
     reference,
@@ -56,7 +56,7 @@ const GalleryPhotos = ({
                 </Grid>
             ) : (
                 <Grid mt='xl' grow={loadingPagination} pb='100px' ref={scrollRef}>
-                    {data?.pages?.length ? data?.pages?.map(item => renderItem(item, onPhotoClick, key)) : renderEmpty()}
+                    {data?.pages?.length ? data?.pages?.map(item => renderItem(item, onPhotoClick)) : renderEmpty()}
                     {
                         loadingPagination && (
                             <Grid.Col span={{ base: 6, sm: 6, md: 4 }}>
@@ -78,7 +78,6 @@ GalleryPhotos.propTypes = {
     reference: PropTypes.any,
     data: PropTypes.object,
     page: PropTypes.number,
-    key: PropTypes.string,
     status: PropTypes.string,
     loadingPagination: PropTypes.bool
 };
