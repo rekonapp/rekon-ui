@@ -92,8 +92,8 @@ Rekon:
             ✔ Not found @done(24-05-25 23:47)
             [ ] Scroll do box
             [ ] Galeria das fotos
-            [ ] Se der reload
-            [ ] Encontrar a foto pelo ID
+            ✔ Se der reload @done(24-05-26 14:58)
+            ✔ Encontrar a foto pelo ID @done(24-05-26 14:58)
         [ ] Galeria de fotos
             [ ] Envia todas as fotos da pessoa ou faz paginação do mesmo modo?
             [ ] Pensar em um modo de paginar as fotos

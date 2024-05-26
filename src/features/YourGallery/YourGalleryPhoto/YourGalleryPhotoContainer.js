@@ -33,6 +33,6 @@ const YourGalleryPhotoContainer = ({
 YourGalleryPhotoContainer.propTypes = {
     url: PropTypes.string,
     loading: PropTypes.bool.isRequired
-}
+};
 
-export default YourGalleryPhotoContainer
+export default YourGalleryPhotoContainer;

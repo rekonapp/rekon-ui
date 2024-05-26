@@ -14,7 +14,7 @@ const YourGalleryPhoto = ({
     reducedImage
 }) => {
   return (
-    <Card my='3rem' withBorder className={classes.imageContainer} mt={ reducedImage ? '100px' : '32px' } h={reducedImage ? 176 : 200}>
+    <Card my='3rem' withBorder className={classes.imageContainer} mt={ reducedImage ? '90px' : '32px' } h={reducedImage ? 176 : 200}>
         <Center h={reducedImage ? 176 : 200}>
             {
                 loading && (

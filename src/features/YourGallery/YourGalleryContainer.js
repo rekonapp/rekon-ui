@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
 import { useScrollIntoView } from '@mantine/hooks';
+import { useState, useEffect, useContext } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
 import YourGallery from './YourGallery'
 import { client } from '../../app/api'; 
-
+import { GlobalContext } from '../../Root';
+import GlobalLoader from '../../components/GlobalLoader';
 
 const YourGalleryContainer = () => {
     const { key } = useParams();
@@ -41,10 +42,18 @@ const YourGalleryContainer = () => {
         };
 
         loadData();
-    }, []);
+    }, [key, state]);
+
+    const globalContext = useContext(GlobalContext);
+
+    if (globalContext.globalLoading) {
+        return (
+            <GlobalLoader/>
+        )
+    }
 
     return (
-        <YourGallery scrollIntoView={scrollIntoView} loading={loading} url={url}/>
+        <YourGallery scrollRef={targetRef} scrollIntoView={scrollIntoView} loading={loading} url={url}/>
     )
 };
 

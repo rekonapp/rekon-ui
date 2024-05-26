@@ -27,10 +27,14 @@ const YourGalleryText = ({
                         </Title>
                     </>
                 ) || (
-                    <Title order={2} fw='400' ta='center' mt='xl'>
-                        Desculpe, mas não<br/>encontramos fotos com seu <br/>rosto :(
-                    </Title>
-                    
+                    <>
+                        <Title order={2} fw='400' ta='center' mt='xl'>
+                            Desculpe, mas não<br/>encontramos fotos com seu <br/>rosto :(
+                        </Title>
+                        <Title order={6} fw='400' ta='center' mt='md' c='gray.6'>
+                            Fotos que possuem rostos reconhecidos por nossa tecnologia <br/> aparecem logo abaixo.
+                        </Title>
+                    </>
                 )
             )
         }
