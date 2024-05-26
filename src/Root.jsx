@@ -8,13 +8,13 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
-import { RouterProvider } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import '@mantine/core/styles.css';
 import '@mantine/dropzone/styles.css';
 import '@mantine/carousel/styles.css';
 
-import { createRouter } from './app/routes';
+import RouterContainer from './app/routes';
 
 import 'dayjs/locale/pt-br';
 
@@ -45,21 +45,22 @@ const GlobalProvider = ({ children }) => {
 
 const Root = () => {
     const queryClient = new QueryClient();
-	const router = createRouter();
 
 	return (
-        <GlobalProvider>
-            <QueryClientProvider client={queryClient}>
-                <MantineProvider theme={{
-                        fontFamily: 'Archivo, serif',
-                        headings: { fontFamily: 'Archivo, serif' }
-                    }}>
-                    <ModalsProvider modalProps={{ centered: true }}>
-                        <RouterProvider router={router} />
-                    </ModalsProvider>
-                </MantineProvider>
-            </QueryClientProvider>
-        </GlobalProvider>
+        <BrowserRouter>
+            <GlobalProvider>
+                <QueryClientProvider client={queryClient}>
+                    <MantineProvider theme={{
+                            fontFamily: 'Archivo, serif',
+                            headings: { fontFamily: 'Archivo, serif' }
+                        }}>
+                        <ModalsProvider modalProps={{ centered: true }}>
+                            <RouterContainer/>
+                        </ModalsProvider>
+                    </MantineProvider>
+                </QueryClientProvider>
+            </GlobalProvider>
+        </BrowserRouter>
 	);
 };
 

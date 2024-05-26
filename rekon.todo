@@ -62,15 +62,35 @@ Rekon:
         [ ] Mobile
             [ ] Tirar foto
             [ ] Enviar pela galeria
-        [ ] Desktop
-            [ ] Upload da foto
+        ✔ Desktop @done(24-05-25 03:39)
+            ✔ Upload da foto @done(24-05-25 03:39)
         ✔ Tela de loading para quando carregar a foto @done(24-05-25 01:02)
         ✔ Contexto no react @done(24-05-25 01:02)
+        ✔ Retornar apenas uma foto @done(24-05-25 21:29)
+            ✔ Criar uma tabela no banco @done(24-05-25 21:13)
+                ✔ event_file_faces @done(24-05-25 21:13)
+                ✔ event_file_id @done(24-05-25 21:13)
+                ✔ face_id @done(24-05-25 21:13)
+            ✔ Se já tiver o face_id na tabela @done(24-05-25 21:29)
+                ✔ Retorna a foto @done(24-05-25 21:29)
+            ✔ Se não @done(24-05-25 21:58)
+                ✔ Cortar a foto @done(24-05-25 21:58)
+                ✔ Baixa @done(24-05-25 21:58)
+                ✔ Cria @done(24-05-25 21:58)
+                ✔ Retorna a foto @done(24-05-25 21:58)
+        ✔ Ao entrar na tela @done(24-05-25 22:27)
+            ✔ Enviar o FaceId @done(24-05-25 22:27)
 
     [ ] Sua Galeria
-        [ ] Floating Menu
+        ✔ Floating Menu @done(24-05-25 23:09)
         [ ] Foto
-            [ ] Referenciada pelo id da foto (trocar por random key)
+            ✔ Referenciada pelo id da foto (trocar por random key) @done(24-05-25 23:09)
+            ✔ Se nn tiver foto @done(24-05-25 23:09)
+                ✔ Find da foto @done(24-05-25 23:09)
+            ✔ Transição de modal p/ foto @done(24-05-25 23:47)
+            ✔ Find da foto @done(24-05-25 23:47)
+            ✔ Not found @done(24-05-25 23:47)
+            [ ] Scroll do box
             [ ] Galeria das fotos
             [ ] Se der reload
             [ ] Encontrar a foto pelo ID

@@ -36,7 +36,7 @@ const FloatingMenuBreadcrumbsContainer = () => {
             title: 'Sua Galeria',
             redirect: '/your-gallery',
             path: '/your-gallery',
-            show: ['/', '/your-gallery'].includes(currentPath) 
+            show: ['/'].includes(currentPath) || startsWith(currentPath, '/your-gallery'),
         };
         
         const eventGalleryElement = {

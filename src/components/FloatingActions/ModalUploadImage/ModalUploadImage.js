@@ -25,6 +25,7 @@ const ModalUploadImage = ({
                 className={classes.root}
                 onDrop={dropzoneControl.onSuccess}
                 accept={IMAGE_MIME_TYPE}
+                maxSize={5242880}
                 >
                 <Group justify="center" gap="xl" mih={!file && 227 || 139} style={{ pointerEvents: 'none', color: file && 'red' }}>
                     <Box ta='center'>

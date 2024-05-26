@@ -10,7 +10,7 @@ const FloatingMenuContainer = () => {
         const mappedRoutes = {
             '/your-gallery/photo': '/your-gallery',
             [`/event-gallery/photo/${key}`]: '/event-gallery',
-            '/your-gallery': '/',
+            [`/your-gallery/${key}`]: '/',
             '/event-gallery': '/'
         };
 

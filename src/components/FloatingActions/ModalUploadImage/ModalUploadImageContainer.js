@@ -1,4 +1,7 @@
 import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+
 import { GlobalContext } from '../../../Root';
 import { closeModal } from '../../../utils/modal';
 import ModalUploadImage from './ModalUploadImage';
@@ -6,6 +9,7 @@ import { exportBase64 } from '../../../utils/file';
 import { client } from '../../../app/api'; 
 
 const ModalUploadImageContainer = () => {
+    const navigate = useNavigate();
     const globalContext = useContext(GlobalContext);
 
     const [file, setFile] = useState(null);
@@ -23,13 +27,23 @@ const ModalUploadImageContainer = () => {
 
             globalContext.setGlobalLoading(true);
 
-            await client('/event-file/search', {
+            const response = await client('/event-file/search', {
                 method: 'POST',
                 data: {
                     image: base64,
                     event_key: globalContext.event_key
                 }
             });
+
+            if (!response.data) {
+                navigate('/your-gallery/not-found', { state: { data: { url: null } } });
+
+                globalContext.setGlobalLoading(false);
+
+                return;
+            }
+
+            navigate(`/your-gallery/${response.data.face_id || 'not-found'}`, { state: response });
 
             globalContext.setGlobalLoading(false);
         } catch (error) {
