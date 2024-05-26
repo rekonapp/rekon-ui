@@ -90,13 +90,12 @@ Rekon:
             ✔ Transição de modal p/ foto @done(24-05-25 23:47)
             ✔ Find da foto @done(24-05-25 23:47)
             ✔ Not found @done(24-05-25 23:47)
-            [ ] Scroll do box
-            [ ] Galeria das fotos
+            ✔ Scroll do box @done(24-05-26 15:44)
+            ✔ Galeria das fotos @done(24-05-26 15:44)
+                ✔ Nn encontrou @done(24-05-26 15:44)
+                ✔ Ao clicar, joga p/ o que tem @done(24-05-26 15:44)
             ✔ Se der reload @done(24-05-26 14:58)
             ✔ Encontrar a foto pelo ID @done(24-05-26 14:58)
-        [ ] Galeria de fotos
-            [ ] Envia todas as fotos da pessoa ou faz paginação do mesmo modo?
-            [ ] Pensar em um modo de paginar as fotos
         [ ] Ações
             [ ] Me encontre
             [ ] Scroll para cima

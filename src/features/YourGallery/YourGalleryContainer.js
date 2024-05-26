@@ -1,6 +1,6 @@
 import { useScrollIntoView } from '@mantine/hooks';
 import { useState, useEffect, useContext } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import YourGallery from './YourGallery'
 import { client } from '../../app/api'; 
@@ -9,6 +9,7 @@ import GlobalLoader from '../../components/GlobalLoader';
 
 const YourGalleryContainer = () => {
     const { key } = useParams();
+    const navigate = useNavigate();
     const { state } = useLocation();
     const [url, setUrl] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -44,6 +45,14 @@ const YourGalleryContainer = () => {
         loadData();
     }, [key, state]);
 
+    const onGalleryPhotosClick = photo => {
+        navigate({
+            pathname: `/event-gallery/photo/${photo.key}`,
+        });
+
+        scrollIntoView();
+    };
+
     const globalContext = useContext(GlobalContext);
 
     if (globalContext.globalLoading) {
@@ -53,7 +62,7 @@ const YourGalleryContainer = () => {
     }
 
     return (
-        <YourGallery scrollRef={targetRef} scrollIntoView={scrollIntoView} loading={loading} url={url}/>
+        <YourGallery onGalleryPhotosClick={onGalleryPhotosClick} scrollRef={targetRef} scrollIntoView={scrollIntoView} loading={loading} url={url}/>
     )
 };
 

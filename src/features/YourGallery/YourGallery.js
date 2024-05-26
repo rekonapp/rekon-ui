@@ -10,14 +10,15 @@ const YourGallery = ({
     url,
     loading,
     scrollRef,
-    scrollIntoView
+    scrollIntoView,
+    onGalleryPhotosClick
 }) => {
   return (
     <Container size='sm' pt='4rem'>
         <FloatingMenuContainer/>
         <YourGalleryPhotoContainer loading={loading} url={url}/>
         <YourGalleryTextContainer loading={loading} url={url} />
-        <YourGalleryPhotosContainer scrollRef={scrollRef} loading={loading} url={url}/>
+        <YourGalleryPhotosContainer onGalleryPhotosClick={onGalleryPhotosClick} scrollRef={scrollRef} loading={loading} url={url}/>
         <FloatingActionsContainer scrollIntoView={scrollIntoView}/>
     </Container>
   )
@@ -27,7 +28,8 @@ YourGallery.propTypes = {
     url: PropTypes.string,
     scrollRef: PropTypes.object,
     loading: PropTypes.bool.isRequired,
-    scrollIntoView: PropTypes.func.isRequired
+    scrollIntoView: PropTypes.func.isRequired,
+    onGalleryPhotosClick: PropTypes.func.isRequired
 }
 
 export default YourGallery

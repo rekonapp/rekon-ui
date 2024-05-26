@@ -5,7 +5,8 @@ import YourPhotosContainer from '../../../components/YourPhotos/';
 const YourGalleryPhotos = ({
     url,
     loading,
-    scrollRef
+    scrollRef,
+    onGalleryPhotosClick
 }) => {
   return (
     !loading && (
@@ -14,9 +15,7 @@ const YourGalleryPhotos = ({
                 console.log('photo clicked');
             }}/>
         ) || (
-            <GalleryPhotosContainer scrollRef={scrollRef} onPhotoClick={() => {
-                console.log('photo clicked');
-            }}/>
+            <GalleryPhotosContainer scrollRef={scrollRef} onPhotoClick={onGalleryPhotosClick}/>
         )
     )
   )
@@ -25,7 +24,8 @@ const YourGalleryPhotos = ({
 YourGalleryPhotos.propTypes = {
     url: PropTypes.string,
     scrollRef: PropTypes.object,
-    loading: PropTypes.bool.isRequired
+    loading: PropTypes.bool.isRequired,
+    onGalleryPhotosClick: PropTypes.func.isRequired
 }
 
 export default YourGalleryPhotos;
