@@ -1,23 +1,50 @@
 import PropTypes from 'prop-types';
-import GalleryPhotosContainer from '../../../components/GalleryPhotos/';
+import {
+    Grid,
+    Skeleton
+} from '@mantine/core';
 import YourPhotosContainer from '../../../components/YourPhotos/';
 
 const YourGalleryPhotos = ({
     url,
     loading,
-    scrollRef,
-    onGalleryPhotosClick
+    scrollRef
 }) => {
   return (
-    !loading && (
-        url && (
-            <YourPhotosContainer scrollRef={scrollRef} onPhotoClick={() => {
-                console.log('photo clicked');
-            }}/>
-        ) || (
-            <GalleryPhotosContainer scrollRef={scrollRef} onPhotoClick={onGalleryPhotosClick}/>
+  <>
+    {
+        !loading && (
+            url ? (
+                <>
+                    <YourPhotosContainer scrollRef={scrollRef} onPhotoClick={() => {
+                        console.log('photo clicked');
+                    }}/>
+                </>
+            ) : (
+                <Grid mt='xl' grow>
+                    <Grid.Col span={{ base: 4 }}>
+                        <Skeleton height={200} animate={false}/>
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 4 }}>
+                        <Skeleton height={200} animate={false}/>
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 4 }}>
+                        <Skeleton height={200} animate={false}/>
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 4 }}>
+                        <Skeleton height={170} animate={false}/>
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 4 }}>
+                        <Skeleton height={170} animate={false}/>
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 4 }}>
+                        <Skeleton height={170} animate={false}/>
+                    </Grid.Col>
+                </Grid>
+            )
         )
-    )
+    }
+  </>
   )
 }
 

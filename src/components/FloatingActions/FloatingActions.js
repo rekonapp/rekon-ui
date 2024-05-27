@@ -18,11 +18,11 @@ const FloatingActions = ({
     onFindClick
 }) => {    
     return (
-        <Container size='sm' mt='sm' className={classes.fixedActions}>
-            <Paper withBorder radius='xl' p='sm' className={classes.fixedActionsInfo} h='72px'>
+        <Container className={classes.fixedActions} h='74px'>
+            <Paper withBorder p='sm' className={classes.fixedActionsInfo}>
                 <Flex align='center' justify='space-between' gap='20px'>
-                    <Button onClick={() => onFindClick()} radius='xl' bg='red.9' h={42} fw='400' flex='2'>Me encontre!</Button>
-                    <ActionIcon color='gray.5' size='md' w='48' h='48' radius='xl' onClick={() => onScrollClick()}>
+                    <Button onClick={() => onFindClick()} radius='xl' bg='red.9' h={58} fw='400' flex='2'>Me encontre!</Button>
+                    <ActionIcon color='gray.5' size='md' w='58' h='58' radius='xl' onClick={() => onScrollClick()}>
                         <IconArrowUp stroke={1}></IconArrowUp>
                     </ActionIcon>
                 </Flex>

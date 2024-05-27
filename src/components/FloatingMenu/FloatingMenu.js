@@ -23,7 +23,7 @@ import classes from './FloatingMenu.module.css';
 
 const FloatingMenu = ({ onReturnClick }) => {    
     return (
-        <Container className={classes.fixedNavbar} size='sm' mt='sm'>
+        <Container className={classes.fixedNavbar} mt='sm'>
             <Paper withBorder radius='xl' bg='gray.0' p='xs'>
                 <Flex
                     gap="sm"

@@ -96,11 +96,25 @@ Rekon:
                 ✔ Ao clicar, joga p/ o que tem @done(24-05-26 15:44)
             ✔ Se der reload @done(24-05-26 14:58)
             ✔ Encontrar a foto pelo ID @done(24-05-26 14:58)
-        [ ] Ações
-            [ ] Me encontre
-            [ ] Scroll para cima
+        ✔ Ações @done(24-05-26 16:02)
+            ✔ Me encontre @done(24-05-26 16:02)
+        [ ] Galeria Pessoal
+            [ ] Rota que recebe o user_id + nextToken se tiver
+            [ ] Lista as imagens
+            [ ] Retorna o nextToken (ou não)
+            [ ] Pagina
+        [ ] Ao clicar
+            [ ] Find na foto
+            [ ] List com o que 
 
-    [ ] Colocar o scrollIntoView e scrollRef no GlobalContext
+    [ ] Galeria das fotos pessoais
+        [ ] Colocar o scrollIntoView e scrollRef no GlobalContext
+
+    [ ] Criar associação
+        [ ] Cria um user_id
+        [ ] Associa as faces
+        [ ] As que derem sucesso, filtra
+        [ ] Faz isso até nn ter mais length
 
     ✔ Upload da foto @done(24-05-24 23:09)
 
