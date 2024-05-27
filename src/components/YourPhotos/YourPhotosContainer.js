@@ -24,13 +24,10 @@ const YourPhotosContainer = ({
     } = useInfiniteQuery({
         queryKey: ['yourPhotosData'],
         queryFn: async ({ pageParam }) => {
-            if (!pageParam) {
-                return;
-            }
-
             const response = await client('/event-file/search-by-face', {
                 params: {
                     face_id: key,
+                    next_token: pageParam,
                     event_key: import.meta.env.VITE_EVENT_KEY
                 }
             })
@@ -42,13 +39,9 @@ const YourPhotosContainer = ({
         },
         refetchOnMount: false,
         refetchOnWindowFocus: false,
-        initialPageParam: 1,
-        getNextPageParam: (lastPage, allPages, lastPageParam) => {
-            if (lastPage.nextToken === null) {
-                return undefined;
-            }
-
-            return lastPageParam + 1;
+        initialPageParam: null,
+        getNextPageParam: (lastPage) => {
+            return lastPage.nextToken;
         }
     });
 
@@ -59,7 +52,7 @@ const YourPhotosContainer = ({
     }, [fetchNextPage, inView]);
 
   return (
-    <YourPhotos ref={ref} data={data} status={status} isFetching={isFetching} scrollRef={scrollRef} onPhotoClick={onPhotoClick}/>
+    <YourPhotos reference={ref} data={data} status={status} isFetching={isFetching} scrollRef={scrollRef} onPhotoClick={onPhotoClick}/>
   )
 };
 
