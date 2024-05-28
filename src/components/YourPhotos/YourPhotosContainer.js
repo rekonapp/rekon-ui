@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import YourPhotos from './YourPhotos';
 
 import {
@@ -10,12 +9,10 @@ import { useParams } from 'react-router-dom';
 import { client } from '../../app/api';
 import { useInView } from 'react-intersection-observer';
 
-const YourPhotosContainer = ({
-    scrollRef,
-    onPhotoClick
-}) => {
+const YourPhotosContainer = () => {
     const { key } = useParams();
     const { ref, inView } = useInView();
+
     const {
         data,
         status,
@@ -52,13 +49,8 @@ const YourPhotosContainer = ({
     }, [fetchNextPage, inView]);
 
   return (
-    <YourPhotos reference={ref} data={data} status={status} isFetching={isFetching} scrollRef={scrollRef} onPhotoClick={onPhotoClick}/>
+    <YourPhotos reference={ref} data={data} status={status} isFetching={isFetching}/>
   )
 };
 
-YourPhotosContainer.propTypes = {
-    scrollRef: PropTypes.object,
-    onPhotoClick: PropTypes.func.isRequired
-};
-
-export default YourPhotosContainer
+export default YourPhotosContainer;

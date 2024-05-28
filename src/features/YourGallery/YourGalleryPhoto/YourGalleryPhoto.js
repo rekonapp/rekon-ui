@@ -19,7 +19,7 @@ const YourGalleryPhoto = ({
             {
                 loading && (
                     <Box w={reducedImage ? '120px' : '160px'} h={reducedImage ? '120px' : '160px'} className={classes.imageLoadingBox}>
-                        <Center w={225} h={225}>
+                        <Center w='145px' h='145px'>
                             <Loader color='red.9'/>
                         </Center>
                     </Box>

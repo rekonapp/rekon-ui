@@ -1,12 +1,13 @@
-import PropTypes from 'prop-types';
-import { openModal } from '../../utils/modal';
+import { useContext } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
+
+import { GlobalContext } from '../../Root';
+import { openModal } from '../../utils/modal';
 import FloatingActions from './FloatingActions';
 import ModalUploadImageContainer from './ModalUploadImage/';
 
-const FloatingActionsContainer = ({
-    scrollIntoView
-}) => {
+const FloatingActionsContainer = () => {
+    const globalContext = useContext(GlobalContext);
     const isMobile = useMediaQuery('(max-width: 50em)');
 
     const onFindClick = () => {
@@ -20,17 +21,13 @@ const FloatingActionsContainer = ({
             children: <ModalUploadImageContainer/>
         })
     };
-
+    
 	return (
         <FloatingActions
             onFindClick={onFindClick}
-            onScrollClick={scrollIntoView}
+            onScrollClick={globalContext.scrollFn}
         />
 	);
 };
-
-FloatingActionsContainer.propTypes = {
-    scrollIntoView: PropTypes.func.isRequired
-}
 
 export default FloatingActionsContainer;

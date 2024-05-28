@@ -1,7 +1,7 @@
 .fixedActions {
     left: 50%;
     width: 100%;
-    bottom: 16px;
+    bottom: 24px;
     z-index: 1000;
     position: fixed;
     transform: translateX(-50%);

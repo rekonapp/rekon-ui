@@ -16,7 +16,7 @@ import classes from './FloatingActions.module.css';
 const FloatingActions = ({
     onScrollClick,
     onFindClick
-}) => {    
+}) => {
     return (
         <Container className={classes.fixedActions} h='74px'>
             <Paper withBorder p='sm' className={classes.fixedActionsInfo}>

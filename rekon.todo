@@ -98,23 +98,24 @@ Rekon:
             ✔ Encontrar a foto pelo ID @done(24-05-26 14:58)
         ✔ Ações @done(24-05-26 16:02)
             ✔ Me encontre @done(24-05-26 16:02)
-        [ ] Galeria Pessoal
-            [ ] Rota que recebe o user_id + nextToken se tiver
-            [ ] Lista as imagens
-            [ ] Retorna o nextToken (ou não)
-            [ ] Pagina
+        ✔ Galeria Pessoal @done(24-05-28 03:05)
+            ✔ Rota que recebe o user_id + nextToken se tiver @done(24-05-28 03:05)
+            ✔ Lista as imagens @done(24-05-28 03:05)
+            ✔ Retorna o nextToken (ou não) @done(24-05-28 03:05)
+            ✔ Pagina @done(24-05-28 03:05)
         [ ] Ao clicar
+            ✔ Update scroll @done(24-05-28 03:59)
             [ ] Find na foto
-            [ ] List com o que 
+            [ ] List com o que tem
 
-    [ ] Galeria das fotos pessoais
-        [ ] Colocar o scrollIntoView e scrollRef no GlobalContext
+    ✔ Galeria das fotos pessoais @done(24-05-28 03:58)
+        ✔ Colocar o scrollIntoView e scrollRef no GlobalContext @done(24-05-28 03:58)
 
-    [ ] Criar associação
-        [ ] Cria um user_id
-        [ ] Associa as faces
-        [ ] As que derem sucesso, filtra
-        [ ] Faz isso até nn ter mais length
+    ✘ Criar associação @cancelled(24-05-28 03:58)
+        ✘ Cria um user_id @cancelled(24-05-28 03:58)
+        ✘ Associa as faces @cancelled(24-05-28 03:58)
+        ✘ As que derem sucesso, filtra @cancelled(24-05-28 03:58)
+        ✘ Faz isso até nn ter mais length @cancelled(24-05-28 03:58)
 
     ✔ Upload da foto @done(24-05-24 23:09)
 

@@ -37,13 +37,12 @@ const renderEmpty = () => {
 
 const YourPhotos = ({
     onPhotoClick,
-    scrollRef,
     reference,
     data,
     status,
     loadingPagination
 }) => (
-    <>
+    <div >
         {
             status === 'pending' ? (
                 <Grid mt='xl' grow>
@@ -55,7 +54,7 @@ const YourPhotos = ({
                     </Grid.Col>
                 </Grid>
             ) : (
-                <Grid mt='xl' grow={loadingPagination} pb='100px' ref={scrollRef}>
+                <Grid mt='xl' grow={loadingPagination} pb='100px'>
                     {data?.pages?.length ? data?.pages?.map(item => renderItem(item, onPhotoClick)) : renderEmpty()}
                     {
                         loadingPagination && (
@@ -69,13 +68,13 @@ const YourPhotos = ({
                 </Grid>
             )
         }
-    </>
+    </div>
 );
 
 YourPhotos.propTypes = {
     onPhotoClick: PropTypes.func,
     scrollRef: PropTypes.object,
-    reference: PropTypes.object,
+    reference: PropTypes.func,
     data: PropTypes.object,
     status: PropTypes.string,
     loadingPagination: PropTypes.bool

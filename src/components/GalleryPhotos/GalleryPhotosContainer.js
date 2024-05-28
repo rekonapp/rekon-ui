@@ -1,6 +1,8 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { client } from '../../app/api';
+import { GlobalContext } from '../../Root';
 import GalleryPhotos from './GalleryPhotos';
 
 import {
@@ -9,11 +11,18 @@ import {
 
 import { useInView } from 'react-intersection-observer';
 
-const GalleryPhotosContainer = ({
-    onPhotoClick,
-    scrollRef
-}) => {
+const GalleryPhotosContainer = () => {
+    const navigate = useNavigate();
+    const globalContext = useContext(GlobalContext)
     const { ref, inView } = useInView();
+    const onPhotoClick = photo => {
+        navigate({
+            pathname: `/event-gallery/photo/${photo.key}`,
+        });
+
+        globalContext.scrollFn();
+    };
+
     const {
         data,
         status,
@@ -62,16 +71,11 @@ const GalleryPhotosContainer = ({
                 status={status}
                 reference={ref}
                 onPhotoClick={onPhotoClick}
-                scrollReference={scrollRef}
+                scrollReference={globalContext.scrollRef}
                 loadingPagination={isFetching}
             />
         </>
     )
 };
-
-GalleryPhotosContainer.propTypes = {
-    onPhotoClick: PropTypes.func.isRequired,
-    scrollRef: PropTypes.object.isRequired
-}
 
 export default GalleryPhotosContainer
