@@ -107,6 +107,7 @@ Rekon:
             ✔ Update scroll @done(24-05-28 03:59)
             [ ] Find na foto
             [ ] List com o que tem
+            [ ] Tratar do reload da foto
 
     ✔ Galeria das fotos pessoais @done(24-05-28 03:58)
         ✔ Colocar o scrollIntoView e scrollRef no GlobalContext @done(24-05-28 03:58)

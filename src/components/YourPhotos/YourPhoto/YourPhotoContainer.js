@@ -16,4 +16,4 @@ YourPhotoContainer.propTypes = {
     imageKey: PropTypes.string.isRequired
 };
 
-export default YourPhotoContainer
+export default YourPhotoContainer;

@@ -8,6 +8,7 @@ const YourGalleryPhotosContainer = ({
     loading
 }) => {
     const globalContext = useContext(GlobalContext);
+
     return (
         <YourGalleryPhotos scrollRef={globalContext.scrollRef} loading={loading} url={url}/>
     )
