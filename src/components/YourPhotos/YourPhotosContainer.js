@@ -4,13 +4,14 @@ import {
     useInfiniteQuery,
 } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { client } from '../../app/api';
 import { useInView } from 'react-intersection-observer';
 
 const YourPhotosContainer = () => {
     const { key } = useParams();
+    const navigate = useNavigate();
     const { ref, inView } = useInView();
 
     const {
@@ -42,6 +43,10 @@ const YourPhotosContainer = () => {
         }
     });
 
+    const onPhotoClick = photo => {
+        navigate(`/your-gallery/photo/${key}/${photo.key}`)
+    }
+
     useEffect(() => {
         if (inView) {
             fetchNextPage();
@@ -49,7 +54,7 @@ const YourPhotosContainer = () => {
     }, [fetchNextPage, inView]);
 
   return (
-    <YourPhotos reference={ref} data={data} status={status} isFetching={isFetching}/>
+    <YourPhotos reference={ref} data={data} onPhotoClick={onPhotoClick} status={status} isFetching={isFetching}/>
   )
 };
 
