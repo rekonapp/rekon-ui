@@ -1,0 +1,23 @@
+.mainButton {
+    width: 300px;
+    position: absolute;
+
+    @media (min-width: $mantine-breakpoint-sm) {
+        width: 454px;
+    }
+}
+
+.iconButton {
+    width: 2rem;
+    height: 2rem;
+}
+
+.actionsContainer {
+    height: 200px;
+}
+
+.redirectLink {
+    position: absolute;
+    top: 3rem;
+    cursor: pointer;
+}

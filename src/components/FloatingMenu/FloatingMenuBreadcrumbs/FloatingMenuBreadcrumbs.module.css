@@ -1,0 +1,7 @@
+.breadcrumbButton {
+    &[data-disabled] {
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+    }
+}

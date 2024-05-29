@@ -1,0 +1,30 @@
+.image {
+    padding: 6px;
+    border: 2px solid #D92F31;
+}
+
+.image img {
+    border-radius: 500px;
+}
+
+.imageContainer {
+    transition: all 0.3s;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.container {
+    border-radius: 500px;
+}
+
+.imageLoadingBox {
+    padding: 6px;
+    border-radius: 500px;
+    border: 2px solid #D92F31;    
+}
+
+.imageNotFound {
+    padding: 6px;
+    border-radius: 500px;
+    border: 2px solid #A3A3A3;
+}

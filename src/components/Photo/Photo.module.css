@@ -1,0 +1,19 @@
+.photoContainer, .photo {
+    transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease; 
+    -webkit-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+  
+    transition-delay: 0.1s ease;
+    -moz-transition-delay: 0.1s ease;
+    -webkit-transition-delay: 0.1s ease;
+    -o-transition-delay: 0.1s ease;
+}
+
+.photoContainer {
+    margin-top: 32px;
+}
+
+.photo {
+    height: 580px;
+}

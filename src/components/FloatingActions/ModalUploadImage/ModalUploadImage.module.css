@@ -1,0 +1,17 @@
+.root {
+    color: var(--mantine-color-gray-5);
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  
+    &[data-accept] {
+      background-color: var(--mantine-color-gray-2);
+    }
+  
+    &[data-reject] {
+        color: var(--mantine-color-red-6);
+        background-color: var(--mantine-color-gray-2);
+    }
+}
+
+.active * {
+    color: var(--mantine-color-red-6) !important;
+}

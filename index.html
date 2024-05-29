@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br" ng-app="evenPicApp">
-    <head>
-        <base href="/">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!-- Build CSS -->
-        <link rel="stylesheet" href="build/app.css">
-        <!-- End Build -->
-        
-        <title>EvenPic</title>
-
-        <link rel="icon" href="assets/img/favicon.ico">
-    </head>
-    <body style="max-width: 100%; overflow-x: hidden;">
-        <div class="d-flex align-items-center justify-content-center" ng-show="globalLoading" style="height: 100vh;">
-            Carregando...
-        </div>
-        <div ui-view="" ng-show="!globalLoading"></div>
-
-		<script src="build/libs.js"></script>
-		<script src="build/envs.js"></script>
-		<script src="build/app.js"></script>
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekon</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.jsx"></script>
+  </body>
 </html>

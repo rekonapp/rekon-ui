@@ -1,0 +1,19 @@
+.carouselContainer, .carouselImage {
+    height: 208px;
+
+    @media (min-height: 720px) {
+        height: 220px;
+    }
+
+    @media (min-height: 800px) {
+        height: 280px;
+    }
+
+    @media (min-height: 1000px) {
+        height: 425px;
+    }
+}
+
+.carouselContainer {
+    margin-top: 1rem;
+}
