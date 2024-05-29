@@ -13,7 +13,7 @@ const RouterContainer = () => {
             <Route exact path='/event-gallery' element={<EventGalleryContainer />}/>
             <Route exact path='/event-gallery/photo/:key' element={<EventGalleryPhotoContainer />}/>
             <Route exact path='/your-gallery/:key?' element={<YourGalleryContainer />}/>
-            <Route exact path='/your-gallery/photo/:key/:photo_id?' element={<YourGalleryPhotoContainer />}/>
+            <Route exact path='/your-gallery/photo/:face_id/:key?' element={<YourGalleryPhotoContainer />}/>
         </Routes>
     )
 };

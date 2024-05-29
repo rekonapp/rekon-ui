@@ -4,20 +4,18 @@ import { GlobalContext } from '../../../Root';
 import YourGalleryPhotos from './YourGalleryPhotos';
 
 const YourGalleryPhotosContainer = ({
-    url,
-    loading
+    url
 }) => {
     const globalContext = useContext(GlobalContext);
 
     return (
-        <YourGalleryPhotos scrollRef={globalContext.scrollRef} loading={loading} url={url}/>
+        <YourGalleryPhotos scrollRef={globalContext.scrollRef} url={url}/>
     )
 };
 
 YourGalleryPhotosContainer.propTypes = {
     url: PropTypes.string,
     scrollRef: PropTypes.object,
-    loading: PropTypes.bool.isRequired
 }
 
 export default YourGalleryPhotosContainer;

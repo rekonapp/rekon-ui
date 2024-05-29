@@ -15,7 +15,7 @@ const YourGallery = ({
         <FloatingMenuContainer/>
         <YourGalleryPhotoContainer loading={loading} url={url}/>
         <YourGalleryTextContainer loading={loading} url={url} />
-        <YourGalleryPhotosContainer loading={loading} url={url}/>
+        <YourGalleryPhotosContainer url={url}/>
         <FloatingActionsContainer/>
     </Container>
   )

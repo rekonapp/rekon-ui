@@ -43,8 +43,7 @@ const YourGalleryPhotos = ({
 
 YourGalleryPhotos.propTypes = {
     url: PropTypes.string,
-    scrollRef: PropTypes.object,
-    loading: PropTypes.bool.isRequired
+    scrollRef: PropTypes.object
 }
 
 export default YourGalleryPhotos;

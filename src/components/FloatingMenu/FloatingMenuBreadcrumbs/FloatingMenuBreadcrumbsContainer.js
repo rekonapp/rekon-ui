@@ -6,7 +6,7 @@ import classes from './FloatingMenuBreadcrumbs.module.css';
 import FloatingMenuBreadcrumbs from './FloatingMenuBreadcrumbs';
 
 const FloatingMenuBreadcrumbsContainer = () => {
-    const { key } = useParams();
+    const { face_id } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -35,7 +35,7 @@ const FloatingMenuBreadcrumbsContainer = () => {
 
         const yourGalleryElement = {
             title: 'Sua Galeria',
-            redirect: `/your-gallery/${key}`,
+            redirect: `/your-gallery/${face_id}`,
             path: '/your-gallery',
             disabled: startsWith(currentPath, '/your-gallery/photo'),
             show: ['/'].includes(currentPath) || (startsWith(currentPath, '/your-gallery')),

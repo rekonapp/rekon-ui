@@ -103,10 +103,10 @@ Rekon:
             ✔ Lista as imagens @done(24-05-28 03:05)
             ✔ Retorna o nextToken (ou não) @done(24-05-28 03:05)
             ✔ Pagina @done(24-05-28 03:05)
-        [ ] Ao clicar
+        ✔ Ao clicar @done(24-05-29 01:55)
             ✔ Update scroll @done(24-05-28 03:59)
-            [ ] Find na foto
-            [ ] List com o que tem
+            ✔ Find na foto @done(24-05-29 01:55)
+            ✔ List com o que tem @done(24-05-29 01:55)
             ✔ Tratar do reload da foto @done(24-05-29 00:01)
 
     ✔ Galeria das fotos pessoais @done(24-05-28 03:58)
