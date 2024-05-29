@@ -43,7 +43,8 @@ const ModalUploadImageContainer = () => {
                 return;
             }
 
-            navigate(`/your-gallery/${response.data.face_id || 'not-found'}`, { state: response });
+            navigate(`/your-gallery/${response.data.face_id || 'not-found'}`, { replace: true });
+            window.location.reload();
 
             globalContext.setGlobalLoading(false);
         } catch (error) {

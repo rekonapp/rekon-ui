@@ -1,6 +1,11 @@
+import { Container } from '@mantine/core';
+import FloatingMenuContainer from '../../components/FloatingMenu';
+
 const YourGalleryPhoto = () => {
   return (
-    <div>Olá</div>
+    <Container size='sm' pt='4rem'>
+        <FloatingMenuContainer/>
+    </Container>
   )
 }
 

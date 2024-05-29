@@ -3,16 +3,24 @@ import YourPhotos from './YourPhotos';
 import {
     useInfiniteQuery,
 } from '@tanstack/react-query';
-import { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { useParams, useNavigate, useLocation  } from 'react-router-dom';
 
 import { client } from '../../app/api';
 import { useInView } from 'react-intersection-observer';
 
 const YourPhotosContainer = () => {
     const { key } = useParams();
+    const location = useLocation();
+    const prevLocation = useRef(location);
     const navigate = useNavigate();
     const { ref, inView } = useInView();
+
+    useEffect(() => {
+        if (prevLocation.current.pathname !== location.pathname) {
+            window.location.reload();
+        }
+    }, [location]);
 
     const {
         data,
@@ -45,7 +53,7 @@ const YourPhotosContainer = () => {
 
     const onPhotoClick = photo => {
         navigate(`/your-gallery/photo/${key}/${photo.key}`)
-    }
+    };
 
     useEffect(() => {
         if (inView) {

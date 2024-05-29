@@ -1,11 +1,12 @@
 import { startsWith } from 'lodash';
 import { Button } from '@mantine/core';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 
 import classes from './FloatingMenuBreadcrumbs.module.css';
 import FloatingMenuBreadcrumbs from './FloatingMenuBreadcrumbs';
 
 const FloatingMenuBreadcrumbsContainer = () => {
+    const { key } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -22,8 +23,8 @@ const FloatingMenuBreadcrumbsContainer = () => {
         
         const yourGalleryPhotoElement = {
             title: 'Foto',
-            path: '/your-gallery-photo',
-            show: currentPath === '/your-gallery-photo'
+            path: '/your-gallery/photo',
+            show: ['/'].includes(currentPath) || startsWith(currentPath, '/your-gallery/photo')
         };
         
         const eventGalleryPhotoElement = {
@@ -34,9 +35,10 @@ const FloatingMenuBreadcrumbsContainer = () => {
 
         const yourGalleryElement = {
             title: 'Sua Galeria',
-            redirect: '/your-gallery',
+            redirect: `/your-gallery/${key}`,
             path: '/your-gallery',
-            show: ['/'].includes(currentPath) || startsWith(currentPath, '/your-gallery'),
+            disabled: startsWith(currentPath, '/your-gallery/photo'),
+            show: ['/'].includes(currentPath) || (startsWith(currentPath, '/your-gallery')),
         };
         
         const eventGalleryElement = {
@@ -45,7 +47,7 @@ const FloatingMenuBreadcrumbsContainer = () => {
             redirect: '/event-gallery',
             disabled: currentPath !== '/event-gallery' ,
             show: ['/', '/event-gallery'].includes(currentPath) || startsWith(currentPath, '/event-gallery/photo')
-         };
+         }; 
     
         const navigationItems = [
             homeElement,
