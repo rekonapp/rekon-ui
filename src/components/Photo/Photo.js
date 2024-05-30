@@ -34,7 +34,7 @@ const Photo = ({
 
                         <Card.Section inheritPadding mt="sm" pb="md">
                             <Flex align='center' justify='center' gap={10}>
-                                <Button onClick={() => onDownloadClick(photo)} loading={downloadLoading} radius='xl' bg='gray.2' c='dark' h={42} w={'293'} fw='400' href={photo.url} leftSection={<IconDownload size='20'/>}>
+                                <Button onClick={() => onDownloadClick(photo)} loading={downloadLoading} radius='xl' bg='gray.2' c='dark' h={42} w={'256'} fw='400' href={photo.url} leftSection={<IconDownload size='20'/>}>
                                     Download
                                 </Button>
                                 <Popover width={200} position="bottom" withArrow shadow="md">

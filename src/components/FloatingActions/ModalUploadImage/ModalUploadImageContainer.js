@@ -1,12 +1,12 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 import { GlobalContext } from '../../../Root';
 import { closeModal } from '../../../utils/modal';
 import ModalUploadImage from './ModalUploadImage';
 import { exportBase64 } from '../../../utils/file';
 import { client } from '../../../app/api'; 
+import { notifications } from '@mantine/notifications';
 
 const ModalUploadImageContainer = () => {
     const navigate = useNavigate();
@@ -17,6 +17,14 @@ const ModalUploadImageContainer = () => {
         onSuccess: async files => {
             setFile(files[0]);
         }
+    };
+
+    const onRejectFile = () => {
+        notifications.show({
+            color: 'red',
+            title: 'Opa, temos um problema!',
+            message: 'Não foi possível inserir o seu arquivo, verifique o tamanho ou tipo dele.'
+        });
     };
 
     const onFindClick = async () => {
@@ -44,7 +52,6 @@ const ModalUploadImageContainer = () => {
             }
 
             navigate(`/your-gallery/${response.data.face_id || 'not-found'}`, { replace: true });
-            window.location.reload();
 
             globalContext.setGlobalLoading(false);
         } catch (error) {
@@ -53,7 +60,7 @@ const ModalUploadImageContainer = () => {
     };
 
     return (
-        <ModalUploadImage onFindClick={onFindClick} file={file} dropzoneControl={dropzoneControl}/>
+        <ModalUploadImage onFindClick={onFindClick} onRejectFile={onRejectFile} file={file} dropzoneControl={dropzoneControl}/>
     )
 }
 

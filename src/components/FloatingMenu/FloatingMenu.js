@@ -27,7 +27,7 @@ const FloatingMenu = ({ onReturnClick }) => {
             <Paper withBorder radius='xl' bg='gray.0' p='xs'>
                 <Flex
                     gap="sm"
-                    justify="center"
+                    justify="space-between"
                     align="center"
                     direction="row"
                 >
