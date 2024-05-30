@@ -12,3 +12,8 @@ html, body, #root {
 .mantine-Modal-inner {
     z-index: 9999;
 }
+
+
+.mantine-Notifications-root {
+    z-index: 99999;
+}

@@ -57,11 +57,11 @@ Rekon:
             ✔ Me encontre @done(24-05-24 23:08)
             ✔ Scroll para cima @done(24-05-24 23:08)
 
-    [ ] Me encontre
+    ✔ Me encontre @done(24-05-30 00:55)
         ✔ Verificar se é mobile @done(24-05-25 01:24)
-        [ ] Mobile
-            [ ] Tirar foto
-            [ ] Enviar pela galeria
+        ✔ Mobile @done(24-05-30 00:55)
+            ✔ Tirar foto @done(24-05-30 00:55)
+            ✔ Enviar pela galeria @done(24-05-30 00:55)
         ✔ Desktop @done(24-05-25 03:39)
             ✔ Upload da foto @done(24-05-25 03:39)
         ✔ Tela de loading para quando carregar a foto @done(24-05-25 01:02)
@@ -81,9 +81,9 @@ Rekon:
         ✔ Ao entrar na tela @done(24-05-25 22:27)
             ✔ Enviar o FaceId @done(24-05-25 22:27)
 
-    [ ] Sua Galeria
+    ✔ Sua Galeria @done(24-05-29 22:12)
         ✔ Floating Menu @done(24-05-25 23:09)
-        [ ] Foto
+        ✔ Foto @done(24-05-29 22:12)
             ✔ Referenciada pelo id da foto (trocar por random key) @done(24-05-25 23:09)
             ✔ Se nn tiver foto @done(24-05-25 23:09)
                 ✔ Find da foto @done(24-05-25 23:09)

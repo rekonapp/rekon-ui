@@ -40,11 +40,12 @@ const YourPhotos = ({
     reference,
     data,
     status,
+    refetchIsPending,
     loadingPagination
 }) => (
     <div >
         {
-            status === 'pending' ? (
+            (refetchIsPending || status === 'pending') ? (
                 <Grid mt='xl' grow>
                     <Grid.Col span={{ base: 6 }}>
                          <Skeleton height={200} animate/>
@@ -77,7 +78,8 @@ YourPhotos.propTypes = {
     reference: PropTypes.func,
     data: PropTypes.object,
     status: PropTypes.string,
-    loadingPagination: PropTypes.bool
+    loadingPagination: PropTypes.bool,
+    refetchIsPending: PropTypes.bool
 };
 
 export default YourPhotos

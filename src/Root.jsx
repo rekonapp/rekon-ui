@@ -8,12 +8,14 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { useScrollIntoView } from '@mantine/hooks';
+import { Notifications } from '@mantine/notifications'
 
 import { BrowserRouter } from 'react-router-dom';
 
 import '@mantine/core/styles.css';
 import '@mantine/dropzone/styles.css';
 import '@mantine/carousel/styles.css';
+import '@mantine/notifications/styles.css';
 
 import RouterContainer from './app/routes';
 
@@ -58,6 +60,7 @@ const Root = () => {
                             fontFamily: 'Archivo, serif',
                             headings: { fontFamily: 'Archivo, serif' }
                         }}>
+                        <Notifications/>
                         <ModalsProvider modalProps={{ centered: true }}>
                             <RouterContainer/>
                         </ModalsProvider>
