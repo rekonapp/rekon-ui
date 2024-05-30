@@ -4,27 +4,20 @@ import {
     useInfiniteQuery,
 } from '@tanstack/react-query';
 import { GlobalContext } from '../../Root';
-import { useEffect, useRef, useContext } from 'react';
-import { useParams, useNavigate, useLocation  } from 'react-router-dom';
+import { useEffect, useContext, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { client } from '../../app/api';
 import { useInView } from 'react-intersection-observer';
 
 const YourPhotosContainer = () => {
     const { key, face_id } = useParams();
-    const location = useLocation();
-    const prevKey = useRef(face_id);
-    const prevLocation = useRef(location);
     const globalContext = useContext(GlobalContext)
+    const [enabledData, setEnabledData] = useState(true);
+    const [refetchIsPending, setRefetchIsPending] = useState(false);
 
     const navigate = useNavigate();
     const { ref, inView } = useInView();
-
-    useEffect(() => {
-        if (prevKey.current !== face_id && (prevLocation.current.pathname !== location.pathname)) {
-            window.location.reload();
-        }
-    }, [location, face_id, prevKey]);
 
     const {
         data,
@@ -34,20 +27,22 @@ const YourPhotosContainer = () => {
     } = useInfiniteQuery({
         queryKey: ['yourPhotosData'],
         queryFn: async ({ pageParam }) => {
-            console.log(face_id);
             const response = await client('/event-file/search-by-face', {
                 params: {
                     face_id: face_id || key,
                     next_token: pageParam,
                     event_key: import.meta.env.VITE_EVENT_KEY
                 }
-            })
+            });
+
+            setRefetchIsPending(false);
 
             return {
                 data: response.data.files,
                 nextToken: response.data.next_token
             };
         },
+        enabled: enabledData,
         refetchOnMount: false,
         refetchOnWindowFocus: false,
         initialPageParam: null,
@@ -55,6 +50,15 @@ const YourPhotosContainer = () => {
             return lastPage.nextToken;
         }
     });
+
+    useEffect(() => {
+        setRefetchIsPending(true);
+        setEnabledData(false);
+        
+        setTimeout(() => {
+            setEnabledData(true);
+        }, 300);
+    }, [key]);
 
     const onPhotoClick = photo => {
         navigate(`/your-gallery/photo/${face_id || key}/${photo.key}`);
@@ -69,7 +73,7 @@ const YourPhotosContainer = () => {
     }, [fetchNextPage, inView]);
 
   return (
-    <YourPhotos reference={ref} data={data} onPhotoClick={onPhotoClick} status={status} isFetching={isFetching}/>
+    <YourPhotos reference={ref} data={data} onPhotoClick={onPhotoClick} status={status} refetchIsPending={refetchIsPending} isFetching={isFetching}/>
   )
 };
 

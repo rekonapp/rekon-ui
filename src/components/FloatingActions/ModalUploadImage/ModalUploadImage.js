@@ -15,6 +15,7 @@ const IMAGE_MIME_TYPE = ["image/png","image/gif", "image/jpeg"];
 const ModalUploadImage = ({
     file,
     onFindClick,
+    onRejectFile,
     dropzoneControl
 }) => {
     return (
@@ -26,6 +27,7 @@ const ModalUploadImage = ({
                 onDrop={dropzoneControl.onSuccess}
                 accept={IMAGE_MIME_TYPE}
                 maxSize={5242880}
+                onReject={onRejectFile}
                 >
                 <Group justify="center" gap="xl" mih={!file && 227 || 139} style={{ pointerEvents: 'none', color: file && 'red' }}>
                     <Box ta='center'>
@@ -60,6 +62,7 @@ const ModalUploadImage = ({
 ModalUploadImage.propTypes = {
     file: PropTypes.object,
     onFindClick: PropTypes.func,
+    onRejectFile: PropTypes.func,
     dropzoneControl: PropTypes.object
 };
 
