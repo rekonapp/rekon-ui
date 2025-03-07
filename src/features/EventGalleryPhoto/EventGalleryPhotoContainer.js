@@ -1,8 +1,8 @@
 import EventGalleryPhoto from './EventGalleryPhoto';
 
-import { GlobalContext } from '../../Root';
-import { useEffect, useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import GlobalLoader from '../../components/GlobalLoader';
+import { GlobalContext } from '../../Root';
 
 const EventGalleryPhotoContainer = () => {
     const globalContext = useContext(GlobalContext);
@@ -10,7 +10,7 @@ const EventGalleryPhotoContainer = () => {
     useEffect(() => {
         globalContext.scrollFn();
     });
-    
+
     if (globalContext.globalLoading) {
         return (
             <GlobalLoader/>
