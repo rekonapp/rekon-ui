@@ -8,11 +8,12 @@ const PhotoContainer = () => {
     const [photo, setPhoto] = useState(null);
     const [loading, setLoading] = useState(false);
     const [reducedImage, setReducedImage] = useState(false);
+    const [innerWidth, setInnerWidth] = useState(0);
     const [downloadLoading, setDownloadLoading] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY <= 20) {
+            if (window.scrollY <= 70) {
                 setReducedImage(false);
                 return;
             }
@@ -26,6 +27,18 @@ const PhotoContainer = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     });
+
+    useEffect(() => {
+        const handleResize = () => {
+            setInnerWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [setInnerWidth]);
 
     useEffect(() => {
         const loadData = async () => {
@@ -69,9 +82,10 @@ const PhotoContainer = () => {
         <Photo
             photo={photo}
             loading={loading}
-            reducedImage={reducedImage}
             downloadLoading={downloadLoading}
             onDownloadClick={downloadImage}
+            reducedImage={reducedImage}
+            innerWidth={innerWidth}
         />
     )
 }
