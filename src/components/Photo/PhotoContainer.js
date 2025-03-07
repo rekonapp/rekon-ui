@@ -53,7 +53,7 @@ const PhotoContainer = () => {
 				const link = document.createElement('a');
 
 				link.href = imageURL;
-				link.download = `photo-${key}.jpg`;
+				link.download = `photo-${photo.key}.jpg`;
 				document.body.appendChild(link);
 				link.click();
 				document.body.removeChild(link);
@@ -67,7 +67,7 @@ const PhotoContainer = () => {
 
     return (
         <Photo
-            photo={photo?.file}
+            photo={photo}
             loading={loading}
             reducedImage={reducedImage}
             downloadLoading={downloadLoading}
