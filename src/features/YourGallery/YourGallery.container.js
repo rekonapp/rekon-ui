@@ -1,14 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import YourGallery from './YourGallery'
 import { client } from '../../app/api'; 
 import { GlobalContext } from '../../Root';
-import GlobalLoader from '../../components/GlobalLoader';
 
-const YourGalleryContainer = () => {
-    const { key } = useParams();
+const useYourGalleryContainer = () => {
+    const { face_id, key } = useParams();
     const { state } = useLocation();
+    const navigate = useNavigate();
     const [url, setUrl] = useState(null);
     const [isConfirmationStep, setIsConfirmationStep] = useState(false);
     const globalContext = useContext(GlobalContext);
@@ -20,6 +19,7 @@ const YourGalleryContainer = () => {
     } = state || {};
 
     const {
+        data,
         isLoading,
     } = useQuery({
         queryKey: ['event-file', key],
@@ -29,12 +29,12 @@ const YourGalleryContainer = () => {
                     event_key: import.meta.env.VITE_EVENT_KEY
                 }
             });
-            return response;
+
+            return response.data;
         },
-        enabled: !!key && !is_confirmation_step,
         onSuccess: (data) => {
-            if (data && data.url) {
-                setUrl(data.url);
+            if (data?.profile?.url) {
+                setUrl(data.profile.url);
             }
         }
     });
@@ -59,20 +59,26 @@ const YourGalleryContainer = () => {
         }
     };
 
-    // Show global loader if global loading state is true
-    if (globalContext.globalLoading) {
-        return <GlobalLoader />;
-    }
+    const onPhotoClick = photo => {
+        navigate(`/your-gallery/photo/${face_id || key}/${photo.key}`);
 
-    return (
-        <YourGallery 
-            loading={isLoading} 
-            url={url} 
-            isConfirmationStep={isConfirmationStep} 
-            profileUrlImage={profileUrlImage} 
-            onConfirmFaceClick={loadData}
-        />
-    );
+        globalContext.scrollFn();
+    };
+
+    return {
+        key,
+        url,
+        onPhotoClick,
+        isConfirmationStep,
+        isLoading,
+        photo: {
+            url: data?.profile?.url,
+            thumb_url: data?.profile?.thumb_url,
+            key: key
+        },
+        onConfirmFaceClick: loadData,
+        data: data?.files
+    }
 };
 
-export default YourGalleryContainer;
+export default useYourGalleryContainer;
