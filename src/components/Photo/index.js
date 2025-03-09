@@ -1,1 +1,1 @@
-export { default } from './PhotoContainer';
+export { default } from './Photo';

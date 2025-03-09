@@ -10,14 +10,12 @@ import {
 import { IconPhotoOff } from '@tabler/icons-react';
 import GalleryPhotoContainer from './GalleryPhoto';
 
-const renderItem = (item, onPhotoClick) => {
-    return item.data.map((item, index) => {
-        return (
-            <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${index}`} onClick={() => onPhotoClick(item)}>
-                <GalleryPhotoContainer imageUrl={item.thumb_url} imageKey={item.key}/>
-            </Grid.Col>
-        )
-    });
+const renderItem = (item, index, onPhotoClick, activeImageKey) => {
+    return (
+        <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${index}`} onClick={() => onPhotoClick(item)}>
+            <GalleryPhotoContainer imageUrl={item.thumb_url} imageKey={item.key} activeImageKey={activeImageKey}/>
+        </Grid.Col>
+    )
 };
 
 const renderEmpty = () => {
@@ -37,15 +35,13 @@ const renderEmpty = () => {
 
 const GalleryPhotos = ({
     onPhotoClick,
-    scrollRef,
-    reference,
     data,
-    status,
-    loadingPagination
+    isFetching,
+    activeImageKey
 }) => (
     <>
         {
-            status === 'pending' ? (
+            isFetching ? (
                 <Grid mt='xl' grow>
                     <Grid.Col span={{ base: 6 }}>
                          <Skeleton height={200} animate/>
@@ -55,17 +51,8 @@ const GalleryPhotos = ({
                     </Grid.Col>
                 </Grid>
             ) : (
-                <Grid mt='xl' grow={loadingPagination} pb='100px' ref={scrollRef}>
-                    {data?.pages?.length ? data?.pages?.map(item => renderItem(item, onPhotoClick)) : renderEmpty()}
-                    {
-                        loadingPagination && (
-                            <Grid.Col span={{ base: 6, sm: 6, md: 4 }}>
-                                <Skeleton height={150} animate/>
-                            </Grid.Col>
-                        ) || (
-                            <div ref={reference}></div>
-                        )
-                    }
+                <Grid mt='xl' grow={isFetching} pb='100px'>
+                    {data?.length && (data || [])?.map((item, index) => renderItem(item, index, onPhotoClick, activeImageKey)) || renderEmpty()}
                 </Grid>
             )
         }
@@ -74,12 +61,9 @@ const GalleryPhotos = ({
 
 GalleryPhotos.propTypes = {
     onPhotoClick: PropTypes.func,
-    scrollRef: PropTypes.object,
-    reference: PropTypes.any,
-    data: PropTypes.object,
-    page: PropTypes.number,
-    status: PropTypes.string,
-    loadingPagination: PropTypes.bool
+    data: PropTypes.array,
+    isFetching: PropTypes.bool,
+    activeImageKey: PropTypes.string
 };
 
-export default GalleryPhotos
+export default GalleryPhotos;

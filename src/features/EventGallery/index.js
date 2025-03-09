@@ -1,1 +1,1 @@
-export { default } from './EventGalleryContainer';
+export { default } from './EventGallery';

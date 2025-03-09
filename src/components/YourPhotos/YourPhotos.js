@@ -10,14 +10,12 @@ import {
 import { IconPhotoOff } from '@tabler/icons-react';
 import YourPhotoContainer from './YourPhoto';
 
-const renderItem = (item, onPhotoClick) => {
-    return item.data.map((item, index) => {
-        return (
-            <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${index}`} onClick={() => onPhotoClick(item)}>
-                <YourPhotoContainer imageUrl={item.thumb_url} imageKey={item.key}/>
-            </Grid.Col>
-        )
-    });
+const renderItem = (item, onPhotoClick, index) => {
+    return (
+        <Grid.Col span={{ base: 6, sm: 6, md: 4 }} key={`PHOTO_${index}`} onClick={() => onPhotoClick(item)}>
+            <YourPhotoContainer imageUrl={item.thumb_url} imageKey={item.key}/>
+        </Grid.Col>
+    )
 };
 
 const renderEmpty = () => {
@@ -37,15 +35,12 @@ const renderEmpty = () => {
 
 const YourPhotos = ({
     onPhotoClick,
-    reference,
     data,
-    status,
-    refetchIsPending,
-    loadingPagination
+    isFetching
 }) => (
     <div >
         {
-            (refetchIsPending || status === 'pending') ? (
+            isFetching ? (
                 <Grid mt='xl' grow>
                     <Grid.Col span={{ base: 6 }}>
                          <Skeleton height={200} animate/>
@@ -55,15 +50,13 @@ const YourPhotos = ({
                     </Grid.Col>
                 </Grid>
             ) : (
-                <Grid mt='xl' grow={loadingPagination} pb='100px'>
-                    {data?.pages?.length ? data?.pages?.map(item => renderItem(item, onPhotoClick)) : renderEmpty()}
+                <Grid mt='xl' grow pb='100px'>
+                    {data?.length ? data?.map((item, index) => renderItem(item, onPhotoClick, index)) : renderEmpty()}
                     {
-                        loadingPagination && (
+                        isFetching && (
                             <Grid.Col span={{ base: 6, sm: 6, md: 4 }}>
                                 <Skeleton height={150} animate/>
                             </Grid.Col>
-                        ) || (
-                            <div ref={reference}></div>
                         )
                     }
                 </Grid>
@@ -74,12 +67,8 @@ const YourPhotos = ({
 
 YourPhotos.propTypes = {
     onPhotoClick: PropTypes.func,
-    scrollRef: PropTypes.object,
-    reference: PropTypes.func,
-    data: PropTypes.object,
-    status: PropTypes.string,
-    loadingPagination: PropTypes.bool,
-    refetchIsPending: PropTypes.bool
+    data: PropTypes.array,
+    isFetching: PropTypes.bool
 };
 
 export default YourPhotos
