@@ -4,51 +4,41 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const useYourGalleryPhotoContainer = () => {
-    const { key } = useParams();
+    const { key, face_id } = useParams();
     const navigate = useNavigate();
-    const [photo, setPhoto] = useState(null);
-    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        const loadData = async () => {
-            try {
-                setLoading(true);
-
-                const response = await client(`/event-file/${key}`);
-
-                setPhoto(response.data.file);
-                setLoading(false);
-            } catch (error) {
-                setLoading(false);
-            }
-        };
-
-        loadData();
-    }, [key]);
-
-    const { data, status, isLoading: isFetching } = useQuery({
+    const { data: photo } = useQuery({
         queryKey: ['eventFiles'],
         queryFn: async () => {
-            const response = await client('/event-file', {
+            const response = await client(`/event-file/${key}`);
+
+            return response.data.file;
+        }
+    });
+
+    const { data, isLoading: isFetching } = useQuery({
+        queryKey: ['profileFiles'],
+        queryFn: async () => {
+            const response = await client(`/event-file/profile/${face_id}`, {
                 params: {
                     event_key: import.meta.env.VITE_EVENT_KEY
                 }
             });
 
-            return response.data;
+            return response.data.files;
         }
     });
 
     const onPhotoClick = photo => {
         navigate({
-            pathname: `/event-gallery/photo/${photo.key}`,
+            pathname: `/your-gallery/photo/${face_id || key}/${photo.key}`,
         });
     };
 
     return {
         key,
         photo,
-        loading,
+        loading: isFetching,
         onPhotoClick,
         data,
         status,
