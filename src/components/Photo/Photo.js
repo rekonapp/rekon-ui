@@ -5,9 +5,10 @@ import {
     Divider,
     Flex,
     Image,
-    LoadingOverlay,
+    Loader,
     NavLink,
-    Popover
+    Popover,
+    Skeleton
 } from '@mantine/core';
 
 import { useState, useEffect } from 'react';
@@ -110,9 +111,20 @@ const Photo = ({
                         </Card.Section>
                     </>
                     ) : (
-                    <Card.Section h={'420px'}>
-                        <LoadingOverlay visible={true} c='red.9' zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
-                    </Card.Section>
+<>
+                        <Card.Section h={ (reducedImage || innerWidth < 500) ? '280px' : '420px' } className={classes.photo} mt='sm' bg='gray.1'>
+                            <Center h='100%'>
+                                <Loader color="red.9" size="lg" />
+                            </Center>
+                        </Card.Section>
+
+                        <Card.Section inheritPadding mt="sm" pb="md">
+                            <Flex align='center' justify='center' gap={10} className={classes.photoActions}>
+                                <Skeleton h={42} w={'256'} style={{ borderRadius: '100px' }} />
+                                <Skeleton h={42} w={'99.5'} style={{ borderRadius: '100px' }} />
+                            </Flex>
+                        </Card.Section>
+                    </>
                 )
             }
     </Card>
