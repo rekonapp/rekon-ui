@@ -1,40 +1,92 @@
 import {
-    Card,
-    Flex,
     Button,
+    Card,
     Center,
-    Image,
-    Popover,
-    NavLink,
     Divider,
-    LoadingOverlay
+    Flex,
+    Image,
+    Loader,
+    NavLink,
+    Popover,
+    Skeleton
 } from '@mantine/core';
 
+import { useState, useEffect } from 'react';
+import { IconBrandInstagram, IconDownload, IconInfoCircle } from '@tabler/icons-react';
 import PropTypes from 'prop-types';
 import classes from './Photo.module.css';
-import { IconDownload, IconBrandInstagram, IconInfoCircle } from '@tabler/icons-react';
 
 const Photo = ({
     photo,
-    loading,
-    reducedImage,
-    onDownloadClick,
-    downloadLoading
+    loading
 }) => {
+    const [innerWidth, setInnerWidth] = useState(0);
+    const [reducedImage, setReducedImage] = useState(false);
+    const [downloadLoading, setDownloadLoading] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY <= 70) {
+                setReducedImage(false);
+                return;
+            }
+
+            setReducedImage(true);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    });
+
+    useEffect(() => {
+        const handleResize = () => {
+            setInnerWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [setInnerWidth]);
+
+	const downloadImage = photo => {
+        setDownloadLoading(true);
+
+		fetch(photo.url).then(image => {
+			image.blob().then((imageBlog) => {
+				const imageURL = URL.createObjectURL(imageBlog);
+				const link = document.createElement('a');
+
+				link.href = imageURL;
+				link.download = `event-photo.jpg`;
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			}).finally(() => {
+                setDownloadLoading(false);
+            });
+		}).catch(() => {
+            setDownloadLoading(false);
+        });
+	};
+
   return (
-    <Card withBorder shadow="sm" radius="xl" mt={ reducedImage ? '100px' : '32px' } className={classes.photoContainer}>
-            {
-                (!loading && photo?.thumb_url) && (
+    <Card withBorder shadow="sm" radius="xl" mt={ (reducedImage || innerWidth < 500) ? '100px' : '32px' } className={classes.photoContainer}>
+            { (!loading && (photo?.thumb_url || photo?.url)) ? (
                     <>
-                        <Card.Section h={ reducedImage ? '280px' : '420px' } className={classes.photo} mt='sm' bg='gray.1'>
+                        <Card.Section h={ (reducedImage || innerWidth < 500) ? '280px' : '420px' } className={classes.photo} mt='sm' bg='gray.1'>
                             <Center>
-                                <Image h={ reducedImage ? '280px' : '420px' } className={classes.photo} src={photo.thumb_url} style={{ objectPosition: 'top' }}/>
+                                <Image h={ (reducedImage || innerWidth < 500) ? '280px' : '420px' } className={classes.photo} src={photo.thumb_url} style={{ objectPosition: 'top' }}/>
                             </Center>
                         </Card.Section>
 
                         <Card.Section inheritPadding mt="sm" pb="md">
-                            <Flex align='center' justify='center' gap={10}>
-                                <Button onClick={() => onDownloadClick(photo)} loading={downloadLoading} radius='xl' bg='gray.2' c='dark' h={42} w={'256'} fw='400' href={photo.url} leftSection={<IconDownload size='20'/>}>
+                            <Flex align='center' justify='center' gap={10} className={classes.photoActions}>
+                                <Button onClick={() => downloadImage(photo)} loading={downloadLoading} radius='xl' bg='gray.2' c='dark' h={42} w={'256'} fw='400' href={photo.url || photo.thumb_url} leftSection={<IconDownload size='20'/>}>
                                     Download
                                 </Button>
                                 <Popover width={200} position="bottom" withArrow shadow="md">
@@ -58,10 +110,21 @@ const Photo = ({
                             </Flex>
                         </Card.Section>
                     </>
-                    ) || (
-                    <Card.Section h={'420px'}>
-                        <LoadingOverlay visible={true} color='red.9' zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
-                    </Card.Section>
+                    ) : (
+<>
+                        <Card.Section h={ (reducedImage || innerWidth < 500) ? '280px' : '420px' } className={classes.photo} mt='sm' bg='gray.1'>
+                            <Center h='100%'>
+                                <Loader color="red.9" size="lg" />
+                            </Center>
+                        </Card.Section>
+
+                        <Card.Section inheritPadding mt="sm" pb="md">
+                            <Flex align='center' justify='center' gap={10} className={classes.photoActions}>
+                                <Skeleton h={42} w={'256'} style={{ borderRadius: '100px' }} />
+                                <Skeleton h={42} w={'99.5'} style={{ borderRadius: '100px' }} />
+                            </Flex>
+                        </Card.Section>
+                    </>
                 )
             }
     </Card>
@@ -71,9 +134,6 @@ const Photo = ({
 Photo.propTypes = {
     photo: PropTypes.object,
     loading: PropTypes.bool.isRequired,
-    reducedImage: PropTypes.bool.isRequired,
-    downloadLoading: PropTypes.bool.isRequired,
-    onDownloadClick: PropTypes.func.isRequired
 };
 
 export default Photo

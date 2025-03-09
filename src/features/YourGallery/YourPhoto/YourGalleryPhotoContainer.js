@@ -4,7 +4,8 @@ import YourGalleryPhoto from './YourGalleryPhoto';
 
 const YourGalleryPhotoContainer = ({
     url,
-    loading
+    loading,
+    profileUrlImage,
 }) => {
     const [reducedImage, setReducedImage] = useState(false);
 
@@ -26,13 +27,14 @@ const YourGalleryPhotoContainer = ({
     });
 
     return (
-        <YourGalleryPhoto reducedImage={reducedImage} loading={loading} url={url}/>
+        <YourGalleryPhoto reducedImage={reducedImage} loading={loading} url={url || profileUrlImage}/>
     )
 };
 
 YourGalleryPhotoContainer.propTypes = {
     url: PropTypes.string,
-    loading: PropTypes.bool.isRequired
+    loading: PropTypes.bool.isRequired,
+    profileUrlImage: PropTypes.string,
 };
 
 export default YourGalleryPhotoContainer;

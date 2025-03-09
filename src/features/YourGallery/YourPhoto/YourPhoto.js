@@ -8,7 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import classes from './YourGalleryPhoto.module.css';
 
-const YourGalleryPhoto = ({
+const YourPhoto = ({
     url,
     loading,
     reducedImage
@@ -34,10 +34,10 @@ const YourGalleryPhoto = ({
   )
 };
 
-YourGalleryPhoto.propTypes = {
+YourPhoto.propTypes = {
     url: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     reducedImage: PropTypes.bool.isRequired
 }
 
-export default YourGalleryPhoto
+export default YourPhoto;

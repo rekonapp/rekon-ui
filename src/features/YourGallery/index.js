@@ -1,1 +1,1 @@
-export { default } from './YourGalleryContainer';
+export { default } from './YourGallery';

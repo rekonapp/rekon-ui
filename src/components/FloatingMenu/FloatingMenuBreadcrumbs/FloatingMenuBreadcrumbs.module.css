@@ -4,4 +4,9 @@
       cursor: pointer;
       background-color: transparent;
     }
+
+    @media (max-width: $mantine-breakpoint-xs) {
+      font-size: 12px;
+    }
+
 }

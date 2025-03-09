@@ -11,9 +11,25 @@
 }
 
 .photoContainer {
-    margin-top: 32px;
+    margin-top: 32px !important;
 }
 
 .photo {
     height: 580px;
+}
+
+.photoActions {
+    @media (max-width: $mantine-breakpoint-xs) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.photoActions > * {
+    @media (max-width: $mantine-breakpoint-xs) {
+        margin-inline: auto;
+        width: 100% !important;
+        padding: 8px;
+        flex: 1;
+    }
 }
