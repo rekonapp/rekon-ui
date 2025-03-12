@@ -31,19 +31,21 @@ const ActionsContainer = () => {
 
         const uploadFile = async () => {
             try {
-                const base64 = await exportBase64(new Blob([file[0]]));
-                
                 globalContext.setGlobalLoading(true);
+    
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('event_key', globalContext.event_key);
     
                 const response = await client('/event-file/search', {
                     method: 'POST',
-                    data: {
-                        image: base64,
-                        event_key: globalContext.event_key
-                    }
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
                 });
     
-                if (!response.data) {
+                if (!response.data.profile) {
                     navigate('/your-gallery/not-found', { state: { data: { url: null } } });
     
                     globalContext.setGlobalLoading(false);
@@ -51,8 +53,15 @@ const ActionsContainer = () => {
                     return;
                 }
     
-                navigate(`/your-gallery/${response.data.face_id || 'not-found'}`, { replace: true });
-
+                navigate(`/your-gallery/${response.data.profile.face_id  || 'not-found'}`, {
+                    replace: true,
+                    state: {
+                        is_confirmation_step: true,
+                        url: response.data.profile.url,
+                        face_id: response.data.profile.face_id
+                    }
+                });
+    
                 globalContext.setGlobalLoading(false);
             } catch (error) {
                 globalContext.setGlobalLoading(false);
