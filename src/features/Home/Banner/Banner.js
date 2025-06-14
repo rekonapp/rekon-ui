@@ -11,8 +11,8 @@ const Banner = () => {
 	return (
 		<Grid grow gutter="sm">
             <Grid.Col lg="12">
-                <Paper className={classes.bannerContainer} radius="md" bg="red.9">
-                    <Image className={classes.bannerImage} fit="contain" src={bannerHome} alt="Banner" />
+                <Paper className={classes.bannerContainer} radius="md" bg="pink.9">
+                    <Image className={classes.bannerImage} fit="contain"  radius="md" src={bannerHome} alt="Banner" />
                 </Paper>
             </Grid.Col>
 		</Grid>

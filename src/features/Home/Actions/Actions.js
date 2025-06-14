@@ -25,10 +25,10 @@ const Actions = ({
                         {
                             isMobile && (
                                 <FileButton onChange={setFile} accept="image/png, image/jpeg" multiple>
-                                    {(props) => <Button {...props} className={classes.mainButton} leftSection={<IconFaceId className={classes.iconButton} stroke={1.5}/>} fullWidth color='red.9' size='24' radius='lg' fw='400' h='72'>Me encontre! </Button>}
+                                    {(props) => <Button {...props} className={classes.mainButton} leftSection={<IconFaceId className={classes.iconButton} stroke={1.5}/>} fullWidth color='pink.7' size='24' radius='lg' fw='400' h='72'>Me encontre! </Button>}
                                 </FileButton>
                             ) || (
-                                <Button onClick={onFindMeClick} className={classes.mainButton} leftSection={<IconFaceId className={classes.iconButton} stroke={1.5}/>} fullWidth color='red.9' size='24' radius='lg' fw='400' h='72'>Me encontre! </Button>
+                                <Button onClick={onFindMeClick} className={classes.mainButton} leftSection={<IconFaceId className={classes.iconButton} stroke={1.5}/>} fullWidth color='pink.7' size='24' radius='lg' fw='400' h='72'>Me encontre! </Button>
                             )
                         }
                         <Text onClick={() => onGalleryEventButtonClick()}component='span' td='underline' c='gray.6' className={classes.redirectLink}>Ir para a <Text component='a' fw={500}>Galeria do Evento</Text></Text>

@@ -114,7 +114,7 @@ const Photo = ({
 <>
                         <Card.Section h={ (reducedImage || innerWidth < 500) ? '280px' : '420px' } className={classes.photo} mt='sm' bg='gray.1'>
                             <Center h='100%'>
-                                <Loader color="red.9" size="lg" />
+                                <Loader color="pink.9" size="lg" />
                             </Center>
                         </Card.Section>
 

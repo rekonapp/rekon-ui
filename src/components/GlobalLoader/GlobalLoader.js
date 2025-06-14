@@ -6,7 +6,7 @@ import {
 const GlobalLoader = () => {
   return (
     <Center h='100vh'>
-        <Loader color="red.9" size="lg" />
+        <Loader color="pink.9" size="lg" />
     </Center>
   )
 }

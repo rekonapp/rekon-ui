@@ -29,10 +29,10 @@ const FloatingActions = ({
                     isMobile && (
                         <FileButton onChange={setFile} accept="image/png, image/jpeg" multiple>
                             
-                            {(props) => <Button {...props} leftSection={<IconFaceId className={classes.iconButton}></IconFaceId>} radius='xl' bg='red.9' h={58} fw='400' flex='2'> Me encontre! </Button>}
+                            {(props) => <Button {...props} leftSection={<IconFaceId className={classes.iconButton}></IconFaceId>} radius='xl' bg='pink.9' h={58} fw='400' flex='2'> Me encontre! </Button>}
                         </FileButton>
                     ) || (
-                        <Button onClick={onFindClick} radius='xl' leftSection={<IconFaceId className={classes.iconButton}></IconFaceId>} bg='red.9' h={58} fw='400' flex='2'>Me encontre!</Button>
+                        <Button onClick={onFindClick} radius='xl' leftSection={<IconFaceId className={classes.iconButton}></IconFaceId>} bg='pink.9' h={58} fw='400' flex='2'>Me encontre!</Button>
                     )
                 }
                     <ActionIcon color='gray.5' size='md' w='58' h='58' radius='xl' onClick={() => onScrollClick()}>
