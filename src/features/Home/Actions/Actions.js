@@ -25,7 +25,7 @@ const Actions = ({
                         {
                             isMobile && (
                                 <FileButton onChange={setFile} accept="image/png, image/jpeg" multiple>
-                                    {(props) => <Button {...props} className={classes.mainButton} leftSection={<IconFaceId className={classes.iconButton} stroke={1.5}/>} fullWidth color='blue.7' size='24' radius='lg' fw='400' h='72'>Me encontre porra! </Button>}
+                                    {(props) => <Button {...props} className={classes.mainButton} leftSection={<IconFaceId className={classes.iconButton} stroke={1.5}/>} fullWidth color='blue.7' size='24' radius='lg' fw='400' h='72'>Me encontre! </Button>}
                                 </FileButton>
                             ) || (
                                 <Button onClick={onFindMeClick} className={classes.mainButton} leftSection={<IconFaceId className={classes.iconButton} stroke={1.5}/>} fullWidth color='blue.7' size='24' radius='lg' fw='400' h='72'>Me encontre! </Button>
