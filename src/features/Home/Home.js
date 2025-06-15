@@ -14,7 +14,7 @@ const Home = () => (
                 <BannerContainer />
                 <CarouselContainer />
             </Flex>
-            <Text size='32px' ta='center' mt='1rem' fw='300' c='red.9'>As fotos do rolê ficaram <br/> ótimas!</Text>
+            <Text size='32px' ta='center' mt='1rem' fw='300' c='blue.7'>As fotos do rolê ficaram <br/> ótimas!</Text>
 
             <ActionsContainer />
         </Flex>

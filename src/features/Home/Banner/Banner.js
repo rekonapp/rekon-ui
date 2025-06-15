@@ -3,7 +3,6 @@ import {
     Paper,
     Image
 } from '@mantine/core';
-import bannerHome from '../../../assets/img/banner-home.jpg';
 
 import classes from './Banner.module.css';
 
@@ -11,8 +10,8 @@ const Banner = () => {
 	return (
 		<Grid grow gutter="sm">
             <Grid.Col lg="12">
-                <Paper className={classes.bannerContainer} radius="md" bg="red.9">
-                    <Image className={classes.bannerImage} fit="contain" src={bannerHome} alt="Banner" />
+                <Paper className={classes.bannerContainer} radius="md" bg="white">
+                    <Image className={classes.bannerImage} fit="contain" src="https://bucketrekon.s3.us-east-1.amazonaws.com/event-TJA3SZSTLKFSXKPRNZE/event-assets/top-banner.jpeg" alt="Banner" />
                 </Paper>
             </Grid.Col>
 		</Grid>

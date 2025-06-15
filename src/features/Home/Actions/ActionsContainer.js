@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from '@mantine/hooks';
 import { GlobalContext } from '../../../Root';
 import { openModal } from '../../../utils/modal';
-import { exportBase64 } from '../../../utils/file';
 import { client } from '../../../app/api'; 
 import ModalUploadImageContainer from '../../../components/FloatingActions/ModalUploadImage/';
 import { useEffect, useState, useContext } from 'react';
@@ -34,7 +33,7 @@ const ActionsContainer = () => {
                 globalContext.setGlobalLoading(true);
     
                 const formData = new FormData();
-                formData.append('file', file);
+                formData.append('file', file[0]);
                 formData.append('event_key', globalContext.event_key);
     
                 const response = await client('/event-file/search', {

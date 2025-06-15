@@ -52,7 +52,7 @@ const ModalUploadImage = ({
             </Dropzone>
             {
                 file && (
-                    <Button fullWidth radius='lg' mt='sm' color='red.9' h={72} onClick={onFindClick}>Me encontre!</Button>
+                    <Button fullWidth radius='lg' mt='sm' color='blue.7' h={72} onClick={onFindClick}>Me encontre!</Button>
                 )
             }
         </Box> 
