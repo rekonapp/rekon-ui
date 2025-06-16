@@ -7,7 +7,7 @@ const GalleryPhotoContainer = ({ imageUrl, imageKey, activeImageKey }) => <Galle
 GalleryPhotoContainer.propTypes = {
     imageUrl: PropTypes.string.isRequired,
     imageKey: PropTypes.string.isRequired,
-    activeImageKey: PropTypes.string.isRequired
+    activeImageKey: PropTypes.string
 };
 
 export default GalleryPhotoContainer

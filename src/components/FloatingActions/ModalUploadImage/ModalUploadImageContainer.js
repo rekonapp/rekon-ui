@@ -44,7 +44,7 @@ const ModalUploadImageContainer = () => {
                 },
             });
 
-            if (!response.data.profile) {
+            if (!response?.data?.profile) {
                 navigate('/your-gallery/not-found', { state: { data: { url: null } } });
 
                 globalContext.setGlobalLoading(false);

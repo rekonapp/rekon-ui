@@ -5,9 +5,20 @@ import FloatingActionsContainer from "../../components/FloatingActions/";
 
 import { Container } from "@mantine/core";
 import useEventGalleryContainer from "./EventGallery.container";
+import { useContext } from "react";
+import { GlobalContext } from "../../Root";
+import GlobalLoader from "../../components/GlobalLoader";
 
 const EventGallery = () => {
   const { data, status, isFetching, onPhotoClick } = useEventGalleryContainer();
+
+  const globalContext = useContext(GlobalContext);
+
+  if (globalContext.globalLoading) {
+      return (
+          <GlobalLoader/>
+      )
+  }
 
   return (
     <Container size="sm" pt="4rem">

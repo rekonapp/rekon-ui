@@ -31,7 +31,7 @@ const FloatingActionsContainer = () => {
                 globalContext.setGlobalLoading(true);
     
                 const formData = new FormData();
-                formData.append('file', file);
+                formData.append('file', file[0]);
                 formData.append('event_key', globalContext.event_key);
     
                 const response = await client('/event-file/search', {
