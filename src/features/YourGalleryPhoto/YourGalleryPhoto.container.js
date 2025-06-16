@@ -1,5 +1,4 @@
 import { client } from '../../app/api';
-import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -7,24 +6,22 @@ const useYourGalleryPhotoContainer = () => {
     const { key, face_id } = useParams();
     const navigate = useNavigate();
 
-    const { data: photo } = useQuery({
-        queryKey: ['eventFiles'],
+    const { data: photo, refetch: refetchPhoto } = useQuery({
+        queryKey: ['eventFiles', key],
         queryFn: async () => {
             const response = await client(`/event-file/${key}`);
-
             return response.data.file;
         }
     });
 
     const { data, isLoading: isFetching } = useQuery({
-        queryKey: ['profileFiles'],
+        queryKey: ['profileFiles', face_id],
         queryFn: async () => {
             const response = await client(`/event-file/profile/${face_id}`, {
                 params: {
                     event_key: import.meta.env.VITE_EVENT_KEY
                 }
             });
-
             return response.data.files;
         }
     });
@@ -33,6 +30,8 @@ const useYourGalleryPhotoContainer = () => {
         navigate({
             pathname: `/your-gallery/photo/${face_id || key}/${photo.key}`,
         });
+
+        refetchPhoto();
     };
 
     return {
@@ -41,7 +40,6 @@ const useYourGalleryPhotoContainer = () => {
         loading: isFetching,
         onPhotoClick,
         data,
-        status,
         isFetching
     }
 }

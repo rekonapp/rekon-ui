@@ -24,6 +24,10 @@ const useYourGalleryContainer = () => {
     } = useQuery({
         queryKey: ['event-file', key],
         queryFn: async () => {
+            if (key === 'not-found' || !key) {
+                return null;
+            }
+            
             const response = await client(`/event-file/profile/${key}`, {
                 params: {
                     event_key: import.meta.env.VITE_EVENT_KEY
@@ -32,6 +36,7 @@ const useYourGalleryContainer = () => {
 
             return response.data;
         },
+        enabled: !!key, // Only run the query if key exists
         onSuccess: (data) => {
             if (data?.profile?.url) {
                 setUrl(data.profile.url);

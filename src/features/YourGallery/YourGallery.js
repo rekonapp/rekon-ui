@@ -4,6 +4,9 @@ import FloatingActionsContainer from "../../components/FloatingActions/";
 import YourPhoto from "./YourPhoto";
 import GalleryPhotos from "../../components/GalleryPhotos/";
 import useYourGalleryContainer from "./YourGallery.container";
+import { useContext } from "react";
+import { GlobalContext } from "../../Root";
+import GlobalLoader from "../../components/GlobalLoader";
 
 const YourGallery = () => {
   const {
@@ -15,6 +18,14 @@ const YourGallery = () => {
     onPhotoClick,
     photo
   } = useYourGalleryContainer();
+
+  const globalContext = useContext(GlobalContext);
+
+  if (globalContext.globalLoading) {
+      return (
+          <GlobalLoader/>
+      )
+  }
 
   return (
     <Container size="sm" pt="4rem">
