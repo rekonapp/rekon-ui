@@ -2,15 +2,15 @@
     height: 208px;
 
     @media (min-height: 720px) {
-        height: 220px;
+        height: 240px;
     }
 
     @media (min-height: 800px) {
-        height: 280px;
+        height: 260px;
     }
 
     @media (min-height: 1000px) {
-        height: 425px;
+        height: 445px;
     }
 }
 
