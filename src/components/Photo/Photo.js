@@ -97,12 +97,14 @@ const Photo = ({
                                     </Popover.Target>
                                     <Popover.Dropdown w='224' p={4}>
                                         <NavLink
-                                            label="@fotografo.insta"
+                                            label="__uhgo"
                                             leftSection={<IconBrandInstagram size="1rem" stroke={1.5} />}
+                                            href="https://www.instagram.com/__uhgo/"
+                                            target="_blank"
                                         />
                                         <Divider my={4} />
                                         <NavLink
-                                            label="01/01/2020"
+                                            label="14/07/2025"
                                             leftSection={<IconInfoCircle size="1rem" stroke={1.5} />}
                                         />
                                     </Popover.Dropdown>
