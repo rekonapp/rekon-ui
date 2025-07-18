@@ -29,7 +29,7 @@ const ModalUploadImage = ({
                 maxSize={5242880}
                 onReject={onRejectFile}
                 >
-                <Group justify="center" gap="xl" mih={!file && 227 || 139} style={{ pointerEvents: 'none', color: file && 'violet.9' }}>
+                <Group justify="center" gap="xl" mih={!file && 227 || 139} style={{ pointerEvents: 'none', color: file && 'violet' }}>
                     <Box ta='center'>
                         <IconFaceId/>
                         <Dropzone.Accept>
