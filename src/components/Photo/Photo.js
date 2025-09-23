@@ -10,7 +10,7 @@ import {
     Popover,
     Skeleton
 } from '@mantine/core';
-
+import { client } from '../../app/api';
 import { useState, useEffect } from 'react';
 import { IconBrandInstagram, IconDownload, IconInfoCircle } from '@tabler/icons-react';
 import PropTypes from 'prop-types';
@@ -68,6 +68,7 @@ const Photo = ({
 				document.body.removeChild(link);
 			}).finally(() => {
                 setDownloadLoading(false);
+                client(`/event-file/${import.meta.env.VITE_EVENT_KEY}/download`, { method: 'get' })
             });
 		}).catch(() => {
             setDownloadLoading(false);
