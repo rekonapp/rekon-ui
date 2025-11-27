@@ -7,12 +7,14 @@ import classes from './PhotosCarousel.module.css';
 import carousel1 from '../../../assets/img/carousel-1.jpg';
 import carousel2 from '../../../assets/img/carousel-2.jpg';
 import carousel3 from '../../../assets/img/carousel-3.jpg';
+import carousel4 from '../../../assets/img/carousel-4.jpg';
 
 const PhotosCarousel = () => {
     const imagesByIndex = {
         0: carousel1,
         1: carousel2,
         2: carousel3,
+        3: carousel4,
     };
     const autoplay = useRef(Autoplay({ delay: 2000 }));
 
@@ -22,13 +24,16 @@ const PhotosCarousel = () => {
                 <Paper radius="md">
                     <Carousel className={classes.carouselContainer} withControls={false} plugins={[autoplay.current]} onMouseEnter={autoplay.current.stop} onMouseLeave={autoplay.current.reset}>
                         <Carousel.Slide radius="md">
-                            <Image className={classes.carouselImage} radius="md" src={imagesByIndex[0]}></Image>
+                            <Image className={classes.carouselImage} radius="md" src={imagesByIndex[0]} style={{ objectPosition: '0 -16px' }}></Image>
                         </Carousel.Slide>
                         <Carousel.Slide radius="md">
                             <Image className={classes.carouselImage} radius="md" src={imagesByIndex[1]}></Image>
                         </Carousel.Slide>
                         <Carousel.Slide radius="md">
                             <Image className={classes.carouselImage} radius="md" src={imagesByIndex[2]}></Image>
+                        </Carousel.Slide>
+                        <Carousel.Slide radius="md">
+                            <Image className={classes.carouselImage} radius="md" src={imagesByIndex[3]}></Image>
                         </Carousel.Slide>
                     </Carousel>
                 </Paper>
