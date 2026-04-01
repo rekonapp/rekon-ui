@@ -98,12 +98,14 @@ const Photo = ({
                                     </Popover.Target>
                                     <Popover.Dropdown w='224' p={4}>
                                         <NavLink
-                                            label="@fotografo.insta"
+                                            label="__uhgo"
                                             leftSection={<IconBrandInstagram size="1rem" stroke={1.5} />}
+                                            href="https://www.instagram.com/__uhgo/"
+                                            target="_blank"
                                         />
                                         <Divider my={4} />
                                         <NavLink
-                                            label="01/01/2020"
+                                            label="14/07/2025"
                                             leftSection={<IconInfoCircle size="1rem" stroke={1.5} />}
                                         />
                                     </Popover.Dropdown>
@@ -115,7 +117,7 @@ const Photo = ({
 <>
                         <Card.Section h={ (reducedImage || innerWidth < 500) ? '280px' : '420px' } className={classes.photo} mt='sm' bg='gray.1'>
                             <Center h='100%'>
-                                <Loader color="red.9" size="lg" />
+                                <Loader color="violet.9" size="lg" />
                             </Center>
                         </Card.Section>
 

@@ -4,15 +4,12 @@ import { Carousel } from '@mantine/carousel';
 
 import Autoplay from 'embla-carousel-autoplay';
 import classes from './PhotosCarousel.module.css';
-import carousel1 from '../../../assets/img/carousel-1.jpg';
-import carousel2 from '../../../assets/img/carousel-2.jpg';
-import carousel3 from '../../../assets/img/carousel-3.jpg';
 
 const PhotosCarousel = () => {
     const imagesByIndex = {
-        0: carousel1,
-        1: carousel2,
-        2: carousel3,
+        0: "https://bucketrekon.s3.us-east-1.amazonaws.com/event-UMFN9TVGH9AQQ1NNO9T/main-event-files/file-thumb-41eeb4fb-cee9-4c2e-a693-d9c629bd6f41.jpg",
+        1: "https://bucketrekon.s3.us-east-1.amazonaws.com/event-UMFN9TVGH9AQQ1NNO9T/main-event-files/file-thumb-433e1096-b856-4ccd-b46b-058cc6311956.jpg",
+        2: "https://bucketrekon.s3.us-east-1.amazonaws.com/event-UMFN9TVGH9AQQ1NNO9T/main-event-files/file-thumb-3e766360-5c36-4565-ba84-c00d6cce4346.jpg",
     };
     const autoplay = useRef(Autoplay({ delay: 2000 }));
 
